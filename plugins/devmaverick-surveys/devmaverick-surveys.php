@@ -8,7 +8,7 @@ Author URI:  http://devmaverick.com/
 
 
 
-require 'admin/admin-setup.php';            // The Main template setup page// require 'admin/admin-settings.php';         // Set up the plugin WP settings, such as leads name, etc// Require the neccesary functions filesrequire 'functions/ajax-functions.php';require 'functions/meta-boxes.php';
+require 'admin/admin-setup.php';            // The Main template setup page// require 'admin/admin-settings.php';         // Set up the plugin WP settings, such as leads name, etc// Require the neccesary functions filesrequire 'functions/assets.php';require 'functions/ajax-functions.php';require 'functions/meta-boxes.php';
 require 'functions/functions-all.php';
 require 'functions/register-shortcodes.php';
 require 'functions/constants.php';
@@ -50,6 +50,3 @@ wp_enqueue_script('dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/j
 // if (is_page( PAGE_GET_PREMIUM )) {
   wp_enqueue_script('dm-landing-page',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-landing-page.js', array(), '1.0.0', true);
 // }
-
-
-wp_enqueue_style('dm-bootstrap-style', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'news-pro-theme' );
