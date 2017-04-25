@@ -30,6 +30,7 @@ require_once('classes/classTabsSection.inc');
 require_once('classes/classTab.inc');
 require_once('classes/classTemplateElements.inc');
 require_once('classes/classNPS.inc');
+require_once('classes/classMyColleges.inc');
 
 
 
