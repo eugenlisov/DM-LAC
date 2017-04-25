@@ -32,6 +32,21 @@ class DM_School {
   }
 
 
+  public function get_school_nps ( $school_id = '' ) {
+    if ( ! $school_id ) {
+      return false;
+    }
+
+    $iped = $this -> get_iped( $school_id );
+
+    $dm_nps = new DM_NPS;
+    $nps = $dm_nps -> get_nps( $iped );
+
+    return $nps;
+
+  }
+
+
 
 
 
