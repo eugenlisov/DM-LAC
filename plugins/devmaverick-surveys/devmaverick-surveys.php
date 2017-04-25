@@ -51,4 +51,4 @@ wp_enqueue_script('dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/j
 // }
 
 
-wp_enqueue_style('dm-bootstrap-style', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+wp_enqueue_style('dm-bootstrap-style', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'news-pro-theme' );

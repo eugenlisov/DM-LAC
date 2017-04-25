@@ -78,11 +78,13 @@
     width: 130px!important;
     display: none;
 }
-.page-id-4190 h1.entry-title{
+.page-id-4190 h1.entry-title,
+.page-id-4192 h1.entry-title {
   text-align: center;
       font-size: 32px;
 }
-.page-id-4190 tbody {
+.page-id-4190 tbody,
+.page-id-4192 tbody {
     border-bottom: 0px solid #ddd!important;
 }
 article.post-4190.page.type-page.status-publish.entry{
@@ -94,8 +96,31 @@ article.post-4190.page.type-page.status-publish.entry{
         margin: 5px 0px 30px 0px!important;
     font-weight: 500;
 }
-/*Member Login End*/
+/* END Member Login*/
 
+/* Member forgot password */
+.mm-forgot-password {
+    margin: auto;
+    width: 530px!important;
+}
+.mm-forgot-password h3 {
+  text-align: center;
+  font-size: 20px;
+  margin: 5px 0px 30px 0px!important;
+  font-weight: 500;
+}
+.mm-forgot-password .mm-field {
+  width: 100%!important;
+}
+.mm-forgot-password td {
+    padding-bottom: 15px;
+    border-top: 0;
+}
+.mm-forgot-password .mm-field-column {
+    text-align: center;
+}
+
+/* END Member forgot password */
 
 /* My Colleges */
 .my-colleges-note p {
