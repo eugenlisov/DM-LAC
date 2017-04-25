@@ -133,6 +133,42 @@ article.post-4190.page.type-page.status-publish.entry{
   margin-left: 10px;
 }
 
+.dm-my-coleges-list {
+  overflow: hidden;
+}
+.dm-my-coleges-list > div:nth-child(2n+1) {
+  clear: both;
+  padding-left: 0;
+}
+.dm-my-coleges-list > div:nth-child(2n) {
+  padding-right: 0;
+}
+.dm-my-coleges-list ul {
+  margin-left: 0 !important;
+}
+.dm-my-coleges-list .nav-tabs {
+  clear: both;
+}
+.dm-my-coleges-list .nav-tabs > li > a {
+    color: #A7B1C2;
+    font-weight: 600;
+    padding: 10px 10px 10px 15px;
+}
+
+
+/* MY Colleges Widget */
+.dm-my-colleges-widget ul {
+  margin-left: 3px !important;
+}
+.dm-my-colleges-widget ul li {
+  list-style-type: none !important;
+  margin-bottom: 10px;
+}
+.dm-my-colleges-widget .college-item a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+}
 
 /* Landing page */
 .post-4205 .entry-title {
