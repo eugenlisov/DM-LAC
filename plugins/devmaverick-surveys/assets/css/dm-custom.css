@@ -1,0 +1,462 @@
+/* Hide te comment section temporarily. */
+.comment-respond {
+  display: none;
+}
+
+
+.simplefavorite-button, .dm-add-favorite-logged-out {
+  background-color: #e4e0e0;
+  margin-bottom: 15px;
+}
+
+
+
+.progress-bar-comp-iped {
+    background-color: #27a3d1 !important
+}
+
+.progress-bar-comp-lac {
+    background-color: #909090 !important;
+}
+.progress {
+    border-radius: 0px!important;
+}
+
+.best-response .progress-bar-info {
+    background: #27a3d1!important;
+}
+.progress-bar-info {
+    background-color: #909090!important;
+}
+
+
+
+/* Ratings area */
+
+/* default link color is blue */
+.dm-rating .fa {
+  color: #c7c2c2;
+  font-size: 19px;
+  padding-left: 3px;
+  padding-right: 3px;
+  cursor: pointer;
+}
+
+/* prev siblings should be red */
+.dm-rating:hover .fa {
+  color: orange;
+}
+/*.dm-rating .fa:hover,*/
+.dm-rating .fa:hover ~ .fa {
+  color: #c7c2c2;
+}
+
+.dm-rating.active .fa {
+  color: orange;
+}
+.dm-edit-note-rating {
+  color: #27a3d1;
+  cursor: pointer;
+}
+
+/*Member login Start*/
+
+.mm-login {
+    margin: auto;
+    width: 530px!important;
+}
+.mm-login .mm-field-column {
+    text-align: center;
+}
+.mm-login td {
+    padding-bottom: 15px;
+}
+.mm-login .mm-field {
+    width: 100%!important;
+}
+.mm-login .mm-label-column {
+    width: 130px!important;
+    display: none;
+}
+.page-id-4190 h1.entry-title{
+  text-align: center;
+      font-size: 32px;
+}
+.page-id-4190 tbody {
+    border-bottom: 0px solid #ddd!important;
+}
+article.post-4190.page.type-page.status-publish.entry{
+      padding: 80px 40px;
+}
+.mm-login h3 {
+    text-align: center;
+    font-size: 20px;
+        margin: 5px 0px 30px 0px!important;
+    font-weight: 500;
+}
+/*Member Login End*/
+
+
+/* My Colleges */
+.my-colleges-note p {
+  margin-bottom: 10px !important;
+}
+.my-colleges-note .dm-rating .fa {
+  color: orange;
+}
+.my-colleges-note .dm-rating {
+  margin-left: 10px;
+}
+
+
+/* Landing page */
+.post-4205 .entry-title {
+  text-transform: uppercase;
+  background-color: #0069d6;
+  color: white;
+  padding: 10px;
+  margin-bottom: 0;
+}
+.dm-landing-page-container {
+
+}
+.dm-landing-page-container h1 {
+  margin-top: 30px;
+  padding-left: 30px;
+}
+.landing-intro-text {
+  color: #f36156;
+  background-color: #f5f5f5;
+  padding: 30px 10px;
+  font-size: 23px;
+}
+.landing-headline {
+    padding: 40px 15px;
+    font-size: 28px;
+}
+.landing-video-container {
+
+}
+.landing-benefits-sidebar {
+
+}
+.landing-benefits-sidebar ul {
+    margin-left: 20px;
+}
+.page-id-4205 {
+  background-color: #fff;
+}
+.page-id-4205 article {
+  padding: 0;
+  padding-bottom: 40px;
+}
+.page-id-4205 .entry-content .dm-landing-page-container {
+  margin: 0;
+}
+.page-id-4205 header.entry-header {
+    margin-bottom: 0;
+}
+.page-id-4205 .dm-checkout-container {
+  display: none;
+}
+
+
+/* My account section */
+.dm-dashboard-button {
+  height: 70px;
+      border-radius: 5px;
+      background-color: #dedede;
+      font-size: 18px;
+      color: grey !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 40px;
+
+}
+.dm-dashboard-button .fa {
+  margin-left: 10px;
+}
+.dm-my-collges-widget {
+
+}
+.dm-my-collges-widget .dm-rating .fa {
+  color: orange;
+}
+.dm-my-collges-widget .college-item {
+  margin-bottom: 10px;
+}
+
+
+
+/* Premium navigation - temporary use just the IDS*/
+#menu-item-4213,
+#menu-item-4209,
+#menu-item-4210,
+#menu-item-4211 {
+  display: none;
+}
+.logged-in #menu-item-4212 {
+  display: none;
+}
+.logged-in #menu-item-4213,
+.logged-in #menu-item-4209,
+.logged-in #menu-item-4210,
+.logged-in #menu-item-4211 {
+  display: inline-block;
+}
+
+
+
+/* De sters */
+/* Comparisons tab */
+.chart {
+  margin: 2em 0;
+  shape-rendering: crispEdges;
+}
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+.dm-comparison-question-block {
+  margin-bottom: 50px;
+  padding-bottom: 25px;
+    border-bottom: 1px solid #cccccc;
+}
+.dm-comparison-question-block .fa {
+  margin-left: 10px;
+}
+
+.dm-comparison-chart {
+  background-color: steelblue;
+  position: relative;
+  height: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.dm-marker {
+  border-left: 2px solid white;
+  position: absolute;
+  height: 75px;
+  display: flex;
+}
+.dm-marker span {
+  padding: 0px 8px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.dm-current-college-marker {
+  top: -35px;
+  border-left-color: orange;
+}
+.dm-current-college-marker span {
+  align-self: flex-start;
+  background-color: orange;
+  color: white;
+}
+
+.dm-lac-marker {
+  top: 0px;
+  border-left-color: red;
+}
+.dm-lac-marker span {
+  align-self: flex-end;
+  background-color: red;
+  color: white;
+}
+/* END de sters*/
+
+
+/* Comparisons tab */
+
+#comparison .dm-question-block {
+  display: none;
+}
+
+.dm-school-tabs {
+  padding: 0 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.dm-school-tabs .tab-content .tab-pane {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
+.dm-school-tabs .tab-intro {
+  margin-bottom: 30px;
+}
+.dm-school-tabs .question-narrative {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.dm-school-tabs .dm-students-say-table {
+
+}
+
+
+.dm-school-tabs .dm-students-say-table th {
+    font-size: 14px;
+}
+.dm-school-tabs .dm-students-say-table tr {
+    font-size: 14px;
+}
+.dm-school-tabs .dm-students-say-table .dm-graduation-year {
+  text-align: center;
+  width: 15%;
+}
+.dm-what-students-say h5 {
+  font-style: italic;
+}
+
+
+/* College Top Content */
+.dm-college-top-content {
+  display: flex;
+}
+.dm-college-top-content .btn-contact-school {
+  /*height: 60px;*/
+  width: 100%;
+}
+.dm-college-top-content .simplefavorite-button {
+  height: 60px;
+}
+.dm-college-top-content .btn-contact-school .fa {
+  display: block;
+  font-size: 26px;
+}
+.dm-college-top-content .dm-rating {
+  margin-left: 10px;
+}
+.dm-college-top-content .dm-rating .fa {
+  color: orange;
+}
+.dm-college-top-content .user-note {
+  font-size: 12px;
+}
+.dm-college-top-content .edit-user-note small {
+  margin-right: 10px;
+}
+.dm-college-top-content .edit-user-note .fa {
+  margin-left: 5px;
+}
+
+/* Center Modals */
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events:all;
+}
+
+/* Contact Modal */
+#dm-contact-school-modal .contact-label {
+  width: 35%;
+}
+
+/* Hove baloons on the school actions bar */
+.dm-my-rating,
+.dm-my-note,
+.dm-my-colleges {
+  position: relative;
+}
+.dm-hover-content {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    right: 100%;
+    top: 100%;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    box-shadow: 5px 5px 10px #777777;
+    width: 300px;
+    display: none;
+}
+
+/* The Protected Nattative box at the bottom */
+.dm-protected-box {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  display: flex;
+  background-color: rgb(241, 241, 241);
+}
+
+.dm-triangle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-triangle .fa {
+  font-size: 60px;
+  color: orange;
+}
+.dm-protected-narrative {
+
+}
+
+/* Net Promoter Score */
+.dm-nps-container {
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #2b414e;
+}
+.net-promoter {
+  color: #8fba20;
+}
+.net-detractor {
+  color: #d4383b;
+}
+
+
+/* END Net Promoter Score */
+
+
+/* Satisfaction Level score */
+.dm-q6-chart-caption {
+  margin-bottom: 10px;
+}
+
+/* END Satisfaction Level score */
+
+/* Charts */
+
+.dm-option-label {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.dm-question-block {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #cccccc;
+padding-bottom: 25px;
+}
+.best-response .dm-option-label {
+  color: #27a3d1;
+  font-weight: bold;
+}
+.best-response .dm-progress-bar-content {
+  font-weight: bold;
+}

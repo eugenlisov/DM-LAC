@@ -1,0 +1,21 @@
+.suggestion {
+  color: green;
+  cursor: pointer;
+}
+.remove {
+  color: red;
+  cursor: pointer;
+}
+.mismatch .fa {
+  color: orange;
+}
+.recalculate-averages {
+  cursor: pointer;
+  color: green;
+}
+.recalculate-averages .fa {
+  color: orange;
+}
+.success-recalculating-average {
+  color: green;
+}

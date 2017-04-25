@@ -1,0 +1,12 @@
+.dm-admin-tab textarea {
+  width: 100%;
+}
+.dm-admin-tab input[type=checkbox] {
+  margin-right: 7px;
+  margin-top: 0;
+}
+
+.dm-tabs-group {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
