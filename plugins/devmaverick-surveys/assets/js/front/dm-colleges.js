@@ -81,6 +81,9 @@ jQuery( document ).ready(function($) {
   $('.trigger-login-upgrade-modal').click(function() {
     $('#dm-add-note-rating-modal').modal('show');
   });
+  $('.trigger-add-note-modal').click(function() {
+    $('#dm-add-note-rating-modal').modal('show');
+  });
 
   //Contact school
   $('.trigger-contact-school-modal').click(function() {
