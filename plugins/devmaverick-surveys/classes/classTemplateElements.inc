@@ -12,9 +12,11 @@ class DM_TemplateElements {
           // wp_enqueue_style( 'dm-inspinia' );
           wp_enqueue_style( 'dm-inspinia-light' );
 
+          $dm_modal = new DM_Modal;
+
           if (is_user_logged_in()) {
             $content = $this -> get_logged_in_content();
-            $modal   = $this -> get_logged_in_modal();
+            $modal   = $dm_modal -> college_note_modal();
           } else {
             $content = $this -> get_logged_out_content();
             $modal   = $this -> get_logged_out_modal();
@@ -43,7 +45,7 @@ class DM_TemplateElements {
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-              <h4 class="modal-title" id="mySmallModalLabel">Contact ' . get_the_title() . '</h4>
+              <h2 class="modal-title" id="mySmallModalLabel">Contact ' . get_the_title() . '</h2>
             </div>
             <div class="modal-body">
               <p>Here\'s all the info you need to get in touch with this school.</p>
@@ -115,6 +117,7 @@ class DM_TemplateElements {
     return $return;
   }
 
+  // DEPRECATED
   public function get_logged_in_modal() {
 
     $ratings_block  = $this -> get_ratings_block();
@@ -184,38 +187,50 @@ class DM_TemplateElements {
                           ' . $my_colleges_widget . '
                           <small><a href="' . get_permalink( PAGE_MY_COLLEGES ) . '">See all your colleges <i class="fa fa-university" aria-hidden="true"></i></a></small>
                       </div>
-                  </div>
+                  </div>';
 
-                  <div class="col-lg-3 dm-my-rating">
-                      <div class="widget style1 lazur-bg">
-                          <div class="row vertical-align">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-star fa-3x" aria-hidden="true" rating="1"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <h2 class="font-bold">' . $rating . '</h2>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 dm-my-note trigger-add-note-modal">
-                      <div class="widget style1 yellow-bg">
-                          <div class="row vertical-align">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <span>Notes</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="dm-hover-content notes">
-                        <div class="dm-notes-headline"><h3>My notes on ' . get_the_title() . '</h3></div>
-                        <div class="dm-notes-container">' . $user_note . '</div>
-                        <small class="dm-edit-note-rating trigger-login-upgrade-modal">Edit note & rating <i class="fa fa-pencil" aria-hidden="true"></i> </small>
-                      </div>
-                  </div>
-              </div>';
+
+                  // if ( $rating ) {
+
+                    $return .= '<div class="col-lg-3 dm-my-rating">
+                        <div class="widget style1 lazur-bg">
+                            <div class="row vertical-align">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-star fa-3x" aria-hidden="true" rating="1"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <h2 class="font-bold">' . $rating . '</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+
+                  // }
+
+                  // if ( $user_note ) {
+                    $return .= '<div class="col-lg-3 dm-my-note trigger-add-note-modal">
+                        <div class="widget style1 yellow-bg">
+                            <div class="row vertical-align">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <span>Notes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-hover-content notes">
+                          <div class="dm-notes-headline"><h3>My notes on ' . get_the_title() . '</h3></div>
+                          <div class="dm-notes-container">' . $user_note . '</div>
+                          <small class="dm-edit-note-rating trigger-login-upgrade-modal">Edit note & rating <i class="fa fa-pencil" aria-hidden="true"></i> </small>
+                        </div>
+                    </div>';
+                  // }
+
+
+
+
+                  $return .= '</div>';
 
       // return $logged_in_content . $return;
       return $return;
@@ -284,6 +299,8 @@ public function get_my_rating_block() {
 
 }
 
+  // deprecated
+  // replaced with get_empty_ratings_block(); inside classRating
   public function get_ratings_block() {
     $ratings_block = '<span class="dm-rating">';
     for ($i=1; $i < 6; $i++) {
