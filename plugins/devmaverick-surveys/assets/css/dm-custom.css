@@ -29,7 +29,26 @@
     background-color: #909090!important;
 }
 
+/* Buttons */
 
+.dm-btn {
+  border: 0;
+}
+.dm-btn-lg {
+  width: 203.5px;
+  height: 55px;
+  border-radius: 100px;
+  font-size: 17px;
+  font-weight: bold;
+}
+.dm-btn-green {
+  background-color: #00bf81;
+  color: #fff;
+}
+.dm-btn-green:hover {
+  background-color: #08d290 !important;
+  color: #fff;
+}
 
 /* Ratings area */
 
@@ -421,6 +440,9 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-my-note {
   cursor: pointer;
 }
+.dm-add-favorite-logged-out {
+  cursor: pointer;
+}
 
 /* Center Modals */
 .vertical-alignment-helper {
@@ -443,6 +465,24 @@ article.post-4190.page.type-page.status-publish.entry{
     margin: 0 auto;
     pointer-events:all;
 }
+
+
+/* Style all Bootstrap modals */
+.modal-content {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+.modal-header {
+    padding: 30px 55px !important;
+    text-align: center;
+    border-bottom: 0 !important;
+}
+.modal-body {
+    padding: 30px 55px !important;
+}
+
+
+/* END Style all Bootstrap modals */
 
 /* Contact Modal */
 #dm-contact-school-modal .contact-label {
