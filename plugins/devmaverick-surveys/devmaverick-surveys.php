@@ -32,6 +32,11 @@ require_once('classes/classTemplateElements.inc');
 require_once('classes/classNPS.inc');
 require_once('classes/classMyColleges.inc');
 
+require_once('classes/classCollegeActions.inc');
+require_once('classes/classModal.inc');
+require_once('classes/classNote.inc');
+require_once('classes/classRating.inc');
+
 
 
 
