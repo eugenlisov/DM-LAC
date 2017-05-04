@@ -5,7 +5,7 @@
 
 
 .simplefavorite-button, .dm-add-favorite-logged-out {
-  background-color: #e4e0e0;
+  background-color: #fff;
   margin-bottom: 15px;
 }
 
@@ -380,6 +380,7 @@ article.post-4190.page.type-page.status-publish.entry{
 /* College Top Content */
 .dm-college-top-content {
   display: flex;
+  margin-bottom: 15px;
 }
 .dm-college-top-content .btn-contact-school {
   /*height: 60px;*/
@@ -387,6 +388,13 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-college-top-content .simplefavorite-button {
   height: 60px;
+  padding: 0;
+}
+.dm-college-top-content .simplefavorite-button:hover {
+  background-color: #fff;
+}
+.dm-college-top-content .simplefavorite-button .widget {
+  /*margin: 0;*/
 }
 .dm-college-top-content .btn-contact-school .fa {
   display: block;
@@ -406,6 +414,12 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-college-top-content .edit-user-note .fa {
   margin-left: 5px;
+}
+.dm-contact-college {
+  cursor: pointer;
+}
+.dm-my-note {
+  cursor: pointer;
 }
 
 /* Center Modals */
@@ -453,6 +467,12 @@ article.post-4190.page.type-page.status-publish.entry{
     box-shadow: 5px 5px 10px #777777;
     width: 300px;
     display: none;
+}
+.dm-hover-content.colleges {
+    left: 100%;
+    right: auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
 }
 
 /* The Protected Nattative box at the bottom */

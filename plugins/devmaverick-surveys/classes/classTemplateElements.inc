@@ -9,6 +9,9 @@ class DM_TemplateElements {
 
       if (is_singular( 'schools' )) {
 
+          // wp_enqueue_style( 'dm-inspinia' );
+          wp_enqueue_style( 'dm-inspinia-light' );
+
           if (is_user_logged_in()) {
             $content = $this -> get_logged_in_content();
             $modal   = $this -> get_logged_in_modal();
@@ -159,20 +162,22 @@ class DM_TemplateElements {
       $my_colleges_count  = $dm_school -> count_my_colleges();
 
       $logged_in_content = '<div class="row dm-college-top-content logged-in">
-                              <div class="col-md-2"><button type="button" class="btn btn-primary btn-contact-school trigger-contact-school-modal"><i class="fa fa-phone" aria-hidden="true"></i> Contact</button></div>
-                              <div class="col-md-4">' . do_shortcode('[favorite_button]') . '</div>
+                              <div class="col-md-2 dm-contact-college">
+                                  <button type="button" class="btn btn-primary btn-contact-school trigger-contact-school-modal">
+                                      <i class="fa fa-phone" aria-hidden="true"></i>
+                                      Contact
+                                  </button>
+                              </div>
+                              <div class="col-md-4 dm-add-to-my-colleges">
+                                  ' . do_shortcode('[favorite_button]') . '
+                              </div>
                               <div class="col-md-3 dm-my-rating">
                                   ' . $rating_string . '
                               </div>
-                              <div class="col-md-2 dm-my-note">
+                                <div class="col-md-2 dm-my-note">
                                   <div class="row">
                                     <div class="col-md-1"><i class="fa fa-sticky-note" aria-hidden="true"></i></div>
                                     <div class="col-md-10 user-note">Note</div>
-                                  </div>
-                                  <div class="dm-hover-content notes">
-                                    <div class="dm-notes-headline"><h3>My notes on ' . get_the_title() . '</h3></div>
-                                    <div class="dm-notes-container">' . $user_note . '</div>
-                                    <small class="dm-edit-note-rating trigger-login-upgrade-modal">Edit note & rating <i class="fa fa-pencil" aria-hidden="true"></i> </small>
                                   </div>
                               </div>
                               <div class="col-md-1 dm-my-colleges">
@@ -188,8 +193,70 @@ class DM_TemplateElements {
                               </div>
                             </div>';
 
-      return $logged_in_content;
+    $my_colleges = new DM_MyColleges;
+    $rating = $my_colleges -> get_my_college_rating ( $school_id );
+
+    $return = '<div class="row dm-college-top-content logged-in">
+
+                  <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
+                      <div class="widget style1 navy-bg">
+                          <div class="row vertical-align" style="
+              text-align: center;
+              ">
+                              <div class="col-xs-12">
+                                  <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 dm-my-colleges">
+                      ' . do_shortcode('[favorite_button]') . '
+                      <div class="dm-hover-content colleges">
+                          ' . $my_colleges_widget . '
+                          <small><a href="' . get_permalink( PAGE_MY_COLLEGES ) . '">See all your colleges <i class="fa fa-university" aria-hidden="true"></i></a></small>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-3 dm-my-rating">
+                      <div class="widget style1 lazur-bg">
+                          <div class="row vertical-align">
+                              <div class="col-xs-3">
+                                  <i class="fa fa-star fa-3x" aria-hidden="true" rating="1"></i>
+                              </div>
+                              <div class="col-xs-9 text-right">
+                                  <h2 class="font-bold">' . $rating . '</h2>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 dm-my-note trigger-add-note-modal">
+                      <div class="widget style1 yellow-bg">
+                          <div class="row vertical-align">
+                              <div class="col-xs-3">
+                                  <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                              </div>
+                              <div class="col-xs-9 text-right">
+                                  <span>Notes</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="dm-hover-content notes">
+                        <div class="dm-notes-headline"><h3>My notes on ' . get_the_title() . '</h3></div>
+                        <div class="dm-notes-container">' . $user_note . '</div>
+                        <small class="dm-edit-note-rating trigger-login-upgrade-modal">Edit note & rating <i class="fa fa-pencil" aria-hidden="true"></i> </small>
+                      </div>
+                  </div>
+              </div>';
+
+      // return $logged_in_content . $return;
+      return $return;
+
+      // return $logged_in_content;
   }
+
+
+
 
   public function get_logged_out_content() {
     $logged_out_content = '<div class="dm-college-top-content logged-out">
