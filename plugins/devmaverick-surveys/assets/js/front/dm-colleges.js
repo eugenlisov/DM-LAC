@@ -61,6 +61,12 @@ jQuery( document ).ready(function($) {
   });
 
   $('.dm-rating .fa').click(function() {
+
+    // Add 'filled' to current star and previous siblings.
+    $('.dm-rating .fa').removeClass( 'filled' );
+    $( this ).addClass( 'filled' ).prevAll().addClass( 'filled' );
+
+    // Do the actual rating stuff
     var rating = $( this ).attr('rating');
     var schoolId = $('#dm-single-note').attr('school-id');
     var userId = $('#dm-single-note').attr('user-id');
@@ -105,7 +111,10 @@ jQuery( document ).ready(function($) {
                   'data':   ajaxData
                 },
                 function(response){
-                  console.log(response);
+                  message = JSON.parse( response );
+                  $( '#dm-add-note-rating-modal .modal-body, .bs-example-modal-sm .modal-header h2' ).remove();
+                  $( '#dm-add-note-rating-modal .modal-header' ).append( message );
+                  console.log(message);
                 }
             );
   }
