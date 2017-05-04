@@ -172,15 +172,23 @@ class DM_School {
 
 
     $existing_school_notes = get_user_meta($user_id, 'dm_user_notes', true);
-      print_r($existing_school_notes);
+      // print_r($existing_school_notes);
 
     $existing_school_notes[$post_id] = $note;
 
     $result = update_user_meta($user_id, 'dm_user_notes', $existing_school_notes);
 
+    return $result;
 
-    print_r($result);
-    print_r($existing_school_notes);
+    // if ( $result == true ) {
+    //   echo 'Success';
+    // } else {
+    //   echo 'Fail!';
+    // }
+
+
+    // print_r($result);
+    // print_r($existing_school_notes);
 
 
   }

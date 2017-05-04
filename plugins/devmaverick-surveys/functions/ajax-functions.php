@@ -227,10 +227,22 @@ add_action( 'wp_ajax_dm_save_school_note', 'dm_save_school_note' );
 function dm_save_school_note() {
 
 	$dm_school = new DM_School;
-	$dm_school -> ajax_add_school_note();
+	$result = $dm_school -> ajax_add_school_note();
 
-	return;
 
+	if ( $result == true ) {
+	  $return = '<div style="text-align: center;">
+									<h4>We\'ve successfully saved your note!</h4>
+									<i class="fa fa-check fa-4x" aria-hidden="true" style="color: #1ab394; "></i>
+								</div>';
+	} else {
+		$return = '<div style="text-align: center;">
+									<h4>Therew as a problem saving your note!</h4>
+									<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true" style="color: red; "></i>
+								</div>';
+	}
+
+	die( json_encode( $return ) );
 }
 
 
