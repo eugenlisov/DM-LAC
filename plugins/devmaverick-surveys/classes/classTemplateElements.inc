@@ -33,9 +33,11 @@ class DM_TemplateElements {
 
 
   public function get_school_contact_modal() {
+    $dm_school = new DM_School;
 
     $school_id = get_the_ID();
-    $contact_data  = get_school_contact_data ( $school_id );
+
+    $contact_data  = $dm_school -> get_contact_data ( $school_id );
 
     $contact_school_modal = '';
 
