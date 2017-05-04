@@ -161,6 +161,30 @@ class DM_School {
   }
 
 
+  public function ajax_add_school_note() {
+
+
+    $ajax_data = $_POST['data'];
+
+    $note = $ajax_data['note'];
+    $post_id = $ajax_data['post_id'];
+    $user_id = $ajax_data['user_id'];
+
+
+    $existing_school_notes = get_user_meta($user_id, 'dm_user_notes', true);
+      print_r($existing_school_notes);
+
+    $existing_school_notes[$post_id] = $note;
+
+    $result = update_user_meta($user_id, 'dm_user_notes', $existing_school_notes);
+
+
+    print_r($result);
+    print_r($existing_school_notes);
+
+
+  }
+
 
 
 

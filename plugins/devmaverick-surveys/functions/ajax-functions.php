@@ -225,23 +225,11 @@ add_action( 'wp_ajax_nopriv_dm_save_school_note', 'dm_save_school_note' );
 add_action( 'wp_ajax_dm_save_school_note', 'dm_save_school_note' );
 
 function dm_save_school_note() {
-	$ajax_data = $_POST['data'];
 
-	$note = $ajax_data['note'];
-	$post_id = $ajax_data['post_id'];
-	$user_id = $ajax_data['user_id'];
+	$dm_school = new DM_School;
+	$dm_school -> ajax_add_school_note();
 
-
-	$existing_school_notes = get_user_meta($user_id, 'dm_user_notes', true);
-		print_r($existing_school_notes);
-
-	$existing_school_notes[$post_id] = $note;
-
-	$result = update_user_meta($user_id, 'dm_user_notes', $existing_school_notes);
-
-
-	print_r($result);
-	print_r($existing_school_notes);
+	return;
 
 }
 
