@@ -130,12 +130,12 @@ class DM_TemplateElements {
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-              <h4 class="modal-title" id="mySmallModalLabel">Add a note about ' . get_the_title() . '</h4>
+              <h2 class="modal-title" id="mySmallModalLabel">Add a note about<br /> ' . get_the_title() . '</h2>
             </div>
             <div class="modal-body">
 
               <p><textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title() . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
-              <p><button id="dm-single-note-button" type="button" class="btn btn-primary">Save Note</button></p>
+              <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green">Save Note</button></p>
               <p><strong>Your rating: </strong>
                 ' . $ratings_block . '
               </p>
@@ -160,38 +160,6 @@ class DM_TemplateElements {
       $dm_school = new DM_School;
       $my_colleges_widget = $dm_school -> dm_my_colleges_widget( 10 );
       $my_colleges_count  = $dm_school -> count_my_colleges();
-
-      $logged_in_content = '<div class="row dm-college-top-content logged-in">
-                              <div class="col-md-2 dm-contact-college">
-                                  <button type="button" class="btn btn-primary btn-contact-school trigger-contact-school-modal">
-                                      <i class="fa fa-phone" aria-hidden="true"></i>
-                                      Contact
-                                  </button>
-                              </div>
-                              <div class="col-md-4 dm-add-to-my-colleges">
-                                  ' . do_shortcode('[favorite_button]') . '
-                              </div>
-                              <div class="col-md-3 dm-my-rating">
-                                  ' . $rating_string . '
-                              </div>
-                                <div class="col-md-2 dm-my-note">
-                                  <div class="row">
-                                    <div class="col-md-1"><i class="fa fa-sticky-note" aria-hidden="true"></i></div>
-                                    <div class="col-md-10 user-note">Note</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-1 dm-my-colleges">
-                                <div class="row edit-user-note">
-                                  ' . $my_colleges_count . '
-                                  <i class="fa fa-university" aria-hidden="true"></i>
-
-                                </div>
-                                <div class="dm-hover-content colleges">
-                                    ' . $my_colleges_widget . '
-                                    <small><a href="' . get_permalink( PAGE_MY_COLLEGES ) . '">See all your colleges <i class="fa fa-university" aria-hidden="true"></i></a></small>
-                                </div>
-                              </div>
-                            </div>';
 
     $my_colleges = new DM_MyColleges;
     $rating = $my_colleges -> get_my_college_rating ( $school_id );
@@ -259,14 +227,40 @@ class DM_TemplateElements {
 
 
   public function get_logged_out_content() {
-    $logged_out_content = '<div class="dm-college-top-content logged-out">
-                            <div class="col-md-3"><button type="button" class="btn btn-primary btn-contact-school trigger-contact-school-modal"><i class="fa fa-phone" aria-hidden="true"></i> Contact</button></div>
-                            <div class="col-md-9">
-                              <button class="dm-add-favorite-logged-out trigger-login-upgrade-modal">Add to My Colleges<i class="sf-icon-star-empty"></i></button>
-                            </div>
-                          </div>';
 
-    return $logged_out_content;
+    $return = '<div class="row dm-college-top-content logged-out">
+
+                <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
+                    <div class="widget style1 navy-bg">
+                        <div class="row vertical-align" style="
+            text-align: center;
+            ">
+                            <div class="col-xs-12">
+                                <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 dm-add-favorite-logged-out trigger-login-upgrade-modal">
+
+                    <div class="widget style1 lazur-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-university fa-3x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Add to My Colleges</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>';
+
+    // return $logged_in_content . $return;
+    return $return;
+
   }
 
 public function get_my_rating_block() {
