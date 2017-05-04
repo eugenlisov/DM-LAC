@@ -79,4 +79,70 @@ class DM_Modal {
   }
 
 
+
+
+  public function college_contact_modal() {
+    $dm_school = new DM_School;
+
+    $school_id = get_the_ID();
+
+    $contact_data  = $dm_school -> get_contact_data ( $school_id );
+
+    $contact_school_modal = '';
+
+    $contact_school_modal .= '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="dm-contact-school-modal">
+      <div class="vertical-alignment-helper">
+        <div class="modal-dialog modal-md vertical-align-center" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h2 class="modal-title" id="mySmallModalLabel">Contact ' . get_the_title() . '</h2>
+            </div>
+            <div class="modal-body">
+              <p>Here\'s all the info you need to get in touch with this school.</p>
+
+              <table style="width:100%">';
+
+        foreach ($contact_data as $key => $contact_item) {
+          switch ($key) {
+            case 'full_name':
+              $contact_label = 'Contact Representative';
+              break;
+            case 'title':
+              $contact_label = 'Title';
+              break;
+            case 'phone':
+              $contact_label = 'Phone';
+              break;
+            case 'email':
+              $contact_label = 'Email';
+              break;
+            default:
+              $contact_label = '';
+              break;
+          }
+
+            if ($contact_label != '' && trim($contact_item) != '' ) {
+              $contact_school_modal .= '
+                      <tr>
+                        <td class="contact-label"><strong>' . $contact_label . ': </strong></td>
+                        <td class="contact-item">' . $contact_item . '</td>
+                      </tr>';
+            }
+        }
+
+
+        $contact_school_modal .= '
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>';
+
+    return $contact_school_modal;
+  }
+
+
 } // End class

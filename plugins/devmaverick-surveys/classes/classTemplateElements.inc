@@ -22,7 +22,7 @@ class DM_TemplateElements {
             $modal   = $this -> get_logged_out_modal();
           }
 
-          $contact_modal  = $this -> get_school_contact_modal();
+          $contact_modal  = $dm_modal -> college_contact_modal();
           $return = $content . $modal . $contact_modal;
 
           return $return;
@@ -31,7 +31,8 @@ class DM_TemplateElements {
 
   }
 
-
+  // DEPRECATED
+  // replaced with  college_contact_modal in class Modals.
   public function get_school_contact_modal() {
     $dm_school = new DM_School;
 
