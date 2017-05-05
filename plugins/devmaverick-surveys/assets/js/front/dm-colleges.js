@@ -85,10 +85,13 @@ jQuery( document ).ready(function($) {
     $('#dm-login-upgrade-modal').modal('show');
   });
   $('.trigger-login-upgrade-modal').click(function() {
-    $('#dm-add-note-rating-modal').modal('show');
+    $('#dm-add-note-modal').modal('show');
   });
   $('.trigger-add-note-modal').click(function() {
-    $('#dm-add-note-rating-modal').modal('show');
+    $('#dm-add-note-modal').modal('show');
+  });
+  $('.trigger-school-rating-modal').click(function() {
+    $('#dm-school-rating-modal').modal('show');
   });
 
   //Contact school
@@ -112,8 +115,8 @@ jQuery( document ).ready(function($) {
                 },
                 function(response){
                   message = JSON.parse( response );
-                  $( '#dm-add-note-rating-modal .modal-body, .bs-example-modal-sm .modal-header h2' ).remove();
-                  $( '#dm-add-note-rating-modal .modal-header' ).append( message );
+                  $( '#dm-add-note-modal .modal-body, .bs-example-modal-sm .modal-header h2' ).remove();
+                  $( '#dm-add-note-modal .modal-header' ).append( message );
                   console.log(message);
                 }
             );

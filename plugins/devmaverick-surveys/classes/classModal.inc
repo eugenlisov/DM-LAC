@@ -16,7 +16,7 @@ class DM_Modal {
     $rating 	      = $dm_rating -> get_user_school_rating( $school_id, $user_id );
 
     $return = '';
-    $return .= '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="dm-add-note-rating-modal">
+    $return .= '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="dm-school-rating-modal">
       <div class="vertical-alignment-helper">
         <div class="modal-dialog modal-md vertical-align-center" role="document">
           <div class="modal-content">
@@ -53,7 +53,7 @@ class DM_Modal {
     $rating 	      = $dm_rating -> get_user_school_rating( $school_id, $user_id );
 
     $return = '';
-    $return .= '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="dm-add-note-rating-modal">
+    $return .= '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="dm-add-note-modal">
       <div class="vertical-alignment-helper">
         <div class="modal-dialog modal-md vertical-align-center" role="document">
           <div class="modal-content">
