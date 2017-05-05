@@ -8,6 +8,20 @@ function dm_lac_register_style_and_scripts() {
   wp_register_style('dm-inspinia-light', plugins_url() . '/devmaverick-surveys' . '/assets/css/dm-inspinia.css', false );
 
 
+
+
+
+
+
+  wp_register_style( 'dm-tabs', plugins_url() . '/devmaverick-surveys/assets/css/dm-custom.css', false );
+  wp_register_script( 'dm-all-site-scripts',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-scripts.js', 'simple-locator', '', true );
+
+  //Enqueue the script that's open the modal after ading to favorites
+  wp_register_script('dm-favorites',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-favorites.js', 'simple-locator', '', true);
+  wp_register_script('dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-colleges.js', array(), '', true);
+  wp_register_script('dm-landing-page',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-landing-page.js', array(), '', true);
+
+
 }
 add_action('wp_enqueue_scripts', 'dm_lac_register_style_and_scripts');
 
@@ -21,8 +35,16 @@ function dm_lac_enqueue_style_and_scripts() {
   if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) ) {
     wp_enqueue_style( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );
-    // wp_enqueue_style( 'dm-inspinia-light' );
   }
+
+  wp_enqueue_style('dm-tabs');
+  wp_enqueue_script('dm-all-site-scripts');
+  wp_enqueue_script('dm-favorites');
+  wp_enqueue_script('dm-colleges');
+
+  // if (is_page( PAGE_GET_PREMIUM )) {
+    wp_enqueue_script('dm-landing-page');
+  // }
 
 }
 add_action('wp_enqueue_scripts', 'dm_lac_enqueue_style_and_scripts');

@@ -36,22 +36,3 @@ require_once('classes/classCollegeActions.inc');
 require_once('classes/classModal.inc');
 require_once('classes/classNote.inc');
 require_once('classes/classRating.inc');
-
-
-
-
-
-
-// Enqueue scripts
-
-
-wp_enqueue_style('dm-tabs', plugins_url() . '/devmaverick-surveys/assets/css/dm-custom.css');
-wp_enqueue_script('dm-all-site-scripts',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-scripts.js', 'simple-locator', '1.0.0', true);
-
-//Enqueue the script that's open the modal after ading to favorites
-wp_enqueue_script('dm-favorites',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-favorites.js', 'simple-locator', '1.0.0', true);
-wp_enqueue_script('dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-colleges.js', array(), '1.0.0', true);
-
-// if (is_page( PAGE_GET_PREMIUM )) {
-  wp_enqueue_script('dm-landing-page',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-landing-page.js', array(), '1.0.0', true);
-// }
