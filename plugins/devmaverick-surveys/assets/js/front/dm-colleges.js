@@ -1,49 +1,7 @@
 jQuery( document ).ready(function($) {
 
 
-  // Show and hide the baloons
-  showHideBaloons()
-  function showHideBaloons() {
-        // Show notes
-          $(".dm-my-note, .dm-hover-content.notes").mouseenter(function(){
-              windowWidth = jQuery( window ).width();
-              if (windowWidth >= 768) {
-                clearTimeout($('.dm-hover-content.notes').data('timeoutId'));
-                $(".dm-hover-content.notes").fadeIn("100");
-              }
 
-          }).mouseleave(function(){
-            if (windowWidth >= 768) {
-              var someElement = $('.dm-hover-content.notes'),
-                  timeoutId = setTimeout(function(){
-                      $(".dm-hover-content.notes").fadeOut("100");
-                  }, 1050);
-              //set the timeoutId, allowing us to clear this trigger if the mouse comes back over
-              someElement.data('timeoutId', timeoutId);
-            }
-          });
-
-        // Show colleges
-                 $(".dm-my-colleges, .dm-hover-content.colleges").mouseenter(function(){
-                      windowWidth = jQuery( window ).width();
-                      if (windowWidth >= 768) {
-                        clearTimeout($('.dm-hover-content.colleges').data('timeoutId'));
-                        $(".dm-hover-content.colleges").fadeIn("100");
-                      }
-
-                  }).mouseleave(function(){
-                    if (windowWidth >= 768) {
-                      var someElement = $('.dm-hover-content.colleges'),
-                          timeoutId = setTimeout(function(){
-                              $(".dm-hover-content.colleges").fadeOut("100");
-                          }, 1050);
-                      //set the timeoutId, allowing us to clear this trigger if the mouse comes back over
-                      someElement.data('timeoutId', timeoutId);
-                    }
-                  });
-    }
-
-// END
 
   modalNote();
   function modalNote() {

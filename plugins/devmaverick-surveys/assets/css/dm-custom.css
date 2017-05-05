@@ -618,32 +618,6 @@ article.post-4190.page.type-page.status-publish.entry{
   width: 35%;
 }
 
-/* Hove baloons on the school actions bar */
-.dm-my-rating,
-.dm-my-note,
-.dm-my-colleges {
-  position: relative;
-}
-.dm-hover-content {
-    position: absolute;
-    background-color: white;
-    padding: 15px;
-    border: 1px solid #dddddd;
-    right: 100%;
-    top: 100%;
-    border-radius: 10px;
-    border-top-right-radius: 0;
-    box-shadow: 5px 5px 10px #777777;
-    width: 300px;
-    display: none;
-}
-.dm-hover-content.colleges {
-    left: 100%;
-    right: auto;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 0;
-}
-
 /* The Protected Nattative box at the bottom */
 .dm-protected-box {
   border: 1px solid #dddddd;

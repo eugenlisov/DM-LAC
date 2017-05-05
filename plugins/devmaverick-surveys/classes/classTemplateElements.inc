@@ -187,10 +187,6 @@ class DM_TemplateElements {
                   </div>
                   <div class="col-lg-4 dm-my-colleges">
                       ' . do_shortcode('[favorite_button]') . '
-                      <div class="dm-hover-content colleges">
-                          ' . $my_colleges_widget . '
-                          <small><a href="' . get_permalink( PAGE_MY_COLLEGES ) . '">See all your colleges <i class="fa fa-university" aria-hidden="true"></i></a></small>
-                      </div>
                   </div>';
 
 
@@ -222,11 +218,6 @@ class DM_TemplateElements {
                                     <span>Notes</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="dm-hover-content notes">
-                          <div class="dm-notes-headline"><h3>My notes on ' . get_the_title() . '</h3></div>
-                          <div class="dm-notes-container">' . $user_note . '</div>
-                          <small class="dm-edit-note-rating trigger-login-upgrade-modal">Edit note & rating <i class="fa fa-pencil" aria-hidden="true"></i> </small>
                         </div>
                     </div>';
                   // }
