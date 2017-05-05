@@ -119,7 +119,6 @@
 /* default link color is blue */
 .dm-rating .fa {
   color: #c7c2c2;
-  font-size: 19px;
   padding-left: 3px;
   padding-right: 3px;
   cursor: pointer;
@@ -142,6 +141,45 @@
   color: #27a3d1;
   cursor: pointer;
 }
+
+/* Fixed Ratings */
+.dm-fixed-rating {
+  text-align: center;
+}
+.dm-fixed-rating .fa {
+  color: orange;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+/* Editable rating */
+.dm-modal-fixed-rating-conteiner,
+.dm-modal-editable-rating-conteiner {
+  text-align: center;
+}
+.dm-modal-editable-rating-conteiner {
+  display: none;
+}
+.dm-rating-action,
+.dm-note-action {
+  margin-top: 30px;
+  color: #2196F3;
+  cursor: pointer;
+  font-size: 14px;
+}
+.dm-rating-action:hover,
+.dm-note-action:hover {
+  text-decoration: underline;
+}
+
+/* Notes Modal */
+.dm-modal-editable-note-container {
+  /*display: none;*/
+}
+.dm-modal-existing-note-container .fa {
+  margin-right: 20px;
+}
+
 
 /*Member login Start*/
 
@@ -503,6 +541,9 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-contact-college {
   cursor: pointer;
 }
+.dm-my-rating {
+  cursor: pointer;
+}
 .dm-my-note {
   cursor: pointer;
 }
@@ -548,6 +589,10 @@ article.post-4190.page.type-page.status-publish.entry{
     font-size: 36px;
     font-weight: bold;
     line-height: 1;
+}
+.modal-header h3,
+.modal-header h4 {
+    font-family: CircularStd;
 }
 .modal-header .close {
     position: absolute;

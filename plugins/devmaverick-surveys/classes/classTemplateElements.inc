@@ -16,7 +16,8 @@ class DM_TemplateElements {
 
           if (is_user_logged_in()) {
             $content = $this -> get_logged_in_content();
-            $modal   = $dm_modal -> college_note_modal();
+            $modal   = $dm_modal -> college_rating_modal();
+            $modal   .= $dm_modal -> college_note_modal();
           } else {
             $content = $this -> get_logged_out_content();
             $modal   = $this -> get_logged_out_modal();
@@ -141,7 +142,7 @@ class DM_TemplateElements {
             <div class="modal-body">
 
               <p><textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title() . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
-              <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green">Save Note</button></p>
+              <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-save-note">Save Note</button></p>
               <p><strong>Your rating: </strong>
                 ' . $ratings_block . '
               </p>
@@ -170,7 +171,7 @@ class DM_TemplateElements {
     $my_colleges = new DM_MyColleges;
     $rating = $my_colleges -> get_my_college_rating ( $school_id );
 
-    $return = '<div class="row dm-college-top-content logged-in">
+    $return = '<div class="row dm-college-top-content logged-in" school-id="' . get_the_ID() . '">
 
                   <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
                       <div class="widget style1 navy-bg">
@@ -195,7 +196,7 @@ class DM_TemplateElements {
 
                   // if ( $rating ) {
 
-                    $return .= '<div class="col-lg-3 dm-my-rating">
+                    $return .= '<div class="col-lg-3 dm-my-rating trigger-school-rating-modal">
                         <div class="widget style1 lazur-bg">
                             <div class="row vertical-align">
                                 <div class="col-xs-3">
@@ -246,7 +247,7 @@ class DM_TemplateElements {
 
   public function get_logged_out_content() {
 
-    $return = '<div class="row dm-college-top-content logged-out">
+    $return = '<div class="row dm-college-top-content logged-out" school-id="' . get_the_ID() . '">
 
                 <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
                     <div class="widget style1 navy-bg">

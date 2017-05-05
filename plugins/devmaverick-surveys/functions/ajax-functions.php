@@ -232,12 +232,12 @@ function dm_save_school_note() {
 
 	if ( $result == true ) {
 	  $return = '<div style="text-align: center;">
-									<h4>We\'ve successfully saved your note!</h4>
+									<h3>We\'ve successfully saved your note!</h3>
 									<i class="fa fa-check fa-4x" aria-hidden="true" style="color: #1ab394; "></i>
 								</div>';
 	} else {
 		$return = '<div style="text-align: center;">
-									<h4>Therew as a problem saving your note!</h4>
+									<h3>There was a problem saving your note!</h3>
 									<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true" style="color: red; "></i>
 								</div>';
 	}
@@ -252,31 +252,71 @@ add_action( 'wp_ajax_nopriv_dm_save_school_rating', 'dm_save_school_rating' );
 add_action( 'wp_ajax_dm_save_school_rating', 'dm_save_school_rating' );
 
 function dm_save_school_rating() {
-	$ajax_data = $_POST['data'];
-
-	print_r($ajax_data);
-
-	$rating	 = $ajax_data['rating'];
-	$post_id = $ajax_data['post_id'];
-	$user_id = $ajax_data['user_id'];
 
 
-
-	$existing_school_ratings = get_user_meta($user_id, 'dm_user_ratings', true);
-
-	print_r($existing_school_ratings);
-
-	$existing_school_ratings[$post_id] = $rating;
+	$dm_school = new DM_School;
+	$result = $dm_school -> ajax_add_school_rating();
 
 
+	if ( $result == true ) {
+	  $return = '<div style="text-align: center;">
+									<h3>We\'ve successfully saved your rating!</h3>
+									<i class="fa fa-check fa-4x" aria-hidden="true" style="color: #1ab394; "></i>
+								</div>';
+	} else {
+		$return = '<div style="text-align: center;">
+									<h3>There was a problem saving your rating!</h3>
+									<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true" style="color: red; "></i>
+								</div>';
+	}
 
-	$result = update_user_meta($user_id, 'dm_user_ratings', $existing_school_ratings);
+	die( json_encode( $return ) );
 
-
-	print_r($result);
-	print_r($existing_school_ratings);
 
 }
+
+
+
+add_action( 'wp_ajax_nopriv_dm_get_school_rating_modal', 'dm_get_school_rating_modal' );
+add_action( 'wp_ajax_dm_get_school_rating_modal', 'dm_get_school_rating_modal' );
+
+function dm_get_school_rating_modal() {
+
+	// print_r( get_current_user_ID() );
+	// print_r( $_POST['data'] );
+
+
+	$dm_modal = new DM_Modal;
+	$return = $dm_modal -> ajax_get_school_review_modal();
+
+	// print_r ( $return );
+
+	die( json_encode( $return ) );
+
+
+}
+
+add_action( 'wp_ajax_nopriv_dm_get_school_note_modal', 'dm_get_school_note_modal' );
+add_action( 'wp_ajax_dm_get_school_note_modal', 'dm_get_school_note_modal' );
+
+function dm_get_school_note_modal() {
+
+	// print_r( get_current_user_ID() );
+	// print_r( $_POST['data'] );
+
+
+	$dm_modal = new DM_Modal;
+	$return = $dm_modal -> ajax_get_school_note_modal();
+
+	// print_r ( $return );
+
+	die( json_encode( $return ) );
+
+
+}
+
+
+
 
 
 //

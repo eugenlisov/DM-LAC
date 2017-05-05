@@ -29,4 +29,45 @@ class DM_Rating {
     return $ratings_block;
   }
 
+
+  public function get_editable_ratings_block( $school_id = '' ) {
+
+    if ( ! $school_id ) {
+      $school_id = get_the_ID();
+    }
+
+    $rating = $this -> get_user_school_rating( $school_id );
+
+    $ratings_block = '<span class="dm-rating">';
+    for ($i=1; $i < 6; $i++) {
+      $filled = ( $i <= $rating ) ? 'filled' : '';
+      $ratings_block .= '<i class="fa fa-star fa-3x ' . $filled . '" aria-hidden="true" rating="' . $i . '"></i>';
+    }
+
+    $ratings_block .= '</span>';
+
+    return $ratings_block;
+  }
+
+  public function get_fixed_ratings_block( $school_id = '', $user_id = '' ) {
+
+    if ( ! $school_id ) {
+      $school_id = get_the_ID();
+    }
+    if ( ! $user_id ) {
+      $user_id = get_current_user_ID();
+    }
+
+    $rating = $this -> get_user_school_rating( $school_id, $user_id );
+
+    $ratings_block = '<div class="dm-fixed-rating">';
+    for ($i=1; $i <= $rating; $i++) {
+      $ratings_block .= '<i class="fa fa-star fa-3x filled" aria-hidden="true" rating="' . $i . '"></i>';
+    }
+
+    $ratings_block .= '</div>';
+
+    return $ratings_block;
+  }
+
 } // End class
