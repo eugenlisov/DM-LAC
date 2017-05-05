@@ -1,3 +1,67 @@
+/* =============================================================================
+	Fonts & typography
+/* ========================================================================== */
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 800;
+  font-style: normal;
+  src: url("../fonts/CircularStd-Black.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 800;
+  font-style: italic;
+  src: url("../fonts/CircularStd-BlackItalic.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/CircularStd-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 700;
+  font-style: italic;
+  src: url("../fonts/CircularStd-BoldItalic.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/CircularStd-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 500;
+  font-style: italic;
+  src: url("../fonts/CircularStd-MediumItalic.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/CircularStd-Book.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 300;
+  font-style: italic;
+  src: url("../fonts/CircularStd-BookItalic.woff") format("woff");
+}
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 200;
+  font-style: normal;
+  src: url("../fonts/CircularSpotifyTxT-Light.woff") format("woff");
+}
+
+
+
+
+
+
+
 /* Hide te comment section temporarily. */
 .comment-respond {
   display: none;
@@ -479,6 +543,12 @@ article.post-4190.page.type-page.status-publish.entry{
     text-align: center;
     border-bottom: 0 !important;
 }
+.modal-header h2 {
+    font-family: CircularStd;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+}
 .modal-header .close {
     position: absolute;
     top: 10px;
@@ -492,6 +562,8 @@ article.post-4190.page.type-page.status-publish.entry{
     line-height: 1.56;
     color: rgba(32, 40, 51, 0.58);
 }
+
+
 
 
 /* END Style all Bootstrap modals */
