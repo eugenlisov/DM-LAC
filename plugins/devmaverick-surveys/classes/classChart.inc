@@ -74,14 +74,11 @@ class DM_Chart {
 
   private function get_q3_chart( $question_id = '' ) {
 
+      $dm_nps = new DM_NPS;
       $dm_school = new DM_School;
-      $nps = $dm_school -> get_nps( $iped );
+      $nps = $dm_school -> get_school_nps ( get_the_ID() );
 
-      $comparison_class = ( $nps > 0 ) ? 'net-promoter' : 'net-detractor';
-
-      $return .= '<div class="dm-nps-container" title="' . $hover_caption . '">
-                    Net Promoter Score (NPC) = <span class="' . $comparison_class . '">'  . $nps . '</span>
-                  </div>';
+      $return = $dm_nps -> nps_traffic_lights( $nps );
 
       return $return;
   }

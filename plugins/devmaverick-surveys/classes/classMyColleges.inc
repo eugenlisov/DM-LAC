@@ -243,24 +243,17 @@ class DM_MyColleges {
 
   }
 
-  private function nps_block( $college_id ) {
+  public function nps_block( $college_id ) {
     $dm_school = new DM_School;
     $nps = $dm_school -> get_school_nps ( $college_id );
 
     if ( $nps ) {
-
-      if ( $nps >= 41 ) {
-        $light = 'green';
-      } elseif ( $nps >= 30 && $nps < 40 ) {
-        $light = 'yellow';
-      } else {
-        $light = 'red';
-      }
+      $dm_nps = new DM_NPS;
 
     $return =  '<h3 class="font-bold no-margins">';
     $return .= '  Net Promoter Score: <span class="net-promoter">' . $nps . '</span>';
     $return .= '</h3>';
-    $return .= '<div class="dm-nps-traffic-lights ' . $light . '"> </div>';
+    $return .= $dm_nps -> nps_traffic_lights( $nps );
 
     }
     return $return;

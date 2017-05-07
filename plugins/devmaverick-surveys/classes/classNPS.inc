@@ -242,6 +242,24 @@ class DM_NPS {
       return $counts_by_iped_and_response;
 
   }
+  public function nps_traffic_lights( $nps = '' ) {
+
+    if ( $nps ) {
+
+      if ( $nps >= 41 ) {
+        $light = 'green';
+      } elseif ( $nps >= 30 && $nps < 40 ) {
+        $light = 'yellow';
+      } else {
+        $light = 'red';
+      }
+
+    $return = '<div class="dm-nps-traffic-lights ' . $light . '"> </div>';
+
+    }
+    return $return;
+
+  }
 
 
 
