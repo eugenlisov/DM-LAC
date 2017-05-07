@@ -19,7 +19,7 @@ function register_shortcodes(){
 function dm_my_colleges() {
 
 	$dm_my_colleges = new DM_MyColleges;
-	$return = $dm_my_colleges -> my_colleges_list();
+	$return = $dm_my_colleges -> my_colleges_page();
 
 	return $return;
 

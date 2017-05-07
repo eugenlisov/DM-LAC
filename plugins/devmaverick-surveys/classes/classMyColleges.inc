@@ -5,15 +5,24 @@
 
 class DM_MyColleges {
 
-  public function my_colleges_list() {
+  public function my_colleges_page() {
 
     $user_id = get_current_user_id();
     $favorites = unserialize( CURRENT_USER_FAVORITE_SCHOOLS );
 
-    // echo '<pre>';
-    // print_r(CURRENT_USER_FAVORITE_SCHOOLS);
-    // echo '</pre>';
+    echo '<pre>';
+    print_r( $favorites );
+    echo '</pre>';
 
+    if ( ! $favorites ) {
+
+    }
+
+
+
+
+
+    // Asta nu este necesar aici. O sa zboare.
     $this -> update_my_college_notes();
 
     $favorites_count = count($favorites);
