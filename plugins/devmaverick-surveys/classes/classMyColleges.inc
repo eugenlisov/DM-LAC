@@ -34,15 +34,14 @@ class DM_MyColleges {
       $favorites = unserialize( CURRENT_USER_FAVORITE_SCHOOLS );
     }
 
+    $user_id = get_current_user_id();
     $favorites_count = count($favorites);
 
     // $return = '';
 
-
     $return .= '<h3>There are ' . $favorites_count . ' Colleges in Your Watch List:</h3>';
 
-    $return .= '<form action="" method="POST">
-                  <div class="dm-my-coleges-list">';
+    $return .= '<div class="dm-my-coleges-list" user-id="' . $user_id . '">';
 
     if ($favorites_count > 0) {
       foreach ($favorites as $key => $college_id) {
@@ -52,9 +51,7 @@ class DM_MyColleges {
       }
     }
 
-    $return .= '  </div>
-                <input type="submit" value="Save notes">';
-    $return .= '</form>';
+    $return .= '  </div>';
 
     return $return;
 
@@ -187,7 +184,7 @@ class DM_MyColleges {
 
     $dm_rating = new DM_Rating;
 
-    $return = '<div class="col-lg-6 dm-my-colege-item">
+    $return = '<div class="col-lg-6 dm-my-colege-item" school-id="' . $college_id . '">
         <div class="widget ' . $background . ' no-padding">
             <div class="p-m">
                 ' . $thumb_block . '
@@ -268,6 +265,45 @@ class DM_MyColleges {
     }
     return $return;
   }
+  private function student_reviews_block( $college_id = '' ) {
+    if ( ! $college_id ) {
+      return false;
+    }
+
+    $live_open_responses_by_question = get_post_meta( $college_id, 'school_open_ended_responses', true);
+
+    if ( $live_open_responses_by_question[4] ) {
+      $student_reviews = $live_open_responses_by_question[4];
+      $random_review = $student_reviews[array_rand( $student_reviews )];
+
+      $review_block = '<div class="dm-random-student-review">
+                          <div class="col-md-8 dm-review-body">
+                            <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
+                            ' . $random_review['response_text'] . '
+                          </div>
+                          <div class="col-md-4 dm-review-graduation">
+                            <div>
+                              <h4>Graduation</h4>
+                              <p>' . $random_review['graduation_year'] . '</p>
+                            </div>
+                          </div>
+                       </div>';
+
+      $reviews = '<h4>Here\'s what students like best about this school:</h4>';
+
+      $reviews .= $review_block;
+
+      return $reviews;
+
+    }
+
+
+
+    // $reviews = '<h4>Here\'s what students like best about this school:</h4>
+    //             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>';
+    //
+    // return $reviews;
+  }
 
 
   private function tabs_block ( $college_id ) {
@@ -289,26 +325,37 @@ class DM_MyColleges {
           $smiley_font = 'fa-frown-o';
         }
         $return .= ' <li class="active"><a data-toggle="tab" href="#menu-' . $college_id . '-1"><i class="fa ' . $smiley_font . '" aria-hidden="true"></i> NPS</a></li>';
+      } else {
+        $second_tab_active = 'active';
+        $second_tab_active_content = 'in active';
       }
-      $return .= '<li><a data-toggle="tab" href="#home-' . $college_id . '"><i class="fa fa-sticky-note" aria-hidden="true"></i> Your Notes</a></li>';
-      $return .= '<li><a data-toggle="tab" href="#menu-' . $college_id . '-2"><i class="fa fa-comment" aria-hidden="true"> </i>Student Reviews</a></li>';
+      $return .= '<li class="' . $second_tab_active . '"><a data-toggle="tab" href="#home-' . $college_id . '"><i class="fa fa-sticky-note" aria-hidden="true"></i> Your Notes</a></li>';
+
+      $live_open_responses_by_question = get_post_meta( $college_id, 'school_open_ended_responses', true);
+      if ( $live_open_responses_by_question[4] ) {
+        $return .= '<li><a data-toggle="tab" href="#menu-' . $college_id . '-2"><i class="fa fa-comment" aria-hidden="true"> </i> Student Reviews</a></li>';
+      }
+
       $return .= '<li><a data-toggle="tab" href="#menu-' . $college_id . '-3"><i class="fa fa-address-card" aria-hidden="true"></i> Contact</a></li>';
       $return .= '</ul>';
 
       $return .= '<div class="tab-content">';
 
       if  ( $nps ) {
-        $return .= '<div id="menu-' . $college_id . '-1" class="tab-pane fade in active">
+        $return .= '<div id="menu-' . $college_id . '-1" class="tab-pane dm-tab-nps fade in active">
                       ' . $this -> nps_block( $college_id ) . '
                     </div>';
       }
-      $return .= '<div id="home-' . $college_id . '" class="tab-pane fade">
+      $return .= '<div id="home-' . $college_id . '" class="tab-pane dm-tab-notes fade ' . $second_tab_active_content . '">
                       ' . $dm_note -> my_college_note_block( $college_id ) . '
                   </div>';
-      $return .= '<div id="menu-' . $college_id . '-2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                  </div>';
+
+      if ( $live_open_responses_by_question[4] ) {
+        $return .= '<div id="menu-' . $college_id . '-2" class="tab-pane fade">
+                      '  . $this -> student_reviews_block( $college_id ) . '
+                    </div>';
+      }
+
       $return .= '<div id="menu-' . $college_id . '-3" class="tab-pane fade">
                     <h3>Contact Information</h3>
                     ' . $this -> contact_data_block( $college_id ) . '
@@ -325,8 +372,11 @@ class DM_MyColleges {
     if ( ! $college_id ) {
       return false;
     }
+    $dm_school = new DM_School;
 
-    $contact_data  = get_school_contact_data ( $college_id );
+    $contact_data =  $dm_school -> get_contact_data ( $college_id ) ;
+
+
 
     // echo '<pre>';
     // print_r ( $contact_data );
@@ -334,7 +384,7 @@ class DM_MyColleges {
 
     if  ( $contact_data ) {
 
-        $return = '<table style="width:100%">';
+        $return = '<table class="dm-my-college-contact-info-table">';
 
                   foreach ($contact_data as $key => $contact_item) {
                     switch ($key) {

@@ -287,6 +287,7 @@ article.post-4190.page.type-page.status-publish.entry{
 
 .dm-my-coleges-list {
   overflow: hidden;
+  margin-bottom: 40px;
 }
 .dm-my-coleges-list > div:nth-child(2n+1) {
   clear: both;
@@ -320,6 +321,7 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-my-school-rating-block .fa {
   color: orange;
+  margin-right: 3px;
 }
 .dm-nps-traffic-lights {
   background: url(../images/nps-traffic-lights.png);
@@ -356,6 +358,52 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-my-college-tabs h4 {
   line-height: 1.4;
+}
+.dm-my-colleges-loader {
+  text-align: center;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-my-colleges-existing-note-container {
+  margin-right: 10px;
+  font-size: 17px;
+}
+.dm-my-colleges-existing-note-container .fa {
+  margin-right: 10px;
+}
+
+.dm-my-college-contact-info-table {
+  width: 100%;
+}
+.dm-my-college-contact-info-table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.dm-random-student-review {
+  overflow: hidden;
+  display: flex;
+}
+.dm-review-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #39aad4;
+  font-style: italic;
+  font-size: 17px;
+  padding-left: 0;
+}
+.dm-review-body .fa {
+  margin-right: 15px;
+}
+.dm-review-graduation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  padding-right: 0;
 }
 
 /* My colleges Empty */

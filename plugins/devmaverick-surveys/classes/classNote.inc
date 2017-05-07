@@ -11,6 +11,10 @@ class DM_Note {
 
     $current_user_notes 	= unserialize( CURRENT_USER_SAVED_NOTES );
 
+    // echo '<pre>';
+    // print_r( $current_user_notes );
+    // echo '</pre>';
+
     if ( $current_user_notes[$school_id] ) {
       return $current_user_notes[$school_id];
     } else {
@@ -31,7 +35,7 @@ class DM_Note {
     $note = $this -> get_user_school_note ( $school_id );
 
 
-    if ( $note ) {
+    if ( ! $note ) {
       $return = $this -> my_my_college_note_fresh( $school_id );
     } else {
       $return = $this -> my_my_college_note_existing( $school_id );
@@ -45,12 +49,12 @@ class DM_Note {
       return false;
     }
 
-    $return = '<h4>You haven\'t yet added any notes on this ' . get_the_title( $school_id ) . '. Add one now!</h4>
+    $return = '<h4>You haven\'t yet added any notes on ' . get_the_title( $school_id ) . '. Add one now!</h4>
                 <p>
-                  <textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="Write your thoughts...">' . $user_note . '</textarea>
+                  <textarea class="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="Write your thoughts...">' . $user_note . '</textarea>
               </p>
               <p>
-                  <button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green">Save Note</button>
+                  <button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-my-colleges-save-note">Add Note</button>
               </p>';
 
     return $return;
@@ -62,15 +66,15 @@ class DM_Note {
 
     $note = $this -> get_user_school_note ( $school_id );
 
-    $return = 'Existing note<br />
-              <div class="dm-modal-existing-note-container">
-                <p><i class="fa fa-quote-left fa-3x" aria-hidden="true"></i>' . $note . '</p>
-                <p class="dm-note-action trigger-edit-note">Edit note</p>
+    $return = '<h4>Your thoughts on ' . get_the_title( $school_id ) . ':</h4>
+              <div class="dm-my-colleges-existing-note-container">
+                <p><i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>' . $note . '</p>
+                <p class="dm-note-action trigger-my-colleges-edit-note">Edit note</p>
               </div>
-              <div class="dm-modal-editable-note-container" style="display: none;">
-                <p><textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title( $school_id ) . '? Add it here so you remember later.">' . $note . '</textarea></p>
-                <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-save-note">Save Note</button></p>
-                <p class="dm-note-action trigger-cancel-note-edit">Cancel</p>
+              <div class="dm-my-colleges-editable-note-container" style="display: none;">
+                <p><textarea class="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title( $school_id ) . '? Add it here so you remember later.">' . $note . '</textarea></p>
+                <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-my-colleges-save-note">Save Note</button></p>
+                <p class="dm-note-action trigger-my-colleges-cancel-note-edit">Cancel</p>
               </div>';
 
     return $return;

@@ -191,7 +191,61 @@ function noteModalActions() {
 }
 
 
+// My colleges page
+myCollegesSaveNotes();
+function myCollegesSaveNotes() {
 
+  // Trigger the single note Save
+  $( document ).on( "click", '.trigger-my-colleges-save-note', function() {
+
+
+
+    var note = $( this ).parents( '.dm-my-college-tabs .tab-content' ).find('.dm-single-note').val();
+    if ( !note ) {
+      alert( 'You haven\'t written anything. Please add a note and then try again' );
+    }
+
+    var schoolId  = $( this ).parents('.dm-my-colege-item').attr('school-id');
+    var userId    = $( this ).parents('.dm-my-coleges-list').attr('user-id');
+    var ajaxData = {};
+
+    ajaxData['post_id'] = schoolId;
+    ajaxData['user_id'] = userId;
+    ajaxData['note'] = note;
+
+    $( this ).parents( '.tab-pane' ).html( '<div class="dm-my-colleges-loader"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div>' );
+
+    ajaxMyCollegesSaveSchoolNote( ajaxData );
+
+  });
+
+}
+myCollegesNotesActions()
+function myCollegesNotesActions() {
+
+  $( document ).on( "click", '.trigger-my-colleges-edit-note', function() {
+    // Slide the content into view
+    $( this ).parents( '.dm-my-colleges-existing-note-container' ).slideUp();
+    $( this ).parents( '.dm-my-college-tabs' ).find( '.dm-my-colleges-editable-note-container' ).slideDown();
+
+    // Change the modal title
+    $( this ).parents( '.modal-content' ).find( '.modal-header h2' ).fadeOut(function() {
+        $(this).text("Update Your Note");
+      }).fadeIn();
+  });
+
+  $( document ).on( "click", '.trigger-my-colleges-cancel-note-edit', function() {
+    // Slide the content into view
+    $( this ).parents( '.dm-my-colleges-editable-note-container' ).slideUp();
+    $( this ).parents( '.dm-my-college-tabs' ).find( '.dm-my-colleges-existing-note-container' ).slideDown();
+
+    // Change the modal title
+    $( this ).parents( '.modal-content' ).find( '.modal-header h2' ).fadeOut(function() {
+        $(this).text("Your Note:");
+      }).fadeIn();
+  });
+
+}
 
 
 
@@ -216,6 +270,23 @@ function noteModalActions() {
                     }, 1000);
 
                   }, 2500);
+                }
+            );
+  }
+  function ajaxMyCollegesSaveSchoolNote( ajaxData ) {
+    $.post(
+            ajaxurl,
+                {
+                  'action': 'dm_my_colleges_save_school_note',
+                  'data':   ajaxData
+                },
+                function(response){
+                  // console.log( response );
+                  message = JSON.parse( response );
+                  // console.log( message );
+
+                  $( '.dm-my-colege-item[school-id="' + ajaxData.post_id + '"]' ).find( '.dm-tab-notes' ).html( message );
+
                 }
             );
   }

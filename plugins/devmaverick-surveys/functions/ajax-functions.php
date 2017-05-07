@@ -246,6 +246,32 @@ function dm_save_school_note() {
 }
 
 
+
+add_action( 'wp_ajax_nopriv_dm_my_colleges_save_school_note', 'dm_my_colleges_save_school_note' );
+add_action( 'wp_ajax_dm_my_colleges_save_school_note', 'dm_my_colleges_save_school_note' );
+
+function dm_my_colleges_save_school_note() {
+
+	$dm_school = new DM_School;
+	$result = $dm_school -> ajax_add_school_note();
+
+
+	if ( $result == true ) {
+	  $return = '<div style="text-align: center;">
+									<h3>We\'ve successfully saved your note!</h3>
+									<i class="fa fa-check fa-4x" aria-hidden="true" style="color: #1ab394; "></i>
+								</div>';
+	} else {
+		$return = '<div style="text-align: center;">
+									<h3>There was a problem saving your note!</h3>
+									<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true" style="color: red; "></i>
+								</div>';
+	}
+
+	die( json_encode( $return ) );
+}
+
+
 //
 //
 add_action( 'wp_ajax_nopriv_dm_save_school_rating', 'dm_save_school_rating' );

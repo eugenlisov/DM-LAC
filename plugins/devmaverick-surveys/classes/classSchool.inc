@@ -164,6 +164,7 @@ class DM_School {
   public function ajax_add_school_note() {
 
     $ajax_data = $_POST['data'];
+    // print_r ( $ajax_data );
 
     $note = $ajax_data['note'];
     $post_id = $ajax_data['post_id'];
@@ -173,6 +174,10 @@ class DM_School {
     $existing_school_notes[$post_id] = $note;
 
     $result = update_user_meta($user_id, 'dm_user_notes', $existing_school_notes);
+
+    // so check and make sure the stored value matches $new_value
+// if ( get_user_meta($user_id,  'some_meta_key', true ) != $new_value )
+// 	wp_die('An error occurred');
 
     return $result;
 
