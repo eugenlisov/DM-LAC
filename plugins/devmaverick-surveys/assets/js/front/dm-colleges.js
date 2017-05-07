@@ -1,10 +1,52 @@
 function favorites_after_button_submit(favorites){
+  //https://wordpress.org/support/topic/javascript-callbacks-clarification/
+  var schoolName = $( 'article h1.entry-title' ).text();
+  var closeBtn = '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>';
 
   if ($( ".simplefavorite-button" ).hasClass( "active" )) {
+    ajaxGetRatingAndNoteButtons();
+    var message = '<div class="modal-header">' + closeBtn +
+                  ' <div style="text-align: center;">' +
+									' <h3>We\'ve added ' + schoolName + ' to your colleges list!</h3>' +
+									' <i class="fa fa-check fa-4x" aria-hidden="true" style="color: #1ab394; "></i>' +
+								' </div>' +
+                '</div>';
+    $('#dm-add-note-modal .modal-content').html( message );
     $('#dm-add-note-modal').modal('show');
+  } else {
+    var messageRemoved = '<div class="modal-header">' + closeBtn +
+                  ' <div style="text-align: center;">' +
+                  ' <h3>We\'ve removed ' + schoolName + ' from your colleges list!</h3>' +
+                  ' <i class="fa fa-frown-o fa-4x" aria-hidden="true" style="color: #ff5722; "></i>' +
+                ' </div>' +
+                '</div>';
+    $('#dm-add-note-modal .modal-content').html( messageRemoved );
+    $('#dm-add-note-modal').modal('show');
+
+    // Remove ratings and stars Buttons
+    $( '.dm-college-top-content' ).find( '.dm-my-rating' ).remove();
+    $( '.dm-college-top-content' ).find( '.dm-my-note' ).remove();
+
   }
-	// jQuery('.simplefavorite-button.active').after('<div class="fav_success"><i class="fa fa-info-circle"></i>Contract successfully added to your clipboard.</div>');
-	// jQuery('.fav_success').fadeIn(1500).delay(5000).fadeOut(1500);
+}
+
+
+
+function ajaxGetRatingAndNoteButtons() {
+  var schoolID = $( '.dm-college-top-content' ).attr( 'school-id' );
+  $.post(
+          ajaxurl,
+              {
+                'action': 'dm_get_rating_and_note_buttons',
+                'data':   schoolID
+              },
+              function(response){
+
+                // console.log( response );
+                buttons = JSON.parse( response );
+                $( '.dm-college-top-content' ).append( buttons );
+              }
+          );
 }
 
 
@@ -77,11 +119,11 @@ jQuery( document ).ready(function($) {
   $('.trigger-login-upgrade-modal').click(function() {
     $('#dm-add-note-modal').modal('show');
   });
-  $('.trigger-add-note-modal').click(function() {
+  $( document ).on( "click", '.trigger-add-note-modal', function() {
     ajaxGetSchoolNoteModalContent()
     $('#dm-add-note-modal').modal('show');
   });
-  $('.trigger-school-rating-modal').click(function() {
+  $( document ).on( "click", '.trigger-school-rating-modal', function() {
     ajaxGetSchoolRatingModalContent();
     $('#dm-school-rating-modal').modal('show');
   });

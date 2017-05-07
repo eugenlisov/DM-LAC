@@ -316,6 +316,31 @@ function dm_get_school_note_modal() {
 }
 
 
+add_action( 'wp_ajax_nopriv_dm_get_rating_and_note_buttons', 'dm_get_rating_and_note_buttons' );
+add_action( 'wp_ajax_dm_get_rating_and_note_buttons', 'dm_get_rating_and_note_buttons' );
+
+function dm_get_rating_and_note_buttons() {
+
+	// print_r( get_current_user_ID() );
+	// print_r( $_POST['data'] );
+
+	$school_id = $_POST['data'];
+
+  // print_r( $school_id );
+
+	$dm_college_actions = new DM_CollegeActions;
+
+	$return = $dm_college_actions -> button_school_rating( $school_id );
+	$return .= $dm_college_actions -> button_school_note();
+
+	// print_r ( $return );
+
+	die( json_encode( $return ) );
+
+
+}
+
+
 
 
 
