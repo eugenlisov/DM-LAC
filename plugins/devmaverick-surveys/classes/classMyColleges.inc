@@ -39,7 +39,7 @@ class DM_MyColleges {
     // $return = '';
 
 
-    $return .= '<p><strong>Total Colleges in Your Watch List:</strong> ' . $favorites_count . '</p>';
+    $return .= '<h3>There are ' . $favorites_count . ' Colleges in Your Watch List:</h3>';
 
     $return .= '<form action="" method="POST">
                   <div class="dm-my-coleges-list">';
@@ -185,13 +185,15 @@ class DM_MyColleges {
       $thumb_block = '<img src="' . $thumb . '" class="img-circle circle-border m-b-md pull-right" alt="profile">';
     }
 
-    $return = '<div class="col-lg-6">
+    $dm_rating = new DM_Rating;
+
+    $return = '<div class="col-lg-6 dm-my-colege-item">
         <div class="widget ' . $background . ' no-padding">
             <div class="p-m">
                 ' . $thumb_block . '
                 <h1 class="m-xs">' . get_the_title( $college_id ) . '</h1>
 
-                ' . $this ->  star_rating_block( $college_id ) . '
+                ' . $dm_rating ->  get_my_college_rating_block( $college_id ) . '
 
 
 
@@ -221,25 +223,7 @@ class DM_MyColleges {
       return $available_backgrounds[array_rand( $available_backgrounds, 1 )];
   }
 
-  private function star_rating_block( $college_id ) {
 
-    if ( ! $college_id ) {
-      return false;
-    }
-
-    $rating = $this -> get_my_college_rating ( $college_id );
-
-    $return = '<div class="m-b-md">';
-
-    for ($i=1; $i <= $rating ; $i++) {
-      $return .= '<i class="fa fa-star fa-2x"></i>';
-    }
-
-    $return .= '</div>';
-
-    return $return;
-
-  }
   private function star_rating_block_widget( $college_id = '' ) {
 
     if ( ! $college_id ) {

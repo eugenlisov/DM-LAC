@@ -49,6 +49,26 @@ class DM_Rating {
     return $ratings_block;
   }
 
+  public function get_my_college_rating_block( $college_id ) {
+
+    if ( ! $college_id ) {
+      return false;
+    }
+
+    $rating = $this -> get_user_school_rating( $college_id );
+
+    $return = '<div class="m-b-md dm-my-school-rating-block">';
+
+    for ($i=1; $i <= $rating ; $i++) {
+      $return .= '<i class="fa fa-star fa-2x"></i>';
+    }
+
+    $return .= '</div>';
+
+    return $return;
+
+  }
+
   public function get_fixed_ratings_block( $school_id = '', $user_id = '' ) {
 
     if ( ! $school_id ) {

@@ -22,7 +22,7 @@ function dm_partner_define_constants(){
   // Content pages
   define( 'PAGE_FEATURED_SCHOOLS', 2854 );
   define( 'PAGE_SCHOOL_RANKINGS', 3096 );
-  define( 'PAGE_SCHOOL_COMPARISONS', 3096 );
+  define( 'PAGE_SCHOOL_COMPARISONS', 3142 );
 
 
   // Dynamic data

@@ -306,7 +306,12 @@ article.post-4190.page.type-page.status-publish.entry{
     font-weight: 600;
     padding: 10px 10px 10px 15px;
 }
+.dm-my-colege-item {
 
+}
+.dm-my-colege-item h1 {
+  margin-bottom: 10px;
+}
 
 /* My colleges Empty */
 .dm-my-colleges-empty {
