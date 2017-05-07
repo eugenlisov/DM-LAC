@@ -371,6 +371,12 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 
 
+/* Membermouse My Account Page */
+
+.mm-myaccount .mm-myaccount-block {
+    width: 100%;
+}
+
 
 /* Premium navigation - temporary use just the IDS*/
 #menu-item-4213,
