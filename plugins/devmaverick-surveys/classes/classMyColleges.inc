@@ -10,24 +10,33 @@ class DM_MyColleges {
     $user_id = get_current_user_id();
     $favorites = unserialize( CURRENT_USER_FAVORITE_SCHOOLS );
 
-    echo '<pre>';
-    print_r( $favorites );
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r( $favorites );
+    // echo '</pre>';
 
-    if ( ! $favorites ) {
-
+    if ( $favorites ) {
+      $return = $this -> my_colleges_list( $favorites );
+    } else {
+      $return = $this -> my_colleges_empty();
     }
 
 
-
+    return $return;
 
 
     // Asta nu este necesar aici. O sa zboare.
     $this -> update_my_college_notes();
 
+  }
+
+  public function my_colleges_list( $favorites = '' ) {
+    if ( ! $favorites ) {
+      $favorites = unserialize( CURRENT_USER_FAVORITE_SCHOOLS );
+    }
+
     $favorites_count = count($favorites);
 
-    $return = '';
+    // $return = '';
 
 
     $return .= '<p><strong>Total Colleges in Your Watch List:</strong> ' . $favorites_count . '</p>';
@@ -49,7 +58,37 @@ class DM_MyColleges {
 
     return $return;
 
+
   }
+  public function my_colleges_empty() {
+
+    $return = '<div class="dm-my-colleges-empty">
+                <h2>Looks like you haven\'t added any college to your watch list!</h2>
+                  <h4>Why wait?</h4>
+                  <p>Take avantage of the features you have as a Liberal Arts Colleges premium member by going through our list of over 170 schools and checking the ones you want to watch</p>
+                  <h3>Don\'t know where to start?</h3>
+                  <p>Here\'s a hint: </p>
+                  <div class="dm-my-colleges-option-links">
+                    <div class="col-md-4">
+                      <a href="' . get_permalink( PAGE_FEATURED_SCHOOLS ) . '" class="btn btn-lg btn-success btn-my-colleges">Featured Schools</a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="' . get_permalink( PAGE_SCHOOL_COMPARISONS ) . '" class="btn btn-lg btn-success btn-my-colleges">School Comparisons</a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="' . get_permalink( PAGE_SCHOOL_RANKINGS ) . '" class="btn btn-lg btn-success btn-my-colleges">College Rankings</a>
+                    </div>
+
+                  </div>
+                </div>';
+
+    return $return;
+
+    // echo 'Looks like there is no college for you here!';
+  }
+
+
+
 
   public function my_colleges_widget() {
 

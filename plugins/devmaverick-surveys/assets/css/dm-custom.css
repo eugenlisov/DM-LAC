@@ -113,6 +113,36 @@
   background-color: #08d290 !important;
   color: #fff;
 }
+.btn-my-colleges {
+  color: #fff !important;
+  font: bold 12px/1em HelveticaNeue, Arial, sans-serif;
+  background: #7fbf4d;
+  background: -webkit-gradient(linear, left top, left bottom, from(#7fbf4d), to(#63a62f));
+  background: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+  border-color: #63a62f;
+  color: #fff;
+  text-shadow: 0 1px 0 #53961e;
+  -webkit-box-shadow: 0 1px 2px #d6d6d6, inset 0 1px 0 #96d865;
+  -moz-box-shadow: 0 1px 2px #d6d6d6, inset 0 1px 0 #96d865;
+  box-shadow: 0 1px 2px #d6d6d6, inset 0 1px 0 #96d865;
+
+  font-size: 14px;
+    line-height: 1;
+    padding: 16px;
+    text-transform: uppercase;
+    border: none;
+border-radius: 3px;
+
+}
+.btn-my-colleges:hover, .btn-my-colleges:focus {
+    background: #76b347;
+    background: -webkit-gradient(linear, left top, left bottom, from(#86c755), to(#5ea12a));
+    background: -moz-linear-gradient(top, #86c755, #5ea12a);
+    border-color: #53961e;
+    -webkit-box-shadow: 0 0 1px #d6d6d6, inset 0 1px 0 #96d865;
+    -moz-box-shadow: 0 0 1px #d6d6d6, inset 0 1px 0 #96d865;
+    box-shadow: 0 0 1px #d6d6d6, inset 0 1px 0 #96d865;
+}
 
 /* Ratings area */
 
@@ -275,6 +305,24 @@ article.post-4190.page.type-page.status-publish.entry{
     color: #A7B1C2;
     font-weight: 600;
     padding: 10px 10px 10px 15px;
+}
+
+
+/* My colleges Empty */
+.dm-my-colleges-empty {
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+.dm-my-colleges-empty h2 {
+  margin-bottom: 30px !important;
+}
+.dm-my-colleges-empty p {
+  font-size: 16px;
+}
+.dm-my-colleges-option-links {
+  text-align: center;
 }
 
 
