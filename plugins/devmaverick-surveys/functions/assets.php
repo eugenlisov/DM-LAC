@@ -17,7 +17,6 @@ function dm_lac_register_style_and_scripts() {
   wp_register_script( 'dm-all-site-scripts',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-scripts.js', 'simple-locator', '', true );
 
   //Enqueue the script that's open the modal after ading to favorites
-  wp_register_script('dm-favorites',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-favorites.js', 'simple-locator', '', true);
   wp_register_script('dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-colleges.js', array(), '', true);
   wp_register_script('dm-landing-page',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-landing-page.js', array(), '', true);
 
@@ -39,7 +38,6 @@ function dm_lac_enqueue_style_and_scripts() {
 
   wp_enqueue_style('dm-tabs');
   wp_enqueue_script('dm-all-site-scripts');
-  wp_enqueue_script('dm-favorites');
   wp_enqueue_script('dm-colleges');
 
   // if (is_page( PAGE_GET_PREMIUM )) {
