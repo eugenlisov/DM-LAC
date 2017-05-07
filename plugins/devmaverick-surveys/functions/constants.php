@@ -19,6 +19,10 @@ function dm_partner_define_constants(){
   define( 'LOG_OUT_PAGE', 4191 );
   define( 'CONTACT_PAGE', 186 );
 
+  // Content pages
+  define( 'PAGE_FEATURED_SCHOOLS', 2854 );
+  define( 'PAGE_SCHOOL_RANKINGS', 3096 );
+
 
   // Dynamic data
 
