@@ -201,7 +201,9 @@ class DM_MyColleges {
 
 
 
-                <p><a href="' . get_the_permalink( $college_id ) . '">View details for ' . get_the_title( $college_id ) . '</a></p>
+                <div class="dm-my-college-bottom-actions">
+                  <a href="' . get_the_permalink( $college_id ) . '">View ' . get_the_title( $college_id ) . ' page</a>
+                </div>
             </div>
 
 
@@ -250,44 +252,69 @@ class DM_MyColleges {
 
     if ( $nps ) {
 
-    $return = '<h2 class="font-bold no-margins">
-                  Net Promoter Score: <span class="net-promoter">' . $nps . '</span>
-              </h2>';
+      if ( $nps >= 41 ) {
+        $light = 'green';
+      } elseif ( $nps >= 30 && $nps < 40 ) {
+        $light = 'yellow';
+      } else {
+        $light = 'red';
+      }
+
+    $return =  '<h3 class="font-bold no-margins">';
+    $return .= '  Net Promoter Score: <span class="net-promoter">' . $nps . '</span>';
+    $return .= '</h3>';
+    $return .= '<div class="dm-nps-traffic-lights ' . $light . '"> </div>';
 
     }
     return $return;
   }
 
+
   private function tabs_block ( $college_id ) {
 
+      $dm_school = new DM_School;
+      $dm_note = new DM_Note;
 
-      $return = '<ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#menu-' . $college_id . '-1"><i class="fa fa-meh-o" aria-hidden="true"></i> NPS</a></li>
-                  <li><a data-toggle="tab" href="#home-' . $college_id . '"><i class="fa fa-sticky-note" aria-hidden="true"></i> Your Notes</a></li>
-                  <li><a data-toggle="tab" href="#menu-' . $college_id . '-2"><i class="fa fa-comment" aria-hidden="true"> </i>Student Reviews</a></li>
-                  <li><a data-toggle="tab" href="#menu-' . $college_id . '-3"><i class="fa fa-address-card" aria-hidden="true"></i> Contact</a></li>
-                </ul>
+      $nps = $dm_school -> get_school_nps ( $college_id );
 
-                <div class="tab-content">
-                  <div id="menu-' . $college_id . '-1" class="tab-pane fade in active">
-                    <h3>Menu 1</h3>
-                    ' . $this -> nps_block( $college_id ) . '
-                  </div>
-                  <div id="home-' . $college_id . '" class="tab-pane fade">
-                      <h3 class="font-bold no-margins">
-                          Your notes:
-                      </h3>
-                      <textarea rows="2" cols="50" name="note-' . $college_id . '">' . $this -> get_my_college_note ( $college_id ) . '</textarea>
-                  </div>
+      $return = '<div class="dm-my-college-tabs">
+                  <ul class="nav nav-tabs">';
 
-                  <div id="menu-' . $college_id . '-2" class="tab-pane fade">
+      if  ( $nps ) {
+        if ( $nps >= 41 ) {
+          $smiley_font = 'fa-smile-o';
+        } elseif ( $nps >= 30 && $nps < 40 ) {
+          $smiley_font = 'fa-meh-o';
+        } else {
+          $smiley_font = 'fa-frown-o';
+        }
+        $return .= ' <li class="active"><a data-toggle="tab" href="#menu-' . $college_id . '-1"><i class="fa ' . $smiley_font . '" aria-hidden="true"></i> NPS</a></li>';
+      }
+      $return .= '<li><a data-toggle="tab" href="#home-' . $college_id . '"><i class="fa fa-sticky-note" aria-hidden="true"></i> Your Notes</a></li>';
+      $return .= '<li><a data-toggle="tab" href="#menu-' . $college_id . '-2"><i class="fa fa-comment" aria-hidden="true"> </i>Student Reviews</a></li>';
+      $return .= '<li><a data-toggle="tab" href="#menu-' . $college_id . '-3"><i class="fa fa-address-card" aria-hidden="true"></i> Contact</a></li>';
+      $return .= '</ul>';
+
+      $return .= '<div class="tab-content">';
+
+      if  ( $nps ) {
+        $return .= '<div id="menu-' . $college_id . '-1" class="tab-pane fade in active">
+                      ' . $this -> nps_block( $college_id ) . '
+                    </div>';
+      }
+      $return .= '<div id="home-' . $college_id . '" class="tab-pane fade">
+                      ' . $dm_note -> my_college_note_block( $college_id ) . '
+                  </div>';
+      $return .= '<div id="menu-' . $college_id . '-2" class="tab-pane fade">
                     <h3>Menu 2</h3>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                  </div>
-                  <div id="menu-' . $college_id . '-3" class="tab-pane fade">
+                  </div>';
+      $return .= '<div id="menu-' . $college_id . '-3" class="tab-pane fade">
                     <h3>Contact Information</h3>
                     ' . $this -> contact_data_block( $college_id ) . '
-                  </div>
+                  </div>';
+
+      $return .= '</div>
                 </div>';
 
       return $return;
@@ -346,6 +373,7 @@ class DM_MyColleges {
     return $return;
   }
 
+  // NOTE Duplicate. Already exists similarly in classRating
   public function get_my_college_rating ( $college_id ) {
 
     if ( ! $college_id ) {
@@ -362,10 +390,9 @@ class DM_MyColleges {
     }
 
 
-
   }
 
-
+  // NOTE Duplicate. Already exists similarly in classNote
   public function get_my_college_note ( $college_id ) {
 
     if ( ! $college_id ) {

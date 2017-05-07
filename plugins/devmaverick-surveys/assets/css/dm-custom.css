@@ -301,16 +301,61 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-my-coleges-list .nav-tabs {
   clear: both;
 }
-.dm-my-coleges-list .nav-tabs > li > a {
-    color: #A7B1C2;
-    font-weight: 600;
-    padding: 10px 10px 10px 15px;
+.dm-my-coleges-list .nav-tabs > li > a,
+.dm-my-coleges-list .nav-tabs > li > a:focus,
+.dm-my-coleges-list .nav-tabs > li > a:active {
+  color: #A7B1C2;
+  font-weight: 600;
+  padding: 10px 10px 10px 15px;
+  border: 0;
 }
 .dm-my-colege-item {
 
 }
 .dm-my-colege-item h1 {
   margin-bottom: 10px;
+}
+.dm-my-school-rating-block {
+  margin-bottom: 10px;
+}
+.dm-my-school-rating-block .fa {
+  color: orange;
+}
+.dm-nps-traffic-lights {
+  background: url(../images/nps-traffic-lights.png);
+  width: 40px;
+  height: 84px;
+  background-size: 116px;
+}
+.dm-nps-traffic-lights.red {
+
+}
+.dm-nps-traffic-lights.yellow {
+  background-position-x: -38px;
+}
+.dm-nps-traffic-lights.green {
+  background-position-x: -78px;
+}
+
+.dm-my-college-bottom-actions {
+
+}
+.dm-my-college-tabs {
+  margin-bottom: 30px;
+}
+.dm-my-college-tabs ul.nav {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.dm-my-college-tabs .tab-content {
+    background-color: white;
+    padding: 15px;
+}
+.dm-my-college-tabs h3 {
+  margin-bottom: 20px;
+}
+.dm-my-college-tabs h4 {
+  line-height: 1.4;
 }
 
 /* My colleges Empty */

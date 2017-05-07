@@ -93,7 +93,7 @@ class DM_Modal {
     }
 
     $ratings_block  = $dm_rating -> get_editable_ratings_block( $school_id );
-    $user_note      = $dm_note -> get_user_school_note( $school_id, $user_id );
+    $user_note      = $dm_note -> get_user_school_note( $school_id );
     $rating 	      = $dm_rating -> get_user_school_rating( $school_id, $user_id );
 
     $return = '';
@@ -121,7 +121,7 @@ class DM_Modal {
       $user_id        = get_current_user_ID();
     }
 
-    $user_note      = $dm_note -> get_user_school_note( $school_id, $user_id );
+    $user_note      = $dm_note -> get_user_school_note( $school_id );
 
     $return = '<div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -152,7 +152,7 @@ class DM_Modal {
       $user_id        = get_current_user_ID();
     }
 
-    $user_note      = $dm_note -> get_user_school_note( $school_id, $user_id );
+    $user_note      = $dm_note -> get_user_school_note( $school_id );
 
     $return = '<div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
