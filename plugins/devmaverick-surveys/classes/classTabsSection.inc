@@ -168,6 +168,11 @@ class DM_TabsSection {
 
 function dm_call_tabs_section() {
 
+  if ( ! is_singular( 'schools' ) ) {
+    return;
+  }
+
+
   // Declare the global variables to be used with all the classes and functions
 
   global $global_question_options_list;
@@ -200,7 +205,6 @@ function dm_call_tabs_section() {
   $dm_tabs_section = new DM_TabsSection;
   $dm_tabs_section -> display_tabs_section();
 }
-
-add_action( 'genesis_after_loop', 'dm_call_tabs_section', 10, 10 );
+  add_action( 'genesis_after_loop', 'dm_call_tabs_section', 10, 10 );
 
 ?>

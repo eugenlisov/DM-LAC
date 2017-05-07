@@ -33,6 +33,7 @@ function dm_lac_enqueue_style_and_scripts() {
 
   if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) ) {
     wp_enqueue_style( 'dm-bootstrap' );
+    wp_enqueue_script( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );
   }
 

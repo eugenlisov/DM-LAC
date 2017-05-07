@@ -171,6 +171,13 @@ class DM_School {
     $user_id = $ajax_data['user_id'];
 
     $existing_school_notes = get_user_meta($user_id, 'dm_user_notes', true);
+
+    // If it already exists and is the same value, return true;
+    if ( $existing_school_notes[$post_id] == $note ) {
+      return true;
+    }
+
+    // Otherwise, continue as usual.
     $existing_school_notes[$post_id] = $note;
 
     $result = update_user_meta($user_id, 'dm_user_notes', $existing_school_notes);
@@ -193,6 +200,13 @@ class DM_School {
     $user_id = $ajax_data['user_id'];
 
     $existing_school_ratings = get_user_meta($user_id, 'dm_user_ratings', true);
+
+    // If it already exists and is the same value, return true;
+    if ( $existing_school_ratings[$post_id] == $rating ) {
+      return true;
+    }
+
+    // Otherwise, continue as usual.
     $existing_school_ratings[$post_id] = $rating;
 
     $result = update_user_meta($user_id, 'dm_user_ratings', $existing_school_ratings);

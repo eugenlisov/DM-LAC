@@ -171,7 +171,7 @@ class DM_TemplateElements {
     $my_colleges = new DM_MyColleges;
     $rating = $my_colleges -> get_my_college_rating ( $school_id );
 
-    $return = '<div class="row dm-college-top-content logged-in" school-id="' . get_the_ID() . '">
+    $return = '<div class="row dm-college-top-content logged-in" school-id="' . get_the_ID() . '" user-id="' . $user_id . '">
 
                   <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
                       <div class="widget style1 navy-bg">
@@ -189,48 +189,22 @@ class DM_TemplateElements {
                       ' . do_shortcode('[favorite_button]') . '
                   </div>';
 
+                  $user_favorites = unserialize( CURRENT_USER_FAVORITE_SCHOOLS );
 
-                  // if ( $rating ) {
+                  $dm_college_actions = new DM_CollegeActions;
 
-                    $return .= '<div class="col-lg-3 dm-my-rating trigger-school-rating-modal">
-                        <div class="widget style1 lazur-bg">
-                            <div class="row vertical-align">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-star fa-3x" aria-hidden="true" rating="1"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <h2 class="font-bold">' . $rating . '</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
+                  if ( in_array( $school_id, $user_favorites ) ) {
 
-                  // }
+                    $return .= $dm_college_actions -> button_school_rating( $school_id, $user_id );
+                    $return .= $dm_college_actions -> button_school_note();
 
-                  // if ( $user_note ) {
-                    $return .= '<div class="col-lg-3 dm-my-note trigger-add-note-modal">
-                        <div class="widget style1 yellow-bg">
-                            <div class="row vertical-align">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <span>Notes</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
-                  // }
-
-
-
+                  }
 
                   $return .= '</div>';
 
       // return $logged_in_content . $return;
       return $return;
 
-      // return $logged_in_content;
   }
 
 
@@ -238,7 +212,7 @@ class DM_TemplateElements {
 
   public function get_logged_out_content() {
 
-    $return = '<div class="row dm-college-top-content logged-out" school-id="' . get_the_ID() . '">
+    $return = '<div class="row dm-college-top-content logged-out" school-id="' . get_the_ID() . '" user-id="' . $user_id . '">
 
                 <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
                     <div class="widget style1 navy-bg">

@@ -129,11 +129,9 @@ class DM_Modal {
                 </div>
                 <div class="modal-body">
 
-                  <p><textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title() . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
-                  <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green">Save Note</button></p>
-                  <p><strong>Your rating: </strong>
-                    ' . $ratings_block . '
-                  </p>
+                  <p><textarea id="dm-single-note" class="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title( $school_id ) . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
+                  <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-save-note">Save Note</button></p>
+
                 </div>';
 
     return $return;
@@ -160,11 +158,11 @@ class DM_Modal {
                 </div>
                 <div class="modal-body">
                   <div class="dm-modal-existing-note-container">
-                    <p><i class="fa fa-quote-left fa-3x" aria-hidden="true"></i>' . $user_note . '</p>
+                    <p><i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>' . $user_note . '</p>
                     <p class="dm-note-action trigger-edit-note">Edit note</p>
                   </div>
                   <div class="dm-modal-editable-note-container" style="display: none;">
-                    <p><textarea id="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title() . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
+                    <p><textarea id="dm-single-note" class="dm-single-note" rows="4" cols="50" user-id="' . $user_id . '" school-id="' . $school_id . '" placeholder="What struck you most about ' . get_the_title( $school_id ) . '? Add it here so you remember later.">' . $user_note . '</textarea></p>
                     <p><button id="dm-single-note-button" type="button" class="dm-btn dm-btn-lg dm-btn-green trigger-save-note">Save Note</button></p>
                     <p class="dm-note-action trigger-cancel-note-edit">Cancel</p>
                   </div>
@@ -273,10 +271,10 @@ class DM_Modal {
     $user_id = get_current_user_ID();
 
 
-    $dm_rating = new DM_Rating;
-    $rating 	 = $dm_rating -> get_user_school_rating( $school_id, $user_id );
+    $dm_note = new DM_Note;
+    $note 	 = $dm_note -> get_user_school_note( $school_id );
 
-    if ( $rating ) {
+    if ( $note ) {
       $return = $this -> modal_content_note_existing( $school_id, $user_id );
     } else {
       $return = $this -> modal_content_note_fresh( $school_id, $user_id);

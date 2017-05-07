@@ -58,12 +58,17 @@ jQuery( document ).ready(function($) {
   modalNote();
   function modalNote() {
 
+    // Make the submit button visible only after there's some change in the textfield - Deocamdata mai bine nu
+    // $( document ).on( "keyup", '.dm-single-note', function() {
+    //   $( this ).parents( '.modal-body' ).find( '.trigger-save-note' ).slideDown();
+    // });
+
     // Trigger the single note Save
     $( document ).on( "click", '.trigger-save-note', function() {
 
-      var note = $('#dm-single-note').val();
-      var schoolId = $('#dm-single-note').attr('school-id');
-      var userId = $('#dm-single-note').attr('user-id');
+      var note = $( this ).parents( '.modal-content' ).find('.dm-single-note').val();
+      var schoolId = $( '.dm-college-top-content' ).attr('school-id');
+      var userId = $( '.dm-college-top-content' ).attr('user-id');
       var ajaxData = {};
 
       ajaxData['post_id'] = schoolId;
@@ -81,6 +86,8 @@ jQuery( document ).ready(function($) {
   modalRating();
   function modalRating() {
 
+
+
       $( document ).on( "click", '.dm-rating .fa', function() {
 
         // Add 'filled' to current star and previous siblings.
@@ -89,13 +96,14 @@ jQuery( document ).ready(function($) {
 
         // Do the actual rating stuff
         var rating = $( this ).attr('rating');
-        var schoolId = $('#dm-single-note').attr('school-id');
-        var userId = $('#dm-single-note').attr('user-id');
+        var schoolId = $( '.dm-college-top-content' ).attr('school-id');
+        var userId = $( '.dm-college-top-content' ).attr('user-id');
         var ajaxData = {};
 
         ajaxData['post_id'] = schoolId;
         ajaxData['user_id'] = userId;
         ajaxData['rating']  = rating;
+        console.log( ajaxData );
 
         var previousRating = $( '.dm-my-rating h2' ).text();
         if ( previousRating == rating ) {
