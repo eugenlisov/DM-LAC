@@ -14,8 +14,8 @@ class DM_Chart {
       case 3:
         $chart_string = $this -> get_q3_chart( $question_id );
         break;
-      case 6:
-        $chart_string = $this -> get_q6_chart( $question_id );
+      case 5:
+        $chart_string = $this -> get_q5_chart( $question_id );
         break;
       default:
         $chart_string = $this -> get_regular_q_chart( $question_id );
@@ -83,7 +83,7 @@ class DM_Chart {
       return $return;
   }
 
-  private function get_q6_chart( $question_id = '' ) {
+  private function get_q5_chart( $question_id = '' ) {
 
       $average_lac 	= $response_averages[$question_id] -> average ;
       $average_iped = $response_averages_by_iped[$question_id] -> school_ave ;
