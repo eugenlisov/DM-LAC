@@ -12,6 +12,9 @@ class DM_Question {
   public function get_question_block( $question_id = '' ) {
 
     if (!$question_id) return false;
+    if ( in_array( $question_id, [4, 5] ) ) {
+      return;
+    }
 
       $dm_chart = new DM_Chart;
 

@@ -78,6 +78,9 @@ class DM_Tab {
 
       $dm_question = new DM_Question;
       $tab_questions_ids = $this -> get_tab_questions( $tab_id );
+      // echo '<pre>';
+      // print_r( $tab_questions_ids );
+      // echo '</pre>';
 
       $regular_content = '';
 

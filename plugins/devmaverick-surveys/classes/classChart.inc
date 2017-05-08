@@ -14,8 +14,8 @@ class DM_Chart {
       case 3:
         $chart_string = $this -> get_q3_chart( $question_id );
         break;
-      case 5:
-        $chart_string = $this -> get_q5_chart( $question_id );
+      case 6:
+        $chart_string = $this -> get_q6_chart( $question_id );
         break;
       default:
         $chart_string = $this -> get_regular_q_chart( $question_id );
@@ -83,35 +83,20 @@ class DM_Chart {
       return $return;
   }
 
-  private function get_q5_chart( $question_id = '' ) {
+  private function get_q6_chart( $question_id = '' ) {
+      // NOTE The number of the q5 is 6 in this case
 
-      $average_lac 	= $response_averages[$question_id] -> average ;
-      $average_iped = $response_averages_by_iped[$question_id] -> school_ave ;
+      global $global_response_averages_by_iped;
 
-      $average_lac_round 	= round( $response_averages[$question_id] -> average );
-      $average_iped_round = round( $response_averages_by_iped[$question_id] -> school_ave );
-
-      $response_lac 	= $question_options_list[$question_id][$average_lac_round] -> option_text;
-      $response_iped 	= $question_options_list[$question_id][$average_iped_round] -> option_text;
-
-      // $current_question_return .= 'Current question ' . $question_id . ' <br />';
-      // $current_question_return .= '$average_lac_round ' . $average_lac . ' <br />';
-      // $current_question_return .= '$average_iped_round ' . $average_iped . ' <br />';
-      // $current_question_return .= '$response_iped ' . $response_iped . ' <br />';
-      // $current_question_return .= '$average_iped_round ' . $average_iped_round . ' <br />';
-
-
-      $current_question_option = $charts_data[$question_id];
+      $school_average = $global_response_averages_by_iped[6] -> school_ave;
       // echo '<pre>';
-      // print_r($current_question_option);
+      // print_r( $global_response_averages_by_iped[6] );
       // echo '</pre>';
-      $current_option = $current_question_option[$average_iped_round];
-      // echo '<pre>';
-      // print_r( $current_option );
-      // echo '</pre>';
-
-      $option_text = $current_option -> option_text;
-      $option_percent_q6 = $average_iped / 10 * 100;
+      //
+      // $real_q_id = 6;
+      //
+      // $option_text = $current_option -> option_text;
+      $option_percent_q6 = $school_average / 10 * 100;
 
       $current_question_return .= '<p class="dm-q6-chart-caption">On a 0 to 10 scale, this is what students rated ' . get_the_title() . '.</p>';
       $current_question_return .= '
@@ -129,7 +114,7 @@ class DM_Chart {
             </div>
           </div>';
 
-
+          return $current_question_return;
   }
 
   private function get_regular_q_chart( $question_id = '' ) {
