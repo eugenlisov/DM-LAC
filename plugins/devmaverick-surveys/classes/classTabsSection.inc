@@ -24,10 +24,16 @@ class DM_TabsSection {
   	// If there is not IPED associated with this school, just not display the Tabs.
   	if ($iped == '') return;
 
+    $dm_question = new DM_Question;
 
 
     $tabs_list           = $this -> get_tabs_list();
-    $all_questions_list  = get_all_questions_list();
+    $all_questions_list  = $dm_question -> get_all_questions_list( $iped );
+
+    // echo '<pre>';
+    // print_r( $all_questions_list );
+    // echo '</pre>';
+
     $tabs_questions      = get_tabs_questions();
   	$response_averages   = get_response_averages(); // TODO. Trebuie refacut
     $response_averages_by_iped   = get_response_averages_by_iped( $iped ); // OK - functie refacuta
