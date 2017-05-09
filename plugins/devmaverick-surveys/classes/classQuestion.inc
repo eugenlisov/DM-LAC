@@ -92,7 +92,7 @@ class DM_Question {
     global $wpdb;
 
     // Get the data from the 'dm_survey_responses' table
-    $sql_all_questions_list = 'SELECT * FROM `dm_survey_all_questions` WHERE NOT other = "yes"';
+    $sql_all_questions_list = 'SELECT * FROM `dm_survey_all_questions` ';
     $all_questions_list = $wpdb->get_results( $sql_all_questions_list );
 
     $all_questions_list_by_id = array();
