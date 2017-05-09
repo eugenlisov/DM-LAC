@@ -8,7 +8,6 @@ add_action( 'init', 'register_shortcodes');
 * Register all shortcodes
 */
 function register_shortcodes(){
-	add_shortcode('dm-school-tabs', 'dm_school_tabs');
 	add_shortcode('dm-my-colleges', 'dm_my_colleges');
 	add_shortcode('dm-dashboard-links', 'dm_dashboard_links');
 	add_shortcode('dm-dashboard-my-colleges', 'dm_dashboard_my_colleges_widget');
