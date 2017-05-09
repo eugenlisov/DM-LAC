@@ -24,57 +24,14 @@ class DM_TabsSection {
   	// If there is not IPED associated with this school, just not display the Tabs.
   	if ($iped == '') return;
 
-    $dm_question = new DM_Question;
-
 
     $tabs_list           = $this -> get_tabs_list();
-    $all_questions_list  = $dm_question -> get_all_questions_list( $iped );
-
-    // echo '<pre>';
-    // print_r( $all_questions_list );
-    // echo '</pre>';
-
-    $tabs_questions      = get_tabs_questions();
-  	$response_averages   = get_response_averages(); // TODO. Trebuie refacut
-    $response_averages_by_iped   = get_response_averages_by_iped( $iped ); // OK - functie refacuta
-  	$lac_averages 			 = get_response_averages(); // To be used on the comparisons tab;
-
-    $responses_max       = get_responses_max_score(); // TODO de verificat la ce foloseste  asta
-    $responses_min       = get_responses_min_score(); // TODO de verificat la ce foloseste  asta
-
-
-  	$charts_data 						= dm_get_charts_data( $iped );
-  	$comparisons_chart_data = dm_get_comparisons_charts_data( $iped );
-
-
-  	// Nu stiu daca e ce TRebuie
-  	$responses_count_by_question_and_iped = get_response_count_by_question_and_iped( $iped ); //- Trebuie salvat aici numarul de raspunsuri pentru fiecare intrebare.
-  	$responses_by_iped										= get_response_count_by_iped( $iped );
-
-  	$question_options_list 								= get_question_options_list();
-
-    // echo '<pre class="col-md-6">';
-    // print_r($tabs_questions);
-    // echo '</pre>';
-  	// echo '<pre class="col-md-6">';
-  	// print_r($lac_averages);
-  	// echo '</pre>';
-
-  	global $post;
-  	$post_id =  $post->ID;
-
-
-  	$selected_open_ended_questions = get_post_meta($post_id, 'dm_open_ended_questions', true);
-
 
   	?>
 
     <!-- This is where the code goes -->
 
-
-
-
-  		<div class="dm-school-tabs bs-example" school-iped="<?php echo $iped; ?>">
+  		<div class="dm-school-tabs" school-iped="<?php echo $iped; ?>">
   		    <ul class="nav nav-tabs">
               <?php
                 echo $this -> get_tabs_navigation( $tabs_list );
@@ -89,10 +46,6 @@ class DM_TabsSection {
               $dm_tab -> get_tab_content( $tab );
             }
              ?>
-
-
-
-
   		    </div>
   		</div>
 

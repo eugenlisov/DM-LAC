@@ -18,14 +18,15 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
 
   //  get_tabs_questions();
 
-
+  $dm_question = new DM_Question;
+  $all_questions_list = $dm_question -> get_all_questions_list();
 
    $tabs_list           = get_tabs_list();
-   $all_questions_list  = get_all_questions_list();
+  //  $all_questions_list  = get_all_questions_list();
    $tabs_questions      = get_tabs_questions();
 
   //  echo '<pre>';
-  //  print_r($tabs_list);
+  //  print_r($all_questions_list);
   //  echo '</pre>';
   //
 
@@ -136,7 +137,7 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
 
        echo '<h4>Please select the questions for which the the current schools should be compared to the LAC average</h4>';
 
-         foreach ($all_questions_list as $key => $question) { 
+         foreach ($all_questions_list as $key => $question) {
            # code...
            if (!empty($tabs_questions[$tab -> id])) {
              $checked = ( in_array($question -> id, $tabs_questions[$tab -> id]) ) ? 'checked="checked"' : '';
