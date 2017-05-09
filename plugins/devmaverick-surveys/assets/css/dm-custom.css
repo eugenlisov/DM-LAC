@@ -619,6 +619,23 @@ article.post-4190.page.type-page.status-publish.entry{
 
 /* Comparisons tab */
 
+
+
+/* Maybe unnecesary */
+
+.dm-school-tabs {
+  width: 100%;
+}
+.dm-question-block {
+  width: 100%;
+}
+.tab-content {
+    /*padding: 10px 40px;*/
+    margin-bottom: 40px;
+}
+
+/* END Maybe unnecesary */
+
 #comparison .dm-question-block {
   display: none;
 }

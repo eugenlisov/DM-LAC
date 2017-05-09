@@ -12,32 +12,10 @@ class DM_TabsSection {
 
 
   public function display_tabs_section() {
-  	// wp_enqueue_style('dm-bootstrap-style', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-    wp_enqueue_style('dm-font-awesome-style', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-  	wp_enqueue_style('dm-tabs', plugins_url() . '/devmaverick-surveys/assets/css/tabs.css');
-
-    wp_enqueue_script('dm-bootstrap-script', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '1.0.0', true );
-  	wp_enqueue_script('dm-d3-script', 'http://d3js.org/d3.v3.min.js', array(), '1.0.0', true );
-
-  	wp_enqueue_script('dm-tabs', plugins_url() . '/devmaverick-surveys/assets/js/tabs.js', array(), '1.0.0', true );
-
-
-
-  	// echo 'TEsting smart tags';
-
-  // 	echo do_shortcode("
-  // [MM_Access_Decision access='true']
-  //
-  // TEST EUGEN You've had access to this page since [MM_Content_Data name='dateAvailable']. Click here to visit the page: <a href=\"[MM_Content_Link]\">[MM_Content_Data name='title']</a>
-  //
-  // [/MM_Access_Decision]
-  //
-  //
-  // [MM_Access_Decision access='false']
-  //
-  // TEST EUGEN You don't have access to [MM_Content_Data name='title']. Click here to purchase access: <a href=\"[MM_Purchase_Link productId='1']\">Get Access</a>
-  //
-  // [/MM_Access_Decision]");
+  	wp_enqueue_style( 'dm-bootstrap' );
+    wp_enqueue_style( 'dm-font-awesome' );
+    wp_enqueue_script( 'dm-bootstrap' );
+    wp_enqueue_script( 'dm-tabs' );
 
   $dm_school = new DM_School;
 
