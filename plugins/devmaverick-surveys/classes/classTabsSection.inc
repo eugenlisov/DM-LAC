@@ -25,7 +25,7 @@ class DM_TabsSection {
   	if ($iped == '') return;
 
 
-    $tabs_list           = $this -> get_tabs_list();
+    $tabs_list = $this -> get_tabs_list();
 
   	?>
 

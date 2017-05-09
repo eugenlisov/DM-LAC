@@ -108,12 +108,18 @@ class DM_Tab {
                                 ORDER BY
                                 tab_id ASC, question_id ASC';
     $tabs_questions_list_raw = $wpdb->get_results( $sql_tabs_questions_list );
-
+    // echo '<pre>';
+    // print_r ( $tabs_questions_list_raw );
+    // echo '</pre>';
     $tabs_questions_list = array();
 
     foreach ($tabs_questions_list_raw as $key => $value) {
       $tabs_questions_list[$value -> tab_id][] = $value -> question_id;
     }
+
+    // echo '<pre>';
+    // print_r ( $tabs_questions_list );
+    // echo '</pre>';
 
     return $tabs_questions_list;
 
@@ -136,7 +142,7 @@ class DM_Tab {
     // echo 'Tab ID: ' . $tab_id;
     //
     // echo '<pre>';
-    // print_r( $global_all_questions_by_tabs[$tab_id] );
+    // print_r( $global_all_questions_by_tabs );
     // echo '</pre>';
 
     return $global_all_questions_by_tabs[$tab_id];

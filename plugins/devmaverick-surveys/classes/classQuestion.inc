@@ -12,9 +12,6 @@ class DM_Question {
   public function get_question_block( $question_id = '' ) {
 
     if (!$question_id) return false;
-    if ( in_array( $question_id, [4, 5] ) ) {
-      return;
-    }
 
       $dm_chart = new DM_Chart;
 
@@ -24,16 +21,22 @@ class DM_Question {
       $question_narrative     = $dm_current_question -> tab_narrative;
       $survey_question_number = $dm_current_question -> q_number; // This is the actual number of the question in the survey.
 
-      $return = '<div class="dm-question-block dm-question-' . $question_id . '" question-id="' . $question_id . '">
+      $chart =  $dm_chart -> get_chart( $question_id );
+      $open_ended_questions =   $this -> get_open_ended_questions_block( $survey_question_number );
 
+      if ( $chart || $open_ended_questions ) {
 
-                    <h4>' .  $question_name . '</h4>
-                    <div class="question-narrative">' . $question_narrative . '</div>';
+        $return = '<div class="dm-question-block dm-question-' . $question_id . '" question-id="' . $question_id . '">
 
-      $return .=  $dm_chart -> get_chart( $question_id );
-      $return .=   $this -> get_open_ended_questions_block( $survey_question_number ) ;
+                      <h4>' .  $question_name . '</h4>
+                      <div class="question-narrative">' . $question_narrative . '</div>';
 
-      $return .=  '</div>';
+        $return .=  $chart;
+        $return .=  $open_ended_questions;
+
+        $return .=  '</div>';
+
+      }
 
       // echo '<pre>Open ended questions';
       // print_r( $this -> get_open_ended_questions_block( $survey_question_number ) );
