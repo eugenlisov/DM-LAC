@@ -248,14 +248,17 @@ class DM_NPS {
 
       if ( $nps >= 41 ) {
         $light = 'green';
-        $message = 'Based on feedback from current students, ' . get_the_title( $college_id ) . ' is highly recommended.';
+        $recommended = 'highly recommended';
       } elseif ( $nps >= 30 && $nps < 40 ) {
         $light = 'yellow';
-        $message = 'Current students of ' . get_the_title( $college_id ) . ' don\'t have a strong opinion pro or against it.';
+        $recommended = 'recommended';
       } else {
         $light = 'red';
-        $message = 'Current students aren\'t eager to recommend ' . get_the_title( $college_id ) . '.';
+        $recommended = 'not recommended';
       }
+
+
+      $message = 'Based on feedback from current students, ' . get_the_title( $college_id ) . ' is ' . $recommended . '.';
 
     $return = '<div class="row dm-nps-traffic-light-container">
                   <div class="col-md-2">

@@ -366,10 +366,16 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 
 
+
 .dm-nps-traffic-lights-message  {
   font-size: 20px;
   padding-left: 0;
   color: black;
+}
+.dm-school-tabs .dm-nps-traffic-lights-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dm-my-college-bottom-actions {

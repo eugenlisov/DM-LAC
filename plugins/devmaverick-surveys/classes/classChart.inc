@@ -76,9 +76,10 @@ class DM_Chart {
 
       $dm_nps = new DM_NPS;
       $dm_school = new DM_School;
-      $nps = $dm_school -> get_school_nps ( get_the_ID() );
+      $college_id = get_the_ID();
+      $nps = $dm_school -> get_school_nps ( $college_id );
 
-      $return = $dm_nps -> nps_traffic_lights( $nps );
+      $return = $dm_nps -> nps_traffic_lights( $nps, $college_id );
 
       return $return;
   }
