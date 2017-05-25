@@ -46,7 +46,42 @@ class DM_School {
 
   }
 
+  public function get_school_selectivity( $school_id = '' ) {
 
+    if ( ! $school_id ) {
+      $school_id = get_the_ID();
+    }
+    $terms = wp_get_post_terms( $school_id, 'selectivity' );
+    if ( ! $terms ) {
+      return false;
+    }
+    $selectivity = $terms[0] -> name;
+    return $selectivity;
+
+  }
+
+  public function get_school_location( $school_id = '' ) {
+
+    if ( ! $school_id ) {
+      $school_id = get_the_ID();
+    }
+    $terms_city = wp_get_post_terms( $school_id, 'city' );
+    $terms_state = wp_get_post_terms( $school_id, 'state' );
+
+    if ( $terms_city ) {
+      $location['city'] = $terms_city[0] -> name;
+    }
+    if ( $terms_state ) {
+      $location['state'] = $terms_state[0] -> name;
+    }
+
+    if ( $location ) {
+      return implode( ', ', $location);
+    } else {
+      return false;
+    }
+
+  }
 
 
 

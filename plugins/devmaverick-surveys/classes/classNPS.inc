@@ -242,20 +242,29 @@ class DM_NPS {
       return $counts_by_iped_and_response;
 
   }
-  public function nps_traffic_lights( $nps = '' ) {
+  public function nps_traffic_lights( $nps = '', $college_id ) {
 
     if ( $nps ) {
 
       if ( $nps >= 41 ) {
         $light = 'green';
+        $message = 'Based on feedback from current students, ' . get_the_title( $college_id ) . ' is highly recommended.';
       } elseif ( $nps >= 30 && $nps < 40 ) {
         $light = 'yellow';
+        $message = 'Current students of ' . get_the_title( $college_id ) . ' don\'t have a strong opinion pro or against it.';
       } else {
         $light = 'red';
+        $message = 'Current students aren\'t eager to recommend ' . get_the_title( $college_id ) . '.';
       }
 
-    $return = '<div class="dm-nps-traffic-lights ' . $light . '"> </div>';
-
+    $return = '<div class="row dm-nps-traffic-light-container">
+                  <div class="col-md-2">
+                      <div class="dm-nps-traffic-lights ' . $light . '"></div>
+                  </div>
+                  <div class="col-md-10 dm-nps-traffic-lights-message">
+                  ' . $message  . '
+                  </div>
+                </div>';
     }
     return $return;
 

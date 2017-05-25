@@ -57,11 +57,18 @@ class DM_Rating {
 
     $rating = $this -> get_user_school_rating( $college_id );
 
+
     $return = '<div class="m-b-md dm-my-school-rating-block">';
 
-    for ($i=1; $i <= $rating ; $i++) {
-      $return .= '<i class="fa fa-star fa-2x"></i>';
+    if  ( $rating ) {
+      $return .= '<span class="dm-my-college-meta-item">Your Rating: </span>';
+      for ($i=1; $i <= $rating ; $i++) {
+        $return .= '<i class="fa fa-star fa-2x"></i>';
+      }
+    } else {
+      $return .= '<span class="dm-my-college-meta-item">You haven\'t yet rated this college! </span>';
     }
+
 
     $return .= '</div>';
 

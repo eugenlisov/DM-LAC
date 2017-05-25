@@ -37,9 +37,19 @@ class DM_MyColleges {
     $user_id = get_current_user_id();
     $favorites_count = count($favorites);
 
-    // $return = '';
+    switch ($favorites_count) {
+      case 0:
+        $message = '<h3>There are no Colleges in Your Watch List:</h3>';
+        break;
+      case 1:
+        $message = '<h3>There is one College in Your Watch List:</h3>';
+        break;
+      default:
+        $message = '<h3>There are ' . $favorites_count . ' Colleges in Your Watch List:</h3>';
+        break;
+    }
 
-    $return .= '<h3>There are ' . $favorites_count . ' Colleges in Your Watch List:</h3>';
+    $return .= $message;
 
     $return .= '<div class="dm-my-coleges-list" user-id="' . $user_id . '">';
 
@@ -184,18 +194,25 @@ class DM_MyColleges {
 
     $dm_rating = new DM_Rating;
 
+    $dm_school = new DM_School;
+    $selectivity = $dm_school -> get_school_selectivity( $college_id );
+    $selectivity_block = ( $selectivity ) ? '<div class="dm-my-college-meta-item">Selectivity: ' .  $selectivity . '</div>' : '';
+
+    $location = $dm_school -> get_school_location( $college_id );
+    $location_block = ( $selectivity ) ? '<div class="dm-my-college-meta-item">Location: ' .  $location . '</div>' : '';
+
+
     $return = '<div class="col-lg-6 dm-my-colege-item" school-id="' . $college_id . '">
         <div class="widget ' . $background . ' no-padding">
             <div class="p-m">
                 ' . $thumb_block . '
                 <h1 class="m-xs">' . get_the_title( $college_id ) . '</h1>
-
-                ' . $dm_rating ->  get_my_college_rating_block( $college_id ) . '
-
-
-
-                ' . $this -> tabs_block ( $college_id ) . '
-
+                <div class="dm-my-colege-meta">
+                  ' . $location_block . '
+                  ' . $selectivity_block . '
+                  ' . $dm_rating ->  get_my_college_rating_block( $college_id ) . '
+                </div>
+                  ' . $this -> tabs_block ( $college_id ) . '
 
 
                 <div class="dm-my-college-bottom-actions">
@@ -251,9 +268,9 @@ class DM_MyColleges {
       $dm_nps = new DM_NPS;
 
     $return =  '<h3 class="font-bold no-margins">';
-    $return .= '  Net Promoter Score: <span class="net-promoter">' . $nps . '</span>';
+    // $return .= '  Net Promoter Score: <span class="net-promoter">' . $nps . '</span>';
     $return .= '</h3>';
-    $return .= $dm_nps -> nps_traffic_lights( $nps );
+    $return .= $dm_nps -> nps_traffic_lights( $nps, $college_id );
 
     }
     return $return;
@@ -301,8 +318,11 @@ class DM_MyColleges {
 
   private function tabs_block ( $college_id ) {
 
+
+
       $dm_school = new DM_School;
       $dm_note = new DM_Note;
+
 
       $nps = $dm_school -> get_school_nps ( $college_id );
 
@@ -310,14 +330,14 @@ class DM_MyColleges {
                   <ul class="nav nav-tabs">';
 
       if  ( $nps ) {
-        if ( $nps >= 41 ) {
-          $smiley_font = 'fa-smile-o';
-        } elseif ( $nps >= 30 && $nps < 40 ) {
-          $smiley_font = 'fa-meh-o';
-        } else {
-          $smiley_font = 'fa-frown-o';
-        }
-        $return .= ' <li class="active"><a data-toggle="tab" href="#menu-' . $college_id . '-1"><i class="fa ' . $smiley_font . '" aria-hidden="true"></i> NPS</a></li>';
+        // if ( $nps >= 41 ) {
+        //   $smiley_font = 'fa-smile-o';
+        // } elseif ( $nps >= 30 && $nps < 40 ) {
+        //   $smiley_font = 'fa-meh-o';
+        // } else {
+        //   $smiley_font = 'fa-frown-o';
+        // }
+        $return .= ' <li class="active"><a data-toggle="tab" href="#menu-' . $college_id . '-1">Recommendation</a></li>';
       } else {
         $second_tab_active = 'active';
         $second_tab_active_content = 'in active';

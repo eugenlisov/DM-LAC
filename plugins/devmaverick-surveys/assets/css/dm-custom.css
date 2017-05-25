@@ -330,9 +330,24 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-my-school-rating-block {
   margin-bottom: 10px;
 }
+.dm-my-school-rating-block .dm-my-college-meta-item {
+  margin-right: 10px;
+}
 .dm-my-school-rating-block .fa {
   color: orange;
   margin-right: 3px;
+}
+.dm-my-college-meta-item {
+  font-size: 20px;
+  line-height: 22px;
+  line-height: 36px;
+}
+.dm-my-colege-meta {
+    overflow: hidden;
+}
+.dm-nps-traffic-light-container {
+  overflow: hidden;
+  display: flex;
 }
 .dm-nps-traffic-lights {
   background: url(../images/nps-traffic-lights.png);
@@ -348,6 +363,13 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-nps-traffic-lights.green {
   background-position-x: -78px;
+}
+
+
+.dm-nps-traffic-lights-message  {
+  font-size: 20px;
+  padding-left: 0;
+  color: black;
 }
 
 .dm-my-college-bottom-actions {
