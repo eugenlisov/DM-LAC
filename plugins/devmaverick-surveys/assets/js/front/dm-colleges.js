@@ -17,7 +17,7 @@ function favorites_after_button_submit(favorites){
     var messageRemoved = '<div class="modal-header">' + closeBtn +
                   ' <div style="text-align: center;">' +
                   ' <h3>We\'ve removed ' + schoolName + ' from your colleges list!</h3>' +
-                  ' <i class="fa fa-frown-o fa-4x" aria-hidden="true" style="color: #ff5722; "></i>' +
+                  ' <i class="fa fa-times fa-4x" aria-hidden="true" style="color: #ff5722; "></i>' +
                 ' </div>' +
                 '</div>';
     $('#dm-add-note-modal .modal-content').html( messageRemoved );
