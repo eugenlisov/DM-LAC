@@ -23,6 +23,7 @@ class DM_TemplateElements {
             $modal   = $this -> get_logged_out_modal();
           }
 
+
           $contact_modal  = $dm_modal -> college_contact_modal();
           $return = $content . $modal . $contact_modal;
 

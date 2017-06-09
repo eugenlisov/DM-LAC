@@ -28,11 +28,11 @@ add_action( 'wp_enqueue_scripts', 'news_load_scripts' );
 function news_load_scripts() {
 
 	wp_enqueue_script( 'news-responsive-menu', get_bloginfo( 'stylesheet_directory' ) . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0' );
-	
+
 	wp_enqueue_style( 'dashicons' );
 
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Raleway:400,700|Pathway+Gothic+One', array(), CHILD_THEME_VERSION );
-	
+
 }
 
 //* Add new image sizes
@@ -151,30 +151,30 @@ class Fast_Facts extends WP_Widget {
 
 	/** @see WP_Widget::widget */
 	function widget( $args, $instance ) {
-		
+
 		global $post;
-		
+
 		extract( $args );
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		echo $before_widget; ?>
-            
+
        	<?php if ( $title ) echo $before_title . $title . $after_title; ?>
-        
-        
+
+
           <div id="school-facts">
-          
+
                 <?php
-                
+
                 $shool = new ArrayObject;
-                $taxonomies = get_object_taxonomies('schools','names'); 
+                $taxonomies = get_object_taxonomies('schools','names');
                 foreach ($taxonomies as $taxonomy ) {
                     $school[$taxonomy] = strip_tags(get_the_term_list( $post->ID, $taxonomy, '', ', ', '' ));
                 }
-				
+
 				$state = get_post_meta( $post->ID, 'state', true );
-				
+
                 ?>
-            
+
             	<table>
                 <tr><td>Location:</td><td><?php echo $school['city']; ?>, <?php echo $state; ?></td></tr>
                 <tr><td>Year Founded:</td><td><?php echo $school['founded']; ?></td></tr>
@@ -191,8 +191,8 @@ class Fast_Facts extends WP_Widget {
                 </table>
 
             </div>
-        
-		        
+
+
 		<?php echo $after_widget;
 	}
 
@@ -213,10 +213,10 @@ class Fast_Facts extends WP_Widget {
 		}
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
-		<?php 
+		<?php
 	}
 
 } // class Fast_Facts
@@ -225,13 +225,13 @@ add_action( 'widgets_init', create_function( '', 'register_widget("Fast_Facts");
 
 
 function update_state() {
-	
+
 	global $post;
-	
+
 	if ($_POST['post_type'] == 'schools') {
 
 		$state = get_post_meta( $post->ID, 'state', true );
-		
+
 		wp_set_post_terms( $post->ID, $state, 'state');
 
 	}
@@ -261,28 +261,28 @@ function child_info() {
 
 	if ( is_page( $post->ID ) )
 		return;
-	
+
 	$post_type = get_post_type( $post->ID );
 
 	if ($post_type != 'schools') {
-	
+
 		//$post_info = '[post_date] ' . __( 'By', 'genesis' ) . ' [post_author_posts_link] [post_comments] [post_edit]';
 		//printf( '<div class="post-info">%s</div>', apply_filters( 'genesis_post_info', $post_info ) );
-		
+
 		$city = strip_tags(get_the_term_list( $post->ID, 'city', '', ', ', '' ));
 		$state = strip_tags(get_the_term_list( $post->ID, 'state', '', ', ', '' ));
-	
+
 		$post_info = $city.', '.$state;
 		printf( '<div class="post-info">%s</div>', apply_filters( 'child_info', $post_info ) );
-		
+
 	} else {
-		
+
 		$city = strip_tags(get_the_term_list( $post->ID, 'city', '', ', ', '' ));
 		$state = strip_tags(get_the_term_list( $post->ID, 'state', '', ', ', '' ));
-	
+
 		$post_info = $city.', '.$state;
 		printf( '<div class="post-info">%s</div>', apply_filters( 'child_info', $post_info ) );
-		
+
 	}
 
 }

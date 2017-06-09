@@ -178,7 +178,7 @@ class DM_Tab {
                         </div>
                         <div class="col-md-10 dm-protected-narrative">
                         <p>' . $tab -> protected_narrative . 	'</p>
-                        <p>To get access to this content, purchase a <a href="' . get_permalink( PAGE_GET_PREMIUM ) . '?rid=pv47iM">premium membership</a>.</p>
+                        <p>To get access to this content, you need to <a href="' . get_permalink( PAGE_SIGNUP ) . '?rid=pv47iM">be a member</a>.</p>
                         </div>
                       </div>';
 

@@ -352,4 +352,18 @@ function myCollegesNotesActions() {
                 }
             );
   }
+
+
+
+
+
+
+  $( ".dm-i-am-a" ).change(function() {
+
+    if ( $( this ).find('option:selected').val() == 'college-student') {
+      $( '.dm-graduation-year').slideDown();
+    } else {
+      $( '.dm-graduation-year').slideUp();
+    }
+  });
 });

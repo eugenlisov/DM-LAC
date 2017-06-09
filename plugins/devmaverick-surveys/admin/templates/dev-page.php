@@ -10,14 +10,9 @@
 
 <?php
 
-$dm_nps = new DM_NPS;
-$nps = $dm_nps -> get_nps( $iped );
-// $dm_nps -> process_all_nps();
-//
-$iped = 110413;
+// $dm_mm_protection = new DM_MMProtection;
+// $dm_mm_protection -> get_all_school_ids();
 
-
-echo 'NPS for ' . $iped . ' is: ' . $nps;
 
  ?>
 </div>

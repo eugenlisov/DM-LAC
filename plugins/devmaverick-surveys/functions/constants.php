@@ -9,6 +9,7 @@ function dm_partner_define_constants(){
   define( 'PAGE_MY_ACCOUNT', 4196 );
   define( 'PAGE_PREMIUM_HOME', 4187 );
   define( 'PAGE_GET_PREMIUM', 4205 );
+  define( 'PAGE_SIGNUP', 4234 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );

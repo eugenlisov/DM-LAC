@@ -36,7 +36,7 @@ add_action('wp_enqueue_scripts', 'dm_lac_register_style_and_scripts');
 
 function dm_lac_enqueue_style_and_scripts() {
 
-  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) ) {
+  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() ) {
     wp_enqueue_style( 'dm-bootstrap' );
     wp_enqueue_script( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );

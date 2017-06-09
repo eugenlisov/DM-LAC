@@ -892,3 +892,12 @@ padding-bottom: 25px;
 .best-response .dm-progress-bar-content {
   font-weight: bold;
 }
+
+
+/* Signup Page */
+.post-4234 h1 {
+  text-align: center;
+}
+.post-4234 h2 {
+  margin-bottom: 50px !important;
+}
