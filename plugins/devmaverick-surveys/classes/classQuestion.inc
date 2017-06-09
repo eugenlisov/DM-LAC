@@ -214,19 +214,15 @@ class DM_Question {
 
       $return .= '<table class="dm-students-say-table">
         <tr>
-          <th class="dm-question-number">No.</th>
           <th class="dm-response-text">Reponse</th>
-          <th class="dm-graduation-year">Graduation</th>
+          <th class="dm-graduation-year">Graduation Class</th>
         </tr>';
 
 
-      $count = 0;
 
       foreach ($current_question_open_responses as $key => $open_response) {
-        $count++;
 
         $return .= '<tr>
-                <td class="dm-question-number">' . $count . '</td>
                 <td class="dm-response-text">' . $open_response['response_text'] . '</td>
                 <td class="dm-graduation-year">' . $open_response['graduation_year'] . '</td>
               </tr>';

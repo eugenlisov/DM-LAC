@@ -483,10 +483,12 @@ article.post-4190.page.type-page.status-publish.entry{
   background-color: #0069d6;
   color: white;
   padding: 10px;
+  margin-top: 0;
   margin-bottom: 0;
 }
 .dm-landing-page-container {
-
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .dm-landing-page-container h1 {
   margin-top: 30px;
@@ -497,16 +499,17 @@ article.post-4190.page.type-page.status-publish.entry{
   background-color: #f5f5f5;
   padding: 30px 10px;
   font-size: 23px;
+  margin-top: 0;
 }
 .landing-headline {
     padding: 40px 15px;
     font-size: 28px;
 }
 .landing-video-container {
-
+  padding-left: 0
 }
 .landing-benefits-sidebar {
-
+  padding-right: 0;
 }
 .landing-benefits-sidebar ul {
     margin-left: 20px;
@@ -526,6 +529,60 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .page-id-4205 .dm-checkout-container {
   display: none;
+}
+
+.dm-checkout-container br {
+  display: none;
+}
+.dm-checkout-container input,
+.dm-checkout-container select,
+.dm-checkout-container textarea {
+    width: 50%;
+    padding: 5px 10px;
+}
+#mm_field_cc_exp_month,
+#mm_field_cc_exp_year {
+  width: 24%;
+}
+#mm_field_cc_exp_month {
+  margin-right: 2%;
+}
+.dm-checkout-container .mm-formField {
+  margin-bottom: 5px;
+}
+.dm-checkout-container .mm-formField label {
+  width: 50%;
+}
+
+.desktop-pricing-tables {
+  width: 70%;
+  margin-left: 15%;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.desktop-pricing-tables .ptsBlock * {
+    text-align: center !important;
+}
+.desktop-pricing-tables .ptsCell {
+  border: 0 !important;
+}
+.desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-2 .ptsCell,
+.desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-2 .ptsColFooter {
+    background: #5f9422!important;
+}
+.desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-2 .ptsCell:nth-child(odd) {
+    background-color: rgb(129, 170, 81) !important;
+}
+
+.desktop-pricing-tables i.fa.fa-2x.ptsInputShell.fa-check-circle {
+    font-size: 22px;
+    color: rgb(4, 67, 23)!important;
+    background: url(https://www.jobsearchdigest.com/wp-content/themes/job-search-digest/images/white-bg.png);
+    background-repeat: no-repeat;
+    background-position: center center!important;
+    background-size: 12px 9px!important;
 }
 
 
@@ -694,6 +751,12 @@ article.post-4190.page.type-page.status-publish.entry{
 
 .dm-school-tabs .dm-students-say-table th {
     font-size: 14px;
+}
+.dm-school-tabs .dm-students-say-table th.dm-response-text {
+  width: 75%;
+}
+.dm-school-tabs .dm-students-say-table th.dm-graduation-year {
+  width: 25%;
 }
 .dm-school-tabs .dm-students-say-table tr {
     font-size: 14px;
