@@ -45,7 +45,7 @@ class DM_CallToAction {
                     <div class="dm-content-call-to-action-content">
                         <h3>Want to learn what ' . $respondents_count . ' ' . get_the_title() . ' students told us?</h3>
                         <h4>GET <span>THE TRUTH</span> ABOUT LIFE ON CAMPUS.</h4>
-                        <a class="dm-click-to-upgrade" href="' . get_permalink( PAGE_GET_PREMIUM ) . '">Click here to upgrade</a>
+                        <a class="dm-click-to-upgrade" href="' . get_permalink( PAGE_GET_PREMIUM ) . '?rid=pv47iM">Click here to upgrade</a>
                     </div>
                 </div>';
 
