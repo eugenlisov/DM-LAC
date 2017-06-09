@@ -285,4 +285,32 @@ class DM_Modal {
   }
 
 
+  public function call_to_action_modal() {
+
+    $return .= '<div class="modal fade dm-call-to-action-modal" tabindex="-1" role="dialog" aria-labelledby="dm-call-to-action-modal" id="dm-call-to-action-modal">
+      <div class="vertical-alignment-helper">
+        <div class="modal-dialog modal-md vertical-align-center" role="document">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h2 class="modal-title" id="mySmallModalLabel">SignUp to Our Mailing List to Receive the Report</h2>
+            </div>
+            <div class="modal-body">
+                <div class="dm-modal-editable-rating-conteiner" style="display: block;">
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                    <input type="email" placeholder="Email">
+                    <input type="submit"value="Submit">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>';
+
+    return $return;
+  }
+
+
 } // End class

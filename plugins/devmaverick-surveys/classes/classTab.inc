@@ -43,6 +43,9 @@ class DM_Tab {
 
     $return .= '</div>';
 
+    $dm_modal = new DM_Modal;
+    $return .= $dm_modal -> call_to_action_modal();
+
     echo $return;
 
   }
@@ -182,7 +185,10 @@ class DM_Tab {
                         </div>
                       </div>';
 
-    return $protected_box;
+    // $dm_call_to_action = new DM_CallToAction;
+    // $call_to_action = $dm_call_to_action -> default_tab_call_to_action();
+
+    return $call_to_action;
 
   }
 

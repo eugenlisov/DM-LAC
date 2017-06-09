@@ -901,3 +901,110 @@ padding-bottom: 25px;
 .post-4234 h2 {
   margin-bottom: 50px !important;
 }
+
+
+
+/* Call To Action */
+.dm-call-to-action {
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+.dm-call-to-action .col-md-6:first-child {
+  padding-left: 0;
+}
+.dm-call-to-action .col-md-6:last-child {
+  padding-right: 0;
+}
+.dm-call-to-action-header {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.dm-call-to-action-header h2 {
+  font-family: CircularStd;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.dm-call-to-action-body {
+  margin-bottom: 30px;
+  font-size: 17px;
+  color: #585757;
+}
+.dm-call-to-action-buttons {
+  margin-bottom: 30px;
+}
+.dm-call-to-action-buttons a {
+  padding: 15px 15px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.dm-call-to-action-buttons a:hover,
+.dm-call-to-action-buttons a:active,
+.dm-call-to-action-buttons a:focus {
+  text-decoration: none;
+}
+.dm-call-to-action-buttons a.get-drip {
+  margin-right: 10px;
+  color: #005DFF;
+  border-color: #005DFF;
+}
+.dm-call-to-action-buttons a.get-premium {
+  background-color: #FFD300;
+  color: #000;
+  border-color: #FFD300;
+  box-shadow: 1px 2px 5px #888888;
+}
+.dm-call-to-action-modal input {
+  margin-bottom: 10px;
+}
+
+/* Content call to action */
+
+.dm-content-call-to-action {
+  overflow: hidden;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-content-call-to-action-content {
+  width: 80%;
+  text-align: center;
+}
+.dm-content-call-to-action-content h3 {
+  color: #fff;
+  font-family: CircularStd;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.3em;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+.dm-content-call-to-action-content h4 {
+  color: #fff;
+  font-family: CircularStd;
+  /*font-size: 26px;*/
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.dm-content-call-to-action-content h4 span {
+  text-decoration: underline;
+}
+.dm-click-to-upgrade {
+  background-color: #fd9026;
+  font-weight: bold;
+  color: black !important;
+  padding: 15px 30px;
+  border-radius: 2px;
+  clear: both;
+  line-height: 70px;
+  text-transform: uppercase;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px #333;
+}

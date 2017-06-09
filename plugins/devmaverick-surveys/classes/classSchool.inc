@@ -114,6 +114,28 @@ class DM_School {
 
   }
 
+  public function get_respondents_count( $school_id = '' ) {
+
+    if  ( ! $school_id ) {
+      $school_id = get_the_ID();
+    }
+
+    $iped = $this -> get_iped( $school_id );
+
+    $sql = 'SELECT count( DISTINCT(`respondent_id`) ) AS respondent_count FROM `dm_survey_responses` WHERE iped = ' . $iped;
+
+    global $wpdb;
+
+    $result = $wpdb->get_row( $sql );
+
+    if ( $result ) {
+      return $result -> respondent_count;
+    } else {
+      return false;
+    }
+
+  }
+
   /**
    * Only used for the School Actions Bar.
    * @return [type] [description]

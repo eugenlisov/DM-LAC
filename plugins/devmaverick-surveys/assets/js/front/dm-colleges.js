@@ -141,6 +141,12 @@ jQuery( document ).ready(function($) {
     $('#dm-contact-school-modal').modal('show');
   });
 
+  // Call To Action modal
+  $('.trigger-call-top-action-modal').click(function(e) {
+    e.preventDefault();
+    $('#dm-call-to-action-modal').modal('show');
+  });
+
 
 ratingModalActions()
 function ratingModalActions() {

@@ -25,6 +25,12 @@ function dm_partner_define_constants(){
   define( 'PAGE_SCHOOL_RANKINGS', 3096 );
   define( 'PAGE_SCHOOL_COMPARISONS', 3142 );
 
+  // URL Locations
+  define( SURVEYS_PLUGIN_FOLDER, 'devmaverick-surveys' );
+  define( SURVEYS_PLUGIN_FOLDER_URL, plugins_url() . '/' . SURVEYS_PLUGIN_FOLDER );
+  define( SURVEYS_ASSETS_URL, SURVEYS_PLUGIN_FOLDER_URL . '/assets');
+
+
 
   // Dynamic data
 

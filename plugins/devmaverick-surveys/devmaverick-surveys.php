@@ -22,6 +22,7 @@ require 'functions/deprecated.php';
 
 
 // Require classes
+require_once('classes/classCallToAction.inc');
 require_once('classes/classChart.inc');
 require_once('classes/classDashboard.inc');
 require_once('classes/classMetaBox.inc');
