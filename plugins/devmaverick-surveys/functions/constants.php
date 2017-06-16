@@ -9,6 +9,7 @@ function dm_partner_define_constants(){
   define( 'PAGE_MY_ACCOUNT', 4196 );
   define( 'PAGE_PREMIUM_HOME', 4187 );
   define( 'PAGE_GET_PREMIUM', 4205 );
+  define( 'PAGE_GET_PREMIUM_PERMALINK', get_the_permalink( PAGE_GET_PREMIUM ) . '?rid=pv47iM' );
   define( 'PAGE_SIGNUP', 4234 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );

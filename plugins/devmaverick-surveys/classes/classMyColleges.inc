@@ -203,7 +203,7 @@ class DM_MyColleges {
         <div class="widget ' . $background . ' no-padding">
             <div class="p-m">
                 ' . $thumb_block . '
-                <h1 class="m-xs">' . get_the_title( $college_id ) . '</h1>
+                <h1 class="m-xs"><a href="'. get_permalink( $college_id ) . '">' . get_the_title( $college_id ) . '</a></h1>
                 <div class="dm-my-colege-meta">
                   ' . $location_block . '
                   ' . $selectivity_block . '

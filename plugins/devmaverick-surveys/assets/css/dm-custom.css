@@ -327,6 +327,14 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-my-colege-item h1 {
   margin-bottom: 10px;
 }
+.dm-my-colege-item h1 a {
+  color: #000;
+  transition-duration: 0.15s;
+  text-decoration: none;
+}
+.dm-my-colege-item h1 a:hover {
+  color: #27a3d1;
+}
 .dm-my-school-rating-block {
   margin-bottom: 10px;
 }
