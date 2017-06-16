@@ -51,166 +51,95 @@ function dmHightlightBestOptions() {
     });
 }
 
+// drawSatisfactionScoreGraphic();
+function drawSatisfactionScoreGraphic() {
 
 
+  var chart = new Chartist.Pie('.ct-chart', {
+  series: [100, 123,  15],
+  labels: [1, 3, 2]
+}, {
+  donut: true,
+  showLabel: true
+});
 
+chart.on('draw', function(data) {
+  if(data.type === 'slice') {
+    // Get the total path length in order to use for dash array animation
+    var pathLength = data.element._node.getTotalLength();
 
+    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+    data.element.attr({
+      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+    });
 
+    // Create animation definition while also assigning an ID to the animation for later sync usage
+    var animationDefinition = {
+      'stroke-dashoffset': {
+        id: 'anim' + data.index,
+        dur: 1000,
+        from: -pathLength + 'px',
+        to:  '0px',
+        easing: Chartist.Svg.Easing.easeOutQuint,
+        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+        fill: 'freeze'
+      }
+    };
 
-
-
-
-    // $( ".dm-question-block" ).each(function( index ) {
-    //   var currentQuestionId = $( this ).attr('question-id');
-    //
-    //   // console.log(currentQuestionId);
-    //   // console.log( index + ": " + $( this ).text() );
-    //   // dm_generate_chart( currentQuestionId );
-    // });
-
-
-    // The chart
-    function dm_generate_chart( currentQuestionId, optionsObject ) {
-
-
-
-
-
-
-
-
-
-
-
-      var questionClass = '.dm-question-' + currentQuestionId;
-
-      console.log(currentQuestionId);
-      // console.log( 'Option object' );
-      console.log(optionsObject);
-
-
-      data = [];
-
-      $( optionsObject ).each(function( index, value ) {
-        // console.log( index );
-        // console.log( 'Value is this: ' );
-        // console.log( value );
-        // var record = '';
-        record = {label: value.option_text, value:value.percent, nelu:"gigi"};
-        // console.log( ' displaying the option text');
-        // console.log( value.option_text );
-        // console.log( value );
-        // console.log( '---------' );
-        // console.log( record );
-        data.push(record);
-
-      });
-
-      // data = [
-      // {label:"Option One", value:9},
-      // {label:"Option  2", value:5},
-      // {label:"Option  3", value:13},
-      // {label:"Option  4", value:17},
-      // {label:"Option  5", value:10},
-      // {label:"Option  6", value:27}
-      // ];
-      // data = 'test';
-      // console.log(data);
-
-
-
-
-      var div = d3.select( questionClass ).append("div").attr("class", "toolTip");
-
-      var axisMargin = 20,
-      margin = 40,
-      valueMargin = 4,
-      // width = parseInt(d3.select('body').style('width'), 10),
-      width = 650,
-      // height = parseInt(d3.select('body .content').style('height'), 10),
-      height = 350,
-      height  = data.length * 50,
-      barHeight = (height-axisMargin-margin*2)* 0.4/data.length,
-      barHeight = 20,
-      barPadding = (height-axisMargin-margin*2)*0.6/data.length,
-      data, bar, svg, scale, xAxis, labelWidth = 0;
-
-      max = d3.max(data, function(d) { return d.value; });
-
-      svg = d3.select( questionClass )
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
-
-
-      bar = svg.selectAll("g")
-      .data(data)
-      .enter()
-      .append("g");
-
-      bar.attr("class", "bar")
-      .attr("cx",0)
-      .attr("transform", function(d, i) {
-      		return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
-      });
-
-      bar.append("text")
-      .attr("class", "label")
-      .attr("y", barHeight / 2)
-      .attr("dy", ".35em") //vertical align middle
-      .text(function(d){
-      		return d.label;
-      }).each(function() {
-      labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
-      });
-
-      scale = d3.scale.linear()
-      .domain([0, max])
-      .range([0, width - margin*2 - labelWidth]);
-
-      xAxis = d3.svg.axis()
-      .scale(scale)
-      .tickSize(-height + 2*margin + axisMargin)
-      .orient("bottom");
-
-      bar.append("rect")
-      .attr("transform", "translate("+labelWidth+", 0)")
-      .attr("height", barHeight)
-      .attr("width", function(d){
-      		return scale(d.value);
-      });
-
-      bar.append("text")
-      .attr("class", "value")
-      .attr("y", barHeight / 2)
-      .attr("dx", -valueMargin + labelWidth) //margin right
-      .attr("dy", ".35em") //vertical align middle
-      .attr("text-anchor", "end")
-      .text(function(d){
-      		return (d.value+"%");
-      })
-      .attr("x", function(d){
-      		var width = this.getBBox().width;
-      		return Math.max(width + valueMargin, scale(d.value));
-      });
-
-      bar
-      .on("mousemove", function(d){
-      		div.style("left", d3.event.pageX+10+"px");
-      		div.style("top", d3.event.pageY-25+"px");
-      		div.style("display", "inline-block");
-      		div.html((d.label)+"<br>"+(d.value)+"%");
-      });
-      bar
-      .on("mouseout", function(d){
-      		div.style("display", "none");
-      });
-
-      svg.insert("g",":first-child")
-      .attr("class", "axisHorizontal")
-      .attr("transform", "translate(" + (margin + labelWidth) + ","+ (height - axisMargin - margin)+")")
-      .call(xAxis);
-
+    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+    if(data.index !== 0) {
+      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
     }
+
+    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+    data.element.attr({
+      'stroke-dashoffset': -pathLength + 'px'
+    });
+
+    // We can't use guided mode as the animations need to rely on setting begin manually
+    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+    data.element.animate(animationDefinition, false);
+  }
+});
+
+}
+
+
+
+
+
+// Run the flips script on scroll.
+$( window ).on('scroll', function () {
+  $targetQuestion = $( '.dm-school-tabs' );
+    console.log( 'Percentage seen: ' + percentageSeen ( targetQuestion ) );
+    if ( percentageSeen ( targetQuestion ) > 10 ) {
+        drawSatisfactionScoreGraphic();
+    }
+});
+
+
+
+function percentageSeen ( targetElement ) {
+    var viewportHeight = $( window ).height(),
+        scrollTop = $( window ).scrollTop(),
+        elementOffsetTop = targetElement.offset().top,
+        elementHeight = targetElement.height();
+
+
+    if (elementOffsetTop > (scrollTop + viewportHeight)) {
+        return 0;
+    } else if ((elementOffsetTop + elementHeight) < scrollTop) {
+        return 100;
+    } else {
+        var distance = (scrollTop + viewportHeight) - elementOffsetTop;
+        var percentage = distance / ((viewportHeight + elementHeight) / 100);
+        // if ( dmFull == 'full' ) {
+        //   return percentage;
+        // }
+        percentage = Math.round(percentage);
+        return percentage;
+    }
+}
+
 
 });
