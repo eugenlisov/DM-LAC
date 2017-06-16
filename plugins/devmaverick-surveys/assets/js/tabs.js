@@ -56,13 +56,15 @@ function dmHightlightBestOptions() {
 // drawSatisfactionScoreGraphic();
 function drawSatisfactionScoreGraphic() {
 
+  var difference = 100 - satisfactionScore;
+
 
   var chart = new Chartist.Pie('.ct-chart', {
-  series: [100, 123,  15],
-  labels: [1, 3, 2]
+  series: [satisfactionScore, difference],
+  labels: [satisfactionScore, difference]
 }, {
   donut: true,
-  showLabel: true
+  showLabel: false
 });
 
 chart.on('draw', function(data) {
@@ -107,24 +109,33 @@ chart.on('draw', function(data) {
 }
 
 
+triggerChartOnQuestionVisible()
+function triggerChartOnQuestionVisible() {
 
+      ssgChartBuilt = false;
+      // Run the flips script on scroll.
+      $( window ).on('scroll', function () {
+        var targetQuestion = $( '.dm-question-6' );
+        var targetQuestion2 = $( '.dm-question-6' );
 
+        var isCorrectTab = $( ".dm-school-tabs .nav-tabs li.active a[href=#community]" ).attr( 'aria-expanded' );
 
-ssgChartBuilt = false;
-// Run the flips script on scroll.
-$( window ).on('scroll', function () {
-  var targetQuestion = $( '.dm-school-tabs' );
+        // console.log( 'Aria expanded' );
+        // console.log(  isCorrectTab );
+        //
+        // console.log( 'Percentage seen: ' + percentageSeen ( targetQuestion ) );
+        // console.log( 'Percentage seen question: ' + percentageSeen ( targetQuestion2 ) );
+        if ( ssgChartBuilt == false && isCorrectTab ) {
 
-  console.log( 'Percentage seen: ' + percentageSeen ( targetQuestion ) );
-  if ( ssgChartBuilt == false ) {
+          if ( percentageSeen ( targetQuestion ) > 30 ) {
+              drawSatisfactionScoreGraphic();
+              ssgChartBuilt = true;
+          }
+        }
 
-    if ( percentageSeen ( targetQuestion ) > 10 ) {
-        drawSatisfactionScoreGraphic();
-        ssgChartBuilt = true;
-    }
-  }
+      });
 
-});
+}
 
 
 

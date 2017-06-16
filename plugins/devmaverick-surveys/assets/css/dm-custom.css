@@ -639,6 +639,11 @@ article.post-4190.page.type-page.status-publish.entry{
 
 
 
+/* Satisfaction Score */
+.dm-satisfaction-score-chart {
+
+}
+
 /* De sters */
 /* Comparisons tab */
 .chart {
@@ -647,12 +652,17 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .chart div {
   font: 10px sans-serif;
-  background-color: steelblue;
+  /*background-color: steelblue;*/
   text-align: right;
   padding: 3px;
   margin: 1px;
   color: white;
 }
+.ct-series-b {
+  display: none;
+}
+
+.
 .dm-comparison-question-block {
   margin-bottom: 50px;
   padding-bottom: 25px;

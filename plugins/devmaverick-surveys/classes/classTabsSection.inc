@@ -31,7 +31,7 @@ class DM_TabsSection {
 
     <!-- This is where the code goes -->
 
-      <div class="chart"><div class="ct-chart ct-golden-section"></div></div>
+      
 
   		<div class="dm-school-tabs" school-iped="<?php echo $iped; ?>">
   		    <ul class="nav nav-tabs">

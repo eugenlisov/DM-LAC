@@ -115,7 +115,27 @@ class DM_Chart {
             </div>
           </div>';
 
-          return $current_question_return;
+
+          // Satisfaction is: ' . $option_percent_q6 . '
+          return '
+                  <div class="chart">
+                    <div class="ct-chart ct-golden-section"></div>
+                  </div>' . $this -> echo_satisfaction_score_var( $option_percent_q6 );
+
+          // return 'Satisfaction is: ' . $option_percent_q6 . $current_question_return;
+  }
+
+  /**
+   * Functia asta este un gunoi curat.
+   */
+  private function echo_satisfaction_score_var( $satisfaction ) {
+
+    $return = '<script type="text/javascript">
+        var satisfactionScore = ' . $satisfaction . '
+      </script>';
+
+      return $return;
+
   }
 
   private function get_regular_q_chart( $question_id = '' ) {

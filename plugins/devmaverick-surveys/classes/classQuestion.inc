@@ -31,7 +31,10 @@ class DM_Question {
                       <h4>' .  $question_name . '</h4>
                       <div class="question-narrative">' . $question_narrative . '</div>';
 
-        $return .=  $chart;
+        $return .=  $chart; 
+
+
+
         $return .=  $open_ended_questions;
 
         $return .=  '</div>';
