@@ -26,6 +26,9 @@ function dm_lac_register_style_and_scripts() {
   // Tabs section styles and scripts
   wp_register_script( 'dm-tabs', plugins_url() . '/devmaverick-surveys/assets/js/tabs.js', array(), '1.0.0', true );
 
+  // Chartist
+  wp_register_style( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.css', false );
+  wp_register_script( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.js', false );
 }
 add_action('wp_enqueue_scripts', 'dm_lac_register_style_and_scripts');
 
@@ -46,6 +49,10 @@ function dm_lac_enqueue_style_and_scripts() {
   wp_enqueue_style('dm-custom');
   wp_enqueue_script('dm-all-site-scripts');
   wp_enqueue_script('dm-colleges');
+
+  //  Chartist
+  wp_enqueue_style( 'dm-chartist' );
+  wp_enqueue_script( 'dm-chartist' );
 
   // if (is_page( PAGE_GET_PREMIUM )) {
     wp_enqueue_script('dm-landing-page');
