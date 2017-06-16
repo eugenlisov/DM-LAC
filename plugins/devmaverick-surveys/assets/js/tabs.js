@@ -51,6 +51,8 @@ function dmHightlightBestOptions() {
     });
 }
 
+
+
 // drawSatisfactionScoreGraphic();
 function drawSatisfactionScoreGraphic() {
 
@@ -108,13 +110,20 @@ chart.on('draw', function(data) {
 
 
 
+ssgChartBuilt = false;
 // Run the flips script on scroll.
 $( window ).on('scroll', function () {
-  $targetQuestion = $( '.dm-school-tabs' );
-    console.log( 'Percentage seen: ' + percentageSeen ( targetQuestion ) );
+  var targetQuestion = $( '.dm-school-tabs' );
+
+  console.log( 'Percentage seen: ' + percentageSeen ( targetQuestion ) );
+  if ( ssgChartBuilt == false ) {
+
     if ( percentageSeen ( targetQuestion ) > 10 ) {
         drawSatisfactionScoreGraphic();
+        ssgChartBuilt = true;
     }
+  }
+
 });
 
 
