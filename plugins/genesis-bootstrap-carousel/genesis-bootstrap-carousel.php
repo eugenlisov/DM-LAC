@@ -63,7 +63,7 @@ function genesis_bootstrap_carousel_init() {
 		remove_action('genesis_doctype', 'genesis_do_doctype');
 		add_action('genesis_doctype', 'genesis_bootstrap_carousel_html5_doctype');
 	}
-	
+
 	/** Include Admin file */
 	if ( is_admin() ) require_once( dirname( __FILE__ ) . '/admin.php' );
 
@@ -168,7 +168,7 @@ function genesis_bootstrap_carousel_head() {
 
 		$vertical = genesis_get_bootstrap_carousel_option( 'location_vertical' );
 		$horizontal = genesis_get_bootstrap_carousel_option( 'location_horizontal' );
-		
+
 		$hide_mobile = genesis_get_bootstrap_carousel_option( 'carousel_hide_mobile' );
 
 		echo '
@@ -178,10 +178,10 @@ function genesis_bootstrap_carousel_head() {
 			.carousel-caption { '. $horizontal . ': 0; }
 			.carousel { max-width: ' . $width . 'px; max-height: ' . $height . 'px; }
 		</style>';
-		
+
 		if ( $hide_mobile == 1 ) {
 		echo '
-		<style type="text/css"> 
+		<style type="text/css">
 			@media (max-width: 767px) {
 				.carousel-caption { display: none !important; }
 			}
@@ -328,7 +328,7 @@ class Genesis_Bootstrap_Carousel_Widget extends WP_Widget {
 		add_filter( 'excerpt_more', 'genesis_bootstrap_carousel_excerpt_more' );
 
 	echo '
-	<div id="tbsCarousel" class="carousel slide">	
+	<div id="tbsCarousel" class="carousel slide">
 		<div class="carousel-inner">';
 			$show_arrows = genesis_get_bootstrap_carousel_option( 'carousel_arrows' );
 			$slider_posts = new WP_Query( $query_args );
@@ -350,12 +350,14 @@ class Genesis_Bootstrap_Carousel_Widget extends WP_Widget {
 
 				echo '<div class="', $class, '">';
 
-					if ( $no_image_link ) {
+				$dm_featured_school_image = get_field( 'featured_school_image' );
+
+					if ( ! $dm_featured_school_image ) {
 						echo '<img src="', genesis_get_image( "format=url&size=slider" ), '" alt="', get_the_title(), '" />';
 					} else {
 						echo '
 						<a href="', get_permalink(), '" rel="bookmark">
-							<img src="', genesis_get_image( "format=url&size=slider" ), '" alt="', get_the_title(), '" />
+							<img src="', $dm_featured_school_image, '" alt="', get_the_title(), '" />
 						</a>';
 					}
 
@@ -373,7 +375,7 @@ class Genesis_Bootstrap_Carousel_Widget extends WP_Widget {
 								} elseif ( $show_limit ) {
 									the_content_limit( (int)$show_limit, esc_html( $more_text ) );
 								} else {
-									the_content( esc_html( $more_text ) );	
+									the_content( esc_html( $more_text ) );
 								}
 
 							}
