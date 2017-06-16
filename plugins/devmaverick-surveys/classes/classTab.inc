@@ -185,8 +185,8 @@ class DM_Tab {
                         </div>
                       </div>';
 
-    // $dm_call_to_action = new DM_CallToAction;
-    // $call_to_action = $dm_call_to_action -> default_tab_call_to_action();
+    $dm_call_to_action = new DM_CallToAction;
+    $call_to_action = $dm_call_to_action -> default_tab_call_to_action();
 
     return $call_to_action;
 

@@ -21,7 +21,7 @@ class DM_CallToAction {
                   <div class="dm-call-to-action-buttons">
                     <a href="" class="get-drip trigger-call-top-action-modal"><i class="fa fa-area-chart" aria-hidden="true"></i> Get our reports</a>
 
-                    <a href="" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> Get Premium</a>
+                    <a href="' . PAGE_GET_PREMIUM_PERMALINK . '" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> Get Premium</a>
                     </div>
                 </div>
               </div>';
