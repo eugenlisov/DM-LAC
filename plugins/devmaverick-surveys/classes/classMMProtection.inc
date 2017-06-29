@@ -32,9 +32,9 @@ class DM_MMProtection {
       $posts_array = get_posts( $args );
 
       foreach ($posts_array as $key => $post) {
-        if ( in_array( $post -> ID, [3599, 1568, 1590, 3491, 1653] ) ) {
-          continue;
-        }
+        // if ( in_array( $post -> ID, [3599, 1568, 1590, 3491, 1653] ) ) {
+        //   continue;
+        // }
         $ids[] = $post -> ID;
       }
 
