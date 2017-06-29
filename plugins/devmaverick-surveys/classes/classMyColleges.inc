@@ -290,7 +290,7 @@ class DM_MyColleges {
                           </div>
                           <div class="col-md-4 dm-review-graduation">
                             <div>
-                              <h4>Graduation</h4>
+                              <h4>Graduation Class</h4>
                               <p>' . $random_review['graduation_year'] . '</p>
                             </div>
                           </div>

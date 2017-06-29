@@ -27,11 +27,14 @@ class DM_TabsSection {
 
     $tabs_list = $this -> get_tabs_list();
 
+
+
+
   	?>
 
     <!-- This is where the code goes -->
 
-      
+
 
   		<div class="dm-school-tabs" school-iped="<?php echo $iped; ?>">
   		    <ul class="nav nav-tabs">
