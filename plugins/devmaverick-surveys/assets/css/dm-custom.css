@@ -629,22 +629,21 @@ article.post-4190.page.type-page.status-publish.entry{
 
 
 /* Premium navigation - temporary use just the IDS*/
-#menu-item-4213,
-#menu-item-4209,
-#menu-item-4210,
-#menu-item-4211 {
+#menu-item-4407,
+#menu-item-4402,
+#menu-item-4403,
+#menu-item-4405 {
   display: none;
 }
-.logged-in #menu-item-4212 {
+.logged-in #menu-item-4404 {
   display: none;
 }
-.logged-in #menu-item-4213,
-.logged-in #menu-item-4209,
-.logged-in #menu-item-4210,
-.logged-in #menu-item-4211 {
+.logged-in #menu-item-4407,
+.logged-in #menu-item-4402,
+.logged-in #menu-item-4403,
+.logged-in #menu-item-4405 {
   display: inline-block;
 }
-
 
 
 /* Satisfaction Score */
