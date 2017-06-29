@@ -6,12 +6,12 @@
  */
 function dm_by_protected_school_Redirect($data) {
     return true;
-}
+} 
 
 add_filter('mm_bypass_content_protection', 'dm_by_protected_school_Redirect');
 
 
- 
+
 /*
 * Using the IPED, it counts the distinct instances of the respondent_id for each IPED.
 */
