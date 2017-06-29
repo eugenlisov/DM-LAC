@@ -197,10 +197,11 @@ class DM_MyColleges {
 
     $location = $dm_school -> get_school_location( $college_id );
     $location_block = ( $selectivity ) ? '<div class="dm-my-college-meta-item">Location: ' .  $location . '</div>' : '';
-
+    $badge = $this -> loved_by_students_badge( $college_id );
 
     $return = '<div class="col-lg-6 dm-my-colege-item" school-id="' . $college_id . '">
         <div class="widget ' . $background . ' no-padding">
+            ' . $badge . '
             <div class="p-m">
                 ' . $thumb_block . '
                 <h1 class="m-xs"><a href="'. get_permalink( $college_id ) . '">' . get_the_title( $college_id ) . '</a></h1>
@@ -226,6 +227,27 @@ class DM_MyColleges {
 
 
 
+  }
+
+  private function loved_by_students_badge( $college_id = '' ) {
+    if ( ! $college_id ) {
+      return false;
+    }
+
+    $dm_school = new DM_School;
+    $nps = $dm_school -> get_school_nps ( $college_id );
+
+    if ( $nps <= 41 ) {
+      return false;
+    }
+
+    $return = '<div class="dm-badge-loved-by-students">
+                <div class="dm-badge-loved-by-students-inner">
+                  Loved by Studends
+                </div>
+              </div>';
+
+    return $return;
   }
 
 
@@ -321,7 +343,7 @@ class DM_MyColleges {
       $dm_note = new DM_Note;
 
 
-      $nps = $dm_school -> get_school_nps ( $college_id );
+      // $nps = $dm_school -> get_school_nps ( $college_id );
 
       $return = '<div class="dm-my-college-tabs">
                   <ul class="nav nav-tabs">';
@@ -351,11 +373,11 @@ class DM_MyColleges {
 
       $return .= '<div class="tab-content">';
 
-      if  ( $nps ) {
-        $return .= '<div id="menu-' . $college_id . '-1" class="tab-pane dm-tab-nps fade in active">
-                      ' . $this -> nps_block( $college_id ) . '
-                    </div>';
-      }
+      // if  ( $nps ) {
+      //   $return .= '<div id="menu-' . $college_id . '-1" class="tab-pane dm-tab-nps fade in active">
+      //                 ' . $this -> nps_block( $college_id ) . '
+      //               </div>';
+      // }
       $return .= '<div id="home-' . $college_id . '" class="tab-pane dm-tab-notes fade ' . $second_tab_active_content . '">
                       ' . $dm_note -> my_college_note_block( $college_id ) . '
                   </div>';

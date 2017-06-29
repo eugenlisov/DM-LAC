@@ -453,6 +453,26 @@ article.post-4190.page.type-page.status-publish.entry{
   padding-right: 0;
 }
 
+.dm-my-coleges-list .widget {
+  position: relative;
+  overflow: hidden;
+}
+.dm-badge-loved-by-students {
+  position: absolute;
+  right: -67px;
+  top: 21px;
+  -ms-transform: rotate(25deg);
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+  background-color: #fd9226;
+  padding: 5px;
+  color: #fff;
+}
+.dm-badge-loved-by-students-inner {
+  border: dashed 1px white;
+  padding: 3px 70px;
+}
+
 /* My colleges Empty */
 .dm-my-colleges-empty {
   text-align: center;
