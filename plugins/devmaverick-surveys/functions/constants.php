@@ -5,20 +5,20 @@ add_action('init', 'dm_partner_define_constants');
 function dm_partner_define_constants(){
 
   // Core pages
-  define( 'PAGE_MY_COLLEGES', 4199 );
-  define( 'PAGE_MY_ACCOUNT', 4196 );
-  define( 'PAGE_PREMIUM_HOME', 4187 );
-  define( 'PAGE_GET_PREMIUM', 4205 );
-  define( 'PAGE_GET_PREMIUM_PERMALINK', get_the_permalink( PAGE_GET_PREMIUM ) . '?rid=pv47iM' );
-  define( 'PAGE_SIGNUP', 4234 );
+  define( 'PAGE_MY_COLLEGES', 4400 );
+  define( 'PAGE_MY_ACCOUNT', 4194 );
+  define( 'PAGE_PREMIUM_HOME', 4185 );
+  define( 'PAGE_GET_PREMIUM', 4401 );
+  define( 'PAGE_GET_PREMIUM_PERMALINK', get_the_permalink( PAGE_GET_PREMIUM ) . '?rid=pGQZ48' );
+  define( 'PAGE_SIGNUP', 4234 ); // ???
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
   // define( 'PAGE_PREMIUM_HOME', 4187 );
 
   // Misc pages
-  define( 'LOG_IN_PAGE', 4190 );
-  define( 'LOG_OUT_PAGE', 4191 );
+  define( 'LOG_IN_PAGE', 4188 );
+  define( 'LOG_OUT_PAGE', 4189 );
   define( 'CONTACT_PAGE', 186 );
 
   // Content pages
