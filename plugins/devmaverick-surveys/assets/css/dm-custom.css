@@ -1088,3 +1088,43 @@ padding-bottom: 25px;
   border: 1px solid black;
   box-shadow: 5px 5px 5px #333;
 }
+
+
+@media screen and (max-width: 1306px) {
+    .dm-call-to-action-buttons a {
+        display: block;
+        text-align: center;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .dm-call-to-action-header {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .dm-call-to-action-header h2 {
+    font-size: 20px;
+  }
+  .dm-call-to-action-body {
+    font-size: 15px;
+  }
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .dm-call-to-action .col-md-6:first-child {
+      padding-right: 0;
+      margin-bottom: 25px;
+  }
+  .dm-call-to-action .col-md-6:last-child {
+    padding-left: 0;
+  }
+
+
+
+}
