@@ -1155,8 +1155,35 @@ padding-bottom: 25px;
     font-size: 24px;
   }
 
+<<<<<<< HEAD
+=======
 
 
+}
+
+>>>>>>> 4f0cddc880a5228afee287afc046f381d217504c
+
+@media screen and (max-width: 480px) {
+
+  .dm-content-call-to-action-content {
+    width: 90%;
+  }
+  .dm-content-call-to-action-content h3 {
+    font-size: 18px;
+  }
+  .dm-content-call-to-action-content h4 {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dm-content-call-to-action-content h3 {
+    font-size: 12px;
+    line-height: 1.7em;
+  }
+  .dm-click-to-upgrade {
+    padding: 6px 8px;
+  }
 }
 
 
