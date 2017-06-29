@@ -49,22 +49,22 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
       // echo '<pre>';
       // print_r($tab);
       // echo '</pre>';
-     echo '<div tab-id="' . $tab -> id .'" style="width: 33.3%; float: left;" class="col-md-4 dm-admin-tab dm-regular-tab">';
+     echo '<div tab-id="' . $tab -> id .'" class="col-md-4 dm-admin-tab dm-regular-tab">';
      echo ' <h3>' . $tab -> tab_name . '</h3>';
 
      echo '<div>';
      echo '<h4>Tab intro</h4>';
-     echo '<textarea rows="4" cols="50" content-type="tab-intro">' . $tab -> tab_intro .'</textarea>';
+     echo '<textarea rows="4" cols="50" content-type="tab-intro" class="dm-tab-intro-textarea">' . $tab -> tab_intro .'</textarea>';
 
      if ($tab_type != 'overview' && $tab_type != 'comparison') {
        echo '<h4>Comparisons tab narrative</h4>';
-       echo '<textarea rows="4" cols="50" content-type="comparison-narrative">' . $tab -> comp_section_narrative .'</textarea>';
+       echo '<textarea rows="4" cols="50" content-type="comparison-narrative" class="dm-tab-comparison-textarea">' . $tab -> comp_section_narrative .'</textarea>';
      }
 
      if ($tab_type != 'overview') {
        echo '<h4>Protected content narrative</h4>';
        echo '<small>Will show up when current user doesn\'t have permission to see the current tab</small>';
-       echo '<textarea rows="4" cols="50" content-type="protected-content-narrative">' . $tab -> protected_narrative .'</textarea>';
+       echo '<textarea rows="4" cols="50" content-type="protected-content-narrative" class="dm-tab-protected-textarea">' . $tab -> protected_narrative .'</textarea>';
      }
 
 

@@ -10,3 +10,19 @@
   overflow: hidden;
   margin-bottom: 40px;
 }
+
+
+.dm-admin-tab {
+  width: 32%;
+  margin-right: 1%;
+  float: left;
+}
+.dm-tab-intro-textarea {
+  height: 295px;
+ }
+.dm-tab-comparison-textarea {
+ height: 100px;
+}
+.dm-tab-protected-textarea {
+height: 320px;
+}
