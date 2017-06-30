@@ -372,4 +372,14 @@ function myCollegesNotesActions() {
       $( '.dm-graduation-year').slideUp();
     }
   });
+
+  redirectLoginOrGetPremium();
+  function redirectLoginOrGetPremium() {
+
+    $( document ).on( "click", '.trigger-redirect-to-page', function() {
+      var target = $( this ).attr( 'target' );
+      window.location.href = target;
+    });
+
+  }
 });

@@ -108,11 +108,14 @@ class DM_TemplateElements {
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-              <h4 class="modal-title" id="mySmallModalLabel">Log in or Upgrade</h4>
+              <h2 class="modal-title" id="mySmallModalLabel">Log in or Upgrade</h2>
             </div>
-            <div class="modal-body">
-              <p>To make use of this feature, you need to log in first.</p>
-              <p> <a href="' . get_permalink( LOG_IN_PAGE ) . '" class="btn btn-default">Log In</a> <a href="' . get_permalink( PAGE_GET_PREMIUM ) . '?rid=pv47iM" class="btn btn-default">Get Premium</a></p>
+            <div class="modal-body" style="text-align: center; padding-top: 0 !important;">
+              <p>To make use of this feature, you need to be a member.</p>
+              <p>
+                <button target="' . get_permalink( LOG_IN_PAGE ) . '" class="dm-btn dm-btn-md dm-btn-green trigger-redirect-to-page">Log In</button>
+                <button target="' . PAGE_GET_PREMIUM_PERMALINK . '" class="dm-btn dm-btn-md dm-btn-yellow trigger-redirect-to-page">Get Premium</button>
+              </p>
             </div>
           </div>
         </div>

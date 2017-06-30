@@ -3,7 +3,9 @@
 
 
 /* WIDGETS */
-.widget {
+.dm-college-top-content .widget,
+.dm-my-coleges-list .widget,
+.dm-dashboard-links .widget {
   border-radius: 5px;
   padding: 15px 20px;
   margin-bottom: 10px;
