@@ -10,7 +10,6 @@ Author URI:  http://devmaverick.com/
 
 require 'admin/admin-setup.php';            // The Main template setup page// require 'admin/admin-settings.php';         // Set up the plugin WP settings, such as leads name, etc// Require the neccesary functions filesrequire 'functions/assets.php';require 'functions/ajax-functions.php';require 'functions/meta-boxes.php';
 require 'functions/functions-all.php';
-require 'functions/register-shortcodes.php';
 require 'functions/constants.php';
 require 'functions/deprecated.php';
 
@@ -31,6 +30,7 @@ require_once('classes/classMetaBox.inc');
 require_once('classes/classMMProtection.inc');
 require_once('classes/classQuestion.inc');
 require_once('classes/classSchool.inc');
+require_once('classes/classShortcodes.inc');
 require_once('classes/classTabsSection.inc');
 require_once('classes/classTab.inc');
 require_once('classes/classTemplateElements.inc');
