@@ -10,7 +10,6 @@ Author URI:  http://devmaverick.com/
 
 require 'admin/admin-setup.php';            // The Main template setup page// require 'admin/admin-settings.php';         // Set up the plugin WP settings, such as leads name, etc// Require the neccesary functions filesrequire 'functions/assets.php';require 'functions/ajax-functions.php';require 'functions/meta-boxes.php';
 require 'functions/functions-all.php';
-require 'functions/constants.php';
 require 'functions/deprecated.php';
 
 // require 'functions/functions-admin.php'; // Functions that will only be used in the admin section of this plugin
@@ -24,6 +23,7 @@ require 'functions/deprecated.php';
 require_once('classes/classCallToAction.inc');
 require_once('classes/classChart.inc');
 require_once('classes/classComparator.inc');
+require_once('classes/classConstants.inc');
 require_once('classes/classCustomPostColumns.inc');
 require_once('classes/classDashboard.inc');
 require_once('classes/classMetaBox.inc');
