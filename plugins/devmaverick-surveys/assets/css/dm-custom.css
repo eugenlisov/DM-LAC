@@ -1137,6 +1137,78 @@ padding-bottom: 25px;
 }
 
 
+
+
+
+/* Compare Colleges Page */
+.dm-compare-colleges-select-block {
+  clear: both;
+  overflow: hidden;
+}
+
+
+.dm-college-comparison-block {
+  clear: both;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+.dm-college-comparison-block-images > div {
+  border-right: 1px solid #fff;
+}
+.dm-college-comparison-block-images .dm-college-image-holder {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dm-college-comparison-block-head {
+  background-color: #47bad0;
+  color: #fff;
+  font-size: 22px;
+  overflow: hidden;
+  clear: both;
+  display: flex;
+}
+.dm-college-comparison-block-head > div {
+  border-right: 1px solid #fff;
+  padding: 5px 17px;
+}
+.dm-comparison-question-row {
+  clear: both;
+  overflow: hidden;
+  font-size: 20px;
+}
+.dm-comparison-question-row > div {
+  border-right: 1px solid #fff;
+  padding: 5px 17px;
+  position: relative;
+}
+
+.dm-comparison-question-row:nth-child(odd) {
+  background-color: #e8f3f7;
+}
+.dm-comparison-question-row:nth-child(even) {
+  background-color: #cfe7ee;
+}
+.dm-major-difference {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.dm-major-difference .fa {
+  color: orange;
+  font-size: 28px;
+  line-height: 30px;
+}
+.dm-load-college-comparison-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+/* END Compare Colleges Page */
+
+
 @media screen and (max-width: 1306px) {
     .dm-call-to-action-buttons a {
         display: block;

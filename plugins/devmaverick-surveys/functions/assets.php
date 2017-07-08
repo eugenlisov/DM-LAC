@@ -29,6 +29,12 @@ function dm_lac_register_style_and_scripts() {
   // Chartist
   wp_register_style( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.css', false );
   wp_register_script( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.js', false );
+
+  //Select 2
+  wp_register_style( 'dm-select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', false );
+  wp_register_script( 'dm-select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array( 'jquery' ), '1.0.0', true  );
+
+
 }
 add_action('wp_enqueue_scripts', 'dm_lac_register_style_and_scripts');
 
@@ -38,6 +44,11 @@ add_action('wp_enqueue_scripts', 'dm_lac_register_style_and_scripts');
 
 
 function dm_lac_enqueue_style_and_scripts() {
+
+  if( is_page( PAGE_COMPARE_COLLEGES ) ) {
+    wp_enqueue_style( 'dm-select2' );
+    wp_enqueue_script( 'dm-select2' );
+  }
 
   if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() ) {
     wp_enqueue_style( 'dm-bootstrap' );
@@ -58,6 +69,29 @@ function dm_lac_enqueue_style_and_scripts() {
     wp_enqueue_script('dm-landing-page');
   // }
 
+
+
 }
 add_action('wp_enqueue_scripts', 'dm_lac_enqueue_style_and_scripts');
+
+function dm_lac_admin_script() {
+  wp_register_script( 'dm-comparator-setup', SURVEYS_ASSETS_URL . '/js/back/dm-comparator-setup.js', false );
+
+  //Select 2
+  wp_register_style( 'dm-select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', false );
+  wp_register_script( 'dm-select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', false );
+
+  $page = htmlspecialchars($_GET["page"]);
+  if ( $page == 'dm-surveys-setup-comparator' ) {
+    echo 'sugiuc';
+
+    wp_enqueue_style( 'dm-select2' );
+    wp_enqueue_script( 'dm-select2' );
+    wp_enqueue_script( 'dm-comparator-setup' );
+
+  }
+
+}
+
+add_action( 'admin_enqueue_scripts', 'dm_lac_admin_script' );
  ?>

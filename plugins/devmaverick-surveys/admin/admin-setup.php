@@ -15,6 +15,7 @@ function wpdocs_register_my_custom_menu_page(){
         6
     );
     add_submenu_page( $slug, 'Colleges', 'Colleges', 'manage_options', $slug . '-colleges', 'dm_surveys_admin_colleges');
+    add_submenu_page( $slug, 'Comparator Setup', 'Comparator Setup', 'manage_options', $slug . '-setup-comparator', 'dm_surveys_admin_setup_comparator');
     add_submenu_page( $slug, 'Tabs', 'Tabs', 'manage_options', $slug . '-tabs', 'dm_surveys_admin_tabs');
     add_submenu_page( $slug, 'Import Surveys', 'Import Surveys', 'manage_options', $slug . '-import-surveys', 'dm_surveys_admin_import_surveys');
     add_submenu_page( $slug, 'Import Contacts', 'Import Contacts', 'manage_options', $slug . '-import-contacts', 'dm_surveys_admin_import_contacts');
@@ -56,6 +57,12 @@ function dm_surveys_admin_main(){
 function dm_surveys_admin_colleges(){
     require 'templates/colleges.php';
 }
+
+function dm_surveys_admin_setup_comparator() {
+    require 'templates/setup-comparator.php';
+}
+
+
 function dm_surveys_admin_tabs(){
     require 'templates/tabs.php';
 }

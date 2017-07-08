@@ -15,6 +15,7 @@ class DM_Constants {
 
     // Core pages
     define( 'PAGE_MY_COLLEGES', 4400 );
+    define( 'PAGE_COMPARE_COLLEGES', 4434 );
     define( 'PAGE_MY_ACCOUNT', 4194 );
     define( 'PAGE_PREMIUM_HOME', 4185 );
     define( 'PAGE_GET_PREMIUM', 4401 );

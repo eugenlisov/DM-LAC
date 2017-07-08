@@ -31,7 +31,7 @@ class DM_Question {
                       <h4>' .  $question_name . '</h4>
                       <div class="question-narrative">' . $question_narrative . '</div>';
 
-        $return .=  $chart; 
+        $return .=  $chart;
 
 
 
@@ -171,6 +171,32 @@ class DM_Question {
 
     // Get the data from the 'dm_survey_responses' table
     $sql_open_ended_list = 'SELECT * FROM `dm_survey_all_questions` WHERE other = "yes"';
+    $open_ended_list = $wpdb->get_results( $sql_open_ended_list );
+
+    $open_ended_list_by_id = array();
+    foreach ($open_ended_list as $key => $question) {
+      $open_ended_list_by_id[$question -> id] = $question;
+    }
+
+    return $open_ended_list_by_id;
+    // return $open_ended_list;
+
+    // echo '<pre>';
+    // print_r($open_ended_list_by_id);
+    // echo '</pre>';
+
+  }
+
+
+  /*
+  * Use like this: $open_fixed_response_questions_list = get_fixed_response_questions_list();
+  */
+  public function get_fixed_response_questions_list() {
+
+    global $wpdb;
+
+    // Get the data from the 'dm_survey_responses' table
+    $sql_open_ended_list = 'SELECT * FROM `dm_survey_all_questions` WHERE other <> "yes"';
     $open_ended_list = $wpdb->get_results( $sql_open_ended_list );
 
     $open_ended_list_by_id = array();
