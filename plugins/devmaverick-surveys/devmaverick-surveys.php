@@ -20,6 +20,7 @@ require 'functions/deprecated.php';
 
 
 // Require classes
+require_once('classes/classAjax.inc');
 require_once('classes/classCallToAction.inc');
 require_once('classes/classChart.inc');
 require_once('classes/classComparator.inc');
