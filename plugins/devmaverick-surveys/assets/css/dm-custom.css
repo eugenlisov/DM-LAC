@@ -1153,6 +1153,10 @@ padding-bottom: 25px;
   margin-bottom: 50px;
   overflow: hidden;
 }
+.dm-college-comparison-block-images {
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+}
 .dm-college-comparison-block-images > div {
   border-right: 1px solid #fff;
 }
@@ -1177,6 +1181,7 @@ padding-bottom: 25px;
   clear: both;
   overflow: hidden;
   font-size: 20px;
+  display: flex;
 }
 .dm-comparison-question-row > div {
   border-right: 1px solid #fff;

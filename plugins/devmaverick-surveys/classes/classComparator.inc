@@ -47,22 +47,15 @@ class DM_Comparator {
       return false;
     }
 
-    // $college_comparison_data['college_1'] = get_post_meta( $college_1, 'dm_college_comparator_data', true );
-    // $college_comparison_data['college_2'] = get_post_meta( $college_2, 'dm_college_comparator_data', true );
+    if ( $college_1 == $college_2 ) {
+      return 'Chose two different colleges, please!';
+    }
 
     $settings = get_option( 'dm_college_comparison_settings' );
-
-    // echo '<pre>';
-    // print_r ($settings);
-    // echo '</pre>';
-    $college_comparison_data['college_1'] = $this -> calculate_college_comparator_data( $college_1, $settings );
-    $college_comparison_data['college_2'] = $this -> calculate_college_comparator_data( $college_2, $settings );
+    $college_comparison_data = $this -> calculate_college_comparator_data( $college_1, $college_2, $settings );
 
     $college_1_image = get_the_post_thumbnail( $college_1, 'medium' );
     $college_2_image = get_the_post_thumbnail( $college_2, 'medium' );
-    // echo '<pre>';
-    // print_r ( $gigi );
-    // echo '</pre>';
 
     $return = '<div class="dm-college-comparison-block">
                   <div class="dm-college-comparison-block-images">
@@ -105,7 +98,6 @@ class DM_Comparator {
     }
 
     $return .= '</div>';
-
     return $return;
 
   }
@@ -116,11 +108,33 @@ class DM_Comparator {
     // print_r ( $college_comparison_data );
     // echo '</pre>';
 
-    $college_1_data = $college_comparison_data['college_1'];
-    $college_2_data = $college_comparison_data['college_2'];
+    foreach ($college_comparison_data as $key_college => $collage_data) {
+      if ( ! $college_1_data ) {
+        $college_1_data = $collage_data;
+        continue;
+      }
+      if ( ! $college_2_data ) {
+        $college_2_data = $collage_data;
+      }
+    }
+    $current_question_id = $settings[$key]['question_id'];
 
-    $college_1_percentage = round ( ( $college_1_data[$key]['matching_count'] / $college_1_data[$key]['total_count'] ) * 100 );
-    $college_2_percentage = round ( ( $college_2_data[$key]['matching_count'] / $college_2_data[$key]['total_count'] ) * 100 );
+    // echo '$current_question_id: ' . $current_question_id . '<br />';
+
+    // $college_1_data = $college_comparison_data['college_1'];
+    // $college_2_data = $college_comparison_data['college_2'];
+    // echo '<pre>';
+    // print_r ( $settings );
+    // echo '</pre>';
+    // echo '<pre>';
+    // print_r ( $college_1_data );
+    // echo '</pre>';
+    // echo '<pre>';
+    // print_r ( $college_2_data );
+    // echo '</pre>';
+
+    $college_1_percentage = round ( ( $college_1_data[$current_question_id]['matching_count'] / $college_1_data[$current_question_id]['total_count'] ) * 100 );
+    $college_2_percentage = round ( ( $college_2_data[$current_question_id]['matching_count'] / $college_2_data[$current_question_id]['total_count'] ) * 100 );
 
     $difference = $college_1_percentage - $college_2_percentage;
 
@@ -336,22 +350,33 @@ class DM_Comparator {
 
     return $result;
 
-    // print_r ( $options );
   }
 
 
+  /**
+   * Optimised function
+   */
+  public function calculate_college_comparator_data( $college_1 = '', $college_2 = '', $settings = '' ) {
 
-
-  public function calculate_college_comparator_data( $college_id = '', $settings = '' ) {
-
+    if ( ! $college_1  || ! $college_2 ) {
+      return false;
+    }
     if ( ! $settings ) {
       $settings = get_option( 'dm_college_comparison_settings' );
     }
 
-    // Get the school IPED
-    $dm_school = new DM_School;
-    $iped = $dm_school -> get_iped( $college_id );
+    $colleges[] = $college_1;
+    $colleges[] = $college_2;
 
+    // Get the school IPEDs
+    $dm_school = new DM_School;
+    foreach ($colleges as $key => $college_id) {
+      $ipeds_array[$key] = $dm_school -> get_iped( $college_id );
+    }
+    $ipeds = implode (', ', $ipeds_array );
+
+    // Create an array of the q_all_number IDs, from the settings fields
+    // Create an array of responses, from the settings fields
 
     foreach ($settings as $key => $question_settings) {
       // If the question ID is not an integer, then it's not selected. Just skip this setting.
@@ -362,72 +387,60 @@ class DM_Comparator {
       if ( $question_settings['response'] == '' ) {
         continue;
       }
-
-      $q_all_number = $question_settings['question_id'];
-      $response     = $question_settings['response'];
-
-      global $wpdb;
-
-      // 1. Get Total number of responses for current question and IPED
-      $sql = "SELECT COUNT(*) FROM `dm_survey_responses` WHERE iped = " . $iped . " AND q_all_number = " . $q_all_number;
-
-      // echo $sql . '<br />';
-
-      $result = $wpdb -> get_col( $sql );
-      $total_count = $result[0];
-
-      // echo '<pre>';
-      // print_r ( $college_ids );
-      // echo '</pre>';
-      // echo $college_ids . '<br />';
-
-      // 2. Get number of matching responses for current question and IPED
-
-      $sql = "SELECT COUNT(*) FROM `dm_survey_responses` WHERE iped = " . $iped . " AND q_all_number = " . $q_all_number . " AND response = '" . $response . "'";
-
-      // echo $sql . '<br /><br />';
-      $result = $wpdb -> get_col( $sql );
-      $matching_count = $result[0];
-      // echo '<pre>';
-      // print_r ( $college_ids );
-      // echo '</pre>';
-      // echo $college_ids . '<br />';
-
-      $college_comparator_data[$key]['matching_count'] = $matching_count;
-      $college_comparator_data[$key]['total_count'] = $total_count;
-
-
+      $question_id_array[] = $question_settings['question_id'];
+      $responses_array[] = '"' . $question_settings['response'] . '"';
     }
+    // If there are no questions, there's no point in continuing.
+    if ( ! $question_id_array ){
+      return false;
+    }
+    $question_ids = implode (', ', $question_id_array );
+    $responses = implode (', ', $responses_array );
 
-    return $college_comparator_data;
-    // TODO De verificat si ce-i mai jos. Dar asta (returnul) am facut-o ca sa nu mai pierdem vremea cu procesarea.
+    $sql_total = 'SELECT iped, q_all_number, COUNT(*) AS total_count
+                    FROM `dm_survey_responses`
+                    WHERE iped IN ( ' . $ipeds . ')
+                      AND q_all_number IN ( ' . $question_ids . ' )
+                    GROUP BY iped, q_all_number';
+    $sql_matching = 'SELECT iped, q_all_number, COUNT(*) AS matching_count
+                    FROM `dm_survey_responses`
+                    WHERE iped IN ( ' . $ipeds . ')
+                      AND q_all_number IN ( ' . $question_ids . ' )
+                      AND response IN ( ' . $responses . ' )
+                    GROUP BY iped, q_all_number';
 
-    // Save the post meta
-    update_post_meta( $college_id, 'dm_college_comparator_data', $college_comparator_data );
-
-    echo 'Updated Comparator Data for College #' . $college_id . ': ' . get_the_title( $college_id );
-
-    echo '<pre>';
-    print_r ( $college_comparator_data );
-    echo '</pre>';
-
-  }
-
-
-  public function update_comparator_data_for_all_schools() {
-    $sql = 'SELECT post_id FROM `wp_postmeta` WHERE meta_key = "school_iped"';
-
+    // Do the DB Queries
     global $wpdb;
-    $college_ids = $wpdb -> get_col( $sql );
 
-    foreach ($college_ids as $key => $college_id) {
-      $this -> calculate_college_comparator_data( $college_id );
+    $total_results = $wpdb -> get_results( $sql_total );
+    $matching_results = $wpdb -> get_results( $sql_matching );
+
+    // Organize the DB results into arrays
+
+    foreach ($total_results as $key => $result) {
+      $total_array[$result -> iped][$result -> q_all_number] = $result -> total_count;
+    }
+    foreach ($matching_results as $key => $result) {
+      $matching_array[$result -> iped][$result -> q_all_number] = $result -> matching_count;
     }
 
+    // Now build the return array;
+    foreach ($colleges as $key_college => $college_id) {
 
-    // echo '<pre>';
-    // print_r ( $college_ids );
-    // echo '</pre>';
+          foreach ($question_id_array as $key_question => $question_id) {
+            $return_array[$college_id][$question_id]['matching_count']  = $matching_array[ $ipeds_array[$key_college] ][$question_id];
+            $return_array[$college_id][$question_id]['total_count']     = $total_array[ $ipeds_array[$key_college] ][$question_id];
+
+             // aici merge salvat si un custom field care sa tina minte, fara a mai face odata calculele pentru fiecare scoala.
+             // Apoi, dupa fiecare import, sa se scterga toate custom fieldurile cu valorile astea si sa se ia de la capat la fiecare regenerare
+             // Cum facea candva asta: update_post_meta( $college_id, 'dm_college_comparator_data', $college_comparator_data );
+
+          } // End foreach loop 2
+
+    } // End foreach loop 2
+
+    return $return_array;
+
   }
 
 } // End Class
