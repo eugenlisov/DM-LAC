@@ -41,13 +41,18 @@ class DM_CallToAction {
 
       $style = 'style="background-image: url( ' . SURVEYS_ASSETS_URL . '/images/call-to-action-background.png )"';
 
-      $return = '<div class="dm-content-call-to-action" ' . $style . '>
+      $cta = '<div class="dm-content-call-to-action" ' . $style . '>
                     <div class="dm-content-call-to-action-content">
                         <h3>Want to learn what ' . $respondents_count . ' ' . get_the_title() . ' students told us?</h3>
                         <h4>GET <span>THE TRUTH</span> ABOUT LIFE ON CAMPUS.</h4>
                         <a class="dm-click-to-upgrade" href="' . PAGE_GET_PREMIUM_PERMALINK . '">Click here to upgrade</a>
                     </div>
                 </div>';
+
+
+        $denied_shortcode   = "[MM_Access_Decision access='false']" . $cta . "[/MM_Access_Decision]";
+
+        $return = do_shortcode( $denied_shortcode );
 
         return $return;
       }
