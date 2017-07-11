@@ -306,15 +306,9 @@ class DM_MyColleges {
       $random_review = $student_reviews[array_rand( $student_reviews )];
 
       $review_block = '<div class="dm-random-student-review">
-                          <div class="col-md-8 dm-review-body">
+                          <div class="col-md-12 dm-review-body">
                             <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
                             ' . $random_review['response_text'] . '
-                          </div>
-                          <div class="col-md-4 dm-review-graduation">
-                            <div>
-                              <h4>Graduation Class</h4>
-                              <p>' . $random_review['graduation_year'] . '</p>
-                            </div>
                           </div>
                        </div>';
 
@@ -348,6 +342,7 @@ class DM_MyColleges {
       $return = '<div class="dm-my-college-tabs">
                   <ul class="nav nav-tabs">';
 
+      //  TODO: Aici e o carpeala sa nu se mai afiseze NPS-ul. De rescris
       if  ( $nps ) {
         // if ( $nps >= 41 ) {
         //   $smiley_font = 'fa-smile-o';
