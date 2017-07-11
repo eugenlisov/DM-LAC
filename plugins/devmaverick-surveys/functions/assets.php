@@ -7,9 +7,9 @@ function dm_lac_register_style_and_scripts() {
   // FA is already enqueued by MM, not really neccesary
   wp_register_style( 'dm-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 'news-pro-theme' );
 
-  wp_register_style('dm-inspinia', plugins_url() . '/devmaverick-surveys' . '/assets/css/inspinia-style.css', false );
-  wp_register_style('dm-inspinia-light', plugins_url() . '/devmaverick-surveys' . '/assets/css/dm-inspinia.css', false );
-
+  wp_register_style( 'dm-inspinia', plugins_url() . '/devmaverick-surveys' . '/assets/css/inspinia-style.css', false );
+  wp_register_style( 'dm-inspinia-light', plugins_url() . '/devmaverick-surveys' . '/assets/css/dm-inspinia.css', false );
+  wp_register_style( 'dm-source-sans-pro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300', false );
 
 
 
@@ -31,6 +31,11 @@ function dm_lac_register_style_and_scripts() {
   // Chartist
   wp_register_style( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.css', false );
   wp_register_script( 'dm-chartist', SURVEYS_ASSETS_URL . '/js/front/chartist-js/chartist.min.js', false );
+
+  // CountUp JS
+  wp_register_script( 'dm-countup', SURVEYS_ASSETS_URL . '/lib/countUp.min.js', false );
+
+
 
   //Select 2
   wp_register_style( 'dm-select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', false );
@@ -62,9 +67,13 @@ function dm_lac_enqueue_style_and_scripts() {
   }
 
   // wp_enqueue_style('dm-tabs');
-  wp_enqueue_style('dm-custom');
-  wp_enqueue_script('dm-all-site-scripts');
-  wp_enqueue_script('dm-colleges');
+  wp_enqueue_style( 'dm-custom' );
+  wp_enqueue_style( 'dm-source-sans-pro' );
+  wp_enqueue_script( 'dm-countup' );
+  wp_enqueue_script( 'dm-all-site-scripts' );
+  wp_enqueue_script( 'dm-colleges' );
+
+
 
   //  Chartist
   wp_enqueue_style( 'dm-chartist' );

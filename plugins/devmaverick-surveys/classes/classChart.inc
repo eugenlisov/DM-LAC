@@ -72,9 +72,16 @@ class DM_Chart {
 
           // Satisfaction is: ' . $option_percent_q6 . '
           return '
+                <div class="dm-satisfaction-score-chart-container">
+                  <div class="dm-chart-counter-container">
+                    <div class="dm-chart-counter" id="dm-chart-counter">123</div>
+                  </div>
+
                   <div class="chart">
+
                     <div class="ct-chart ct-golden-section"></div>
-                  </div>' . $this -> echo_satisfaction_score_var( $option_percent_q6 );
+                  </div>
+                </div>' . $this -> echo_satisfaction_score_var( $option_percent_q6 );
 
           // return 'Satisfaction is: ' . $option_percent_q6 . $current_question_return;
   }

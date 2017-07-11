@@ -53,6 +53,21 @@ function dmHightlightBestOptions() {
 
 
 
+function countUp( satisfactionScore ) {
+
+  // Settings are here http://inorganik.github.io/countUp.js/
+
+  var options = {
+    useEasing : true,
+    useGrouping : true,
+    separator : ',',
+    decimal : '.',
+  };
+  var demo = new CountUp("dm-chart-counter", 0, satisfactionScore, 0, 2.4, options);
+  demo.start();
+
+}
+
 // drawSatisfactionScoreGraphic();
 function drawSatisfactionScoreGraphic() {
 
@@ -60,12 +75,14 @@ function drawSatisfactionScoreGraphic() {
 
 
   var chart = new Chartist.Pie('.ct-chart', {
-  series: [satisfactionScore, difference],
-  labels: [satisfactionScore, difference]
-}, {
-  donut: true,
-  showLabel: false
-});
+    series: [satisfactionScore, difference],
+    labels: [satisfactionScore, difference]
+  }, {
+    donut: true,
+    showLabel: false
+  });
+
+  countUp( satisfactionScore );
 
 chart.on('draw', function(data) {
   if(data.type === 'slice') {
@@ -81,7 +98,7 @@ chart.on('draw', function(data) {
     var animationDefinition = {
       'stroke-dashoffset': {
         id: 'anim' + data.index,
-        dur: 1000,
+        dur: 2000,
         from: -pathLength + 'px',
         to:  '0px',
         easing: Chartist.Svg.Easing.easeOutQuint,

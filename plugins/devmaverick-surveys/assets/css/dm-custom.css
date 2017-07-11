@@ -678,9 +678,37 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 
 
-/* Satisfaction Score */
+/* Satisfaction Score Chart */
+.dm-satisfaction-score-chart-container {
+  position: relative;
+  overflow: hidden;
+}
 .dm-satisfaction-score-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-chart-counter-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
 
+.dm-chart-counter {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 180px;
+  margin: 0;
+  font-weight: 300;
+  color: #4d63bc;
+}
+.ct-series-b {
+  display: none;
 }
 
 
