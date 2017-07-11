@@ -391,9 +391,6 @@ function dm_save_question_narratives() {
 		case 'tab-narrative':
 			$update_column = 'tab_narrative';
 			break;
-		// case 'comparison-narrative':
-		// 	$update_column = 'comparison_narrative';
-		// 	break;
 	}
 
 

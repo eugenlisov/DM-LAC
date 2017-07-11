@@ -37,7 +37,7 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
    */
 
   echo '<div class="dm-tabs-group">';
-  echo '<h2>Overview</h2>';
+  // echo '<h2>Overview</h2>';
 
    foreach ($tabs_list as $key => $tab) {
      $tab_type = $tab -> type;
@@ -54,13 +54,13 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
 
      echo '<div>';
      echo '<h4>Tab intro</h4>';
-     echo '<textarea rows="4" cols="50" content-type="tab-intro">' . $tab -> tab_intro .'</textarea>';
+     echo '<textarea rows="4" cols="50" content-type="tab-intro" class="dm-tab-intro-textarea">' . $tab -> tab_intro .'</textarea>';
 
-     if ($tab_type != 'overview') {
+    //  if ($tab_type != 'overview') {
        echo '<h4>Protected content narrative</h4>';
        echo '<small>Will show up when current user doesn\'t have permission to see the current tab</small>';
-       echo '<textarea rows="4" cols="50" content-type="protected-content-narrative">' . $tab -> protected_narrative .'</textarea>';
-     }
+       echo '<textarea rows="4" cols="50" content-type="protected-content-narrative" class="dm-tab-protected-textarea">' . $tab -> protected_narrative .'</textarea>';
+    //  }
 
 
     echo '</div>';
@@ -84,7 +84,7 @@ wp_enqueue_script('dm-schools-script', plugins_url() . '/devmaverick-surveys/ass
    foreach ($tabs_list as $key => $tab) {
      $tab_type = $tab -> type;
 
-     if ($tab_type == 'overview' || $tab_type == 'comparison') {
+     if ( $tab_type == 'overview' ) {
        continue;
      }
 
