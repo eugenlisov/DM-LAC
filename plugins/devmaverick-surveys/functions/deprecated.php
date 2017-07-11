@@ -518,14 +518,6 @@
 
 
 
- 																// The old comparisons chart. See the CSS for it in dm-custom.css as deprecated
- 														// $current_question_return .= '<div class="dm-comparison-chart">
- 														// 	<div class="dm-marker dm-current-college-marker" style="left: ' . $percent_iped .'%"><span title="' . $response_lac . '">' .  get_the_title() . '</span></div>
- 														// 	<div class="dm-marker dm-lac-marker" style="left: ' . $percent_lac . '%"><span title="' . $response_lac .'">LAC Average</span></div>
- 														// </div>';
-
-
-
  														$current_question_return .= '</div>';
 
  														// $comparisons_tab_return .= $comparisons_tab_intro_string;

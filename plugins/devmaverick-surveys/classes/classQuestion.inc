@@ -48,33 +48,6 @@ class DM_Question {
       return $return;
   }
 
-  public function get_question_comparison_block( $question_id = '' ) {
-
-    if (!$question_id) return false;
-
-      $dm_chart = new DM_Chart;
-
-      $dm_current_question = $this -> get_question( $question_id );
-
-      // echo '<pre>$dm_current_question';
-      // print_r( $dm_current_question );
-      // echo '</pre>';
-
-
-      $question_name          = $dm_current_question -> q_short_text;
-      $question_narrative     = $dm_current_question -> comparison_narrative;
-
-      $return .= '<div class="dm-comparison-question-block dm-question-' . $question_id . '" question-id="' . $question_id . '">';
-      $return .=  '<h4>' . $question_name . '</h4>';
-      $return .=  '<div class="question-narrative">' . $question_narrative . '</div>';
-
-      $return .=  $dm_chart -> get_comparison_chart( $question_id );
-
-      $return .= '</div>';
-
-      return $return;
-  }
-
   public function get_question( $question_id = '' ) {
 
     if (!$question_id) return false;

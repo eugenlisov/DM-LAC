@@ -33,9 +33,6 @@ class DM_Tab {
       case 'overview':
         $return .= $this -> get_overview_tab_content();
         break;
-      case 'comparison':
-        $return .= $this -> get_comparisons_tab_content( $tab );
-        break;
       default: // regular
         $return .= $this -> get_regular_tab_content( $tab );
         break;
@@ -54,25 +51,6 @@ class DM_Tab {
 
     $overview_tab_content = get_field( "school_overview" );
     return $overview_tab_content;
-  }
-
-  private function get_comparisons_tab_content( $tab = '' ) {
-
-    $tab_id = $tab -> id;
-
-    $dm_question = new DM_Question;
-    $tab_questions_ids = $this -> get_tab_questions( $tab_id );
-
-    $regular_content = '';
-
-    foreach ($tab_questions_ids as $key => $question_id) {
-        $regular_content .= $dm_question -> get_question_comparison_block( $question_id );
-    }
-
-    $return = $this -> get_regular_or_protected_content( $regular_content, $tab );
-
-
-    return $return;
   }
 
   private function get_regular_tab_content( $tab = '') {

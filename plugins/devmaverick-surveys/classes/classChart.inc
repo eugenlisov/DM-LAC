@@ -26,52 +26,6 @@ class DM_Chart {
 
   }
 
-  public function get_comparison_chart( $question_id = '') {
-
-    $dm_question = new DM_Question;
-    $dm_current_question = $dm_question -> get_question( $question_id );
-
-
-    $percent_lac            = $dm_current_question -> percent_lac;
-    $percent_iped           = $dm_current_question -> percent_iped;
-
-    if (!$question_id) return false;
-
-    $chart_string = '';
-
-    $chart_string .= '
-        <div class="row dm-option" option-percent="' . $percent_lac . '">
-          <div class="col-md-3 dm-option-label">
-            <strong>' . get_the_title() . ':</strong> ' . $response_iped . '
-          </div>
-          <div class="col-md-9">
-            <div class="progress">
-              <div class="progress-bar progress-bar-comp-iped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: ' . $percent_iped . '%">
-                <span class="dm-progress-bar-content">' . $percent_iped . '%</span>
-              </div>
-            </div>
-          </div>
-        </div>';
-    $chart_string .= '
-        <div class="row dm-option" option-percent="' . $percent_iped . '">
-          <div class="col-md-3 dm-option-label">
-            <strong>All colleges:</strong>
-            ' . $response_lac . '
-          </div>
-          <div class="col-md-9">
-            <div class="progress">
-              <div class="progress-bar progress-bar-comp-lac" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: ' . $percent_lac . '%">
-                <span class="dm-progress-bar-content">' . $percent_lac . '%</span>
-              </div>
-            </div>
-          </div>
-        </div>';
-
-    return $chart_string;
-
-  }
-
-
   private function get_q3_chart( $question_id = '' ) {
 
       $dm_nps = new DM_NPS;

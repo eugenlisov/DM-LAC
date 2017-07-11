@@ -26,6 +26,9 @@ class DM_TabsSection {
 
 
     $tabs_list = $this -> get_tabs_list();
+    // echo '<pre>';
+    // print_r ( $tabs_list );
+    // echo '</pre>';
 
 
 

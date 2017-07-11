@@ -8,14 +8,13 @@ wp_enqueue_script('dm-questions-script', plugins_url() . '/devmaverick-surveys/a
    <h1>Survey Questions</h1>
 
 
-   <table class="dm-questions-table">
+   <table class="dm-questions-table" style="width: 100%;">
      <tr>
        <th>No.</th>
        <th>Question (short)</th>
        <th>Question (full text)</th>
        <th>LAC Average</th>
        <th>Tab Narrative</th>
-       <th>Comparisons Narrative</th>
      </tr>
 
    <?php
@@ -39,8 +38,7 @@ wp_enqueue_script('dm-questions-script', plugins_url() . '/devmaverick-surveys/a
        <td>' . $question -> q_text . '</td>
        <td>...</td>
 
-       <td><textarea rows="2" cols="50" content-type="tab-narrative">' . $question -> tab_narrative .'</textarea></td>
-       <td><textarea rows="2" cols="50" content-type="comparison-narrative">' . $question -> comparison_narrative .'</textarea></td>
+       <td><textarea rows="2" cols="50" content-type="tab-narrative" style="width: 100%;">' . $question -> tab_narrative .'</textarea></td>
 
      </tr>';
      $q++;

@@ -683,73 +683,6 @@ article.post-4190.page.type-page.status-publish.entry{
 
 }
 
-/* De sters */
-/* Comparisons tab */
-.chart {
-  margin: 2em 0;
-  shape-rendering: crispEdges;
-}
-.chart div {
-  font: 10px sans-serif;
-  /*background-color: steelblue;*/
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
-}
-.ct-series-b {
-  display: none;
-}
-
-.
-.dm-comparison-question-block {
-  margin-bottom: 50px;
-  padding-bottom: 25px;
-    border-bottom: 1px solid #cccccc;
-}
-.dm-comparison-question-block .fa {
-  margin-left: 10px;
-}
-
-.dm-comparison-chart {
-  background-color: steelblue;
-  position: relative;
-  height: 40px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.dm-marker {
-  border-left: 2px solid white;
-  position: absolute;
-  height: 75px;
-  display: flex;
-}
-.dm-marker span {
-  padding: 0px 8px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-.dm-current-college-marker {
-  top: -35px;
-  border-left-color: orange;
-}
-.dm-current-college-marker span {
-  align-self: flex-start;
-  background-color: orange;
-  color: white;
-}
-
-.dm-lac-marker {
-  top: 0px;
-  border-left-color: red;
-}
-.dm-lac-marker span {
-  align-self: flex-end;
-  background-color: red;
-  color: white;
-}
-/* END de sters*/
-
 
 /* Comparisons tab */
 
@@ -769,10 +702,6 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 
 /* END Maybe unnecesary */
-
-#comparison .dm-question-block {
-  display: none;
-}
 
 .dm-school-tabs {
   padding: 0 40px;
