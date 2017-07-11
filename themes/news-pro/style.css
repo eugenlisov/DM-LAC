@@ -5,12 +5,12 @@
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
 	Version: 3.0.2
- 
+
 	Tags: black, red, white, one-column, two-columns, three-columns, responsive-layout, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, premise-landing-page
- 
+
 	Template: genesis
 	Template Version: 2.0.1
- 
+
 	License: GPL-2.0+
 	License URI: http://www.opensource.org/licenses/gpl-license.php
 */
@@ -218,7 +218,7 @@ blockquote {
 
 .flexslider {
 
-	
+
 }
 
 
@@ -361,8 +361,8 @@ textarea {
 	width: 100%;
 }
 
-input[type="checkbox"], 
-input[type="radio"], 
+input[type="checkbox"],
+input[type="radio"],
 input[type="image"] {
 	width: auto;
 }
@@ -502,7 +502,7 @@ Structure and Layout
 	/*width: 863px;*/
 	width:777px;
 	border-right:1px solid #e3e3e3;
-	
+
 }
 
 .content-sidebar .content,
@@ -524,7 +524,7 @@ Structure and Layout
 
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content,
-.sidebar-sidebar-content .content {	
+.sidebar-sidebar-content .content {
 	/*width: 650px;*/
 	width: 777px;
 }
@@ -1231,7 +1231,7 @@ Site Navigation
 }
 
 .genesis-nav-menu .sub-menu {
-	border-top: 1px solid #e3e3e3;	
+	border-top: 1px solid #e3e3e3;
 	left: -9999px;
 	opacity: 0;
 	position: absolute;
@@ -1367,7 +1367,7 @@ Content Area
 }
 
 .home-middle-left {
-	border-right: 1px solid #e3e3e3;	
+	border-right: 1px solid #e3e3e3;
 	float: left;
 	padding: 20px 20px 0;
 	width: 50%;
@@ -1633,7 +1633,7 @@ Footer Widgets
 .footer-widgets-5,
 .footer-widgets-6 {
 width: 27%;
-text-align: justify;
+/*text-align: justify;*/
 }
 
 .footer-widgets-1,
@@ -1939,7 +1939,7 @@ Media Queries
 	.content #genesis-responsive-slider .flex-direction-nav li a {
 		background-image: url(images/icon-direction-nav@2x.png);
 	}
-	
+
 }
 
 @media only screen and (max-width: 1188px) {
@@ -1964,7 +1964,7 @@ width: 299px;
 	.content {
 		width: 658px;
 	}
-	
+
 	.site-header .widget-area {
 		width: 620px;
 	}
@@ -1974,11 +1974,11 @@ width: 299px;
 	.content-sidebar-sidebar .content {
 		width: 480px;
 	}
-	
+
 	.sidebar-primary {
 		width: 300px;
 	}
-	
+
 	.footer-widgets-1,
 	.footer-widgets-2,
 	.footer-widgets-3,
@@ -1987,15 +1987,15 @@ width: 299px;
 	.footer-widgets-6 {
 		width: 26%;
 	}
-	
+
 	.home-top .widget.ui-tabs img {
 		max-width: 617px;
 	}
-	
+
 	.home-top .widget.ui-tabs .entry {
 		min-height: 334px;
 	}
-	
+
 	.site-title {
 		margin-top: 0;
 	}
@@ -2024,13 +2024,13 @@ width: 299px;
 	.wrap {
 		width: 100%;
 	}
-	
+
 	div#sidebar {
 float: left;
 width: auto;
 }
 
-	
+
 	.footer-widgets-1,
 	.footer-widgets-2,
 	.footer-widgets-3,
@@ -2041,20 +2041,20 @@ width: auto;
 		width: 26.3333%;
                 margin-right: 36px;
 	}
-	
+
 	.footer-widgets-4 {
 		clear: both;
 	}
-	
+
 	.site-header .title-area,
 	.site-header .widget-area {
 		padding: 0;
 	}
-	
+
 	.site-header .title-area {
 		padding-bottom: 16px;
 	}
-	
+
 	.site-header .wrap {
 		padding: 20px 0;
 	}
@@ -2081,7 +2081,7 @@ width: auto;
 		border: none;
 		padding: 12px;
 	}
-	
+
 	.site-container,
 	.site-header .search-form {
 		margin: 16px auto ;
@@ -2090,7 +2090,7 @@ width: auto;
 	.genesis-nav-menu li.right {
 		display: none;
 	}
-	
+
 	.content {
 		border: none;
 	}
@@ -2098,19 +2098,19 @@ width: auto;
 	.site-footer {
 		padding: 24px;
 	}
-	
+
 	.home-top .widget.ui-tabs .entry {
 		background-color: #000;
 		padding-bottom: 20px;
 	}
-	
+
 	.home-top .widget.ui-tabs img {
 		display: block;
 		max-width: 100%;
 		position: relative;
 		margin: 0 auto;
 	}
-	
+
 	.home-top .ui-tabs ul.ui-tabs-nav {
 		background-color: #000;
 		bottom: auto;
@@ -2118,16 +2118,16 @@ width: auto;
 		position: relative;
 		right: auto;
 	}
-	
+
 	.home-top .ui-tabs ul.ui-tabs-nav li,
 	.home-top .widget.ui-tabs .entry p {
 		margin: 0;
 	}
-	
+
 	.home-top .widget.ui-tabs .entry h2 {
 		padding: 0;
 	}
-	
+
 	.content-sidebar .content,
 	.content-sidebar-sidebar .content,
 	.sidebar-sidebar-content .sidebar-primary {
@@ -2170,7 +2170,7 @@ width: auto;
 	.responsive-menu-icon {
 		display: block;
 	}
-	
+
 	.genesis-nav-menu.responsive-menu .menu-item {
 		margin: 0;
 	}
@@ -2193,7 +2193,7 @@ width: auto;
 	}
 
 	.genesis-nav-menu.responsive-menu .menu-item-has-children {
-		cursor: pointer;	
+		cursor: pointer;
 	}
 
 	.genesis-nav-menu.responsive-menu .menu-item-has-children > a {
@@ -2243,21 +2243,21 @@ width: auto;
 		text-transform: none;
 		width: 100%;
 	}
-	
+
 	.content #genesis-responsive-slider .flex-direction-nav li .next,
 	.content #genesis-responsive-slider .flex-direction-nav li .prev,
 	.content .slide-excerpt {
 		display: none;
 	}
-	
+
 	.home-middle-left {
 		border: none;
 	}
-	
+
 	.header-image .site-header .site-title a {
 		background-size: contain !important;
 	}
-	
+
 	.entry-title {
 		font-size: 26px;
 	}
