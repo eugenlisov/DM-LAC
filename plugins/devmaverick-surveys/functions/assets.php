@@ -18,6 +18,8 @@ function dm_lac_register_style_and_scripts() {
 
   wp_register_style( 'dm-custom', plugins_url() . '/devmaverick-surveys/assets/css/dm-custom.css', false );
   wp_register_script( 'dm-all-site-scripts',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-scripts.js', 'simple-locator', '', true );
+  wp_register_script( 'dm-compare-colleges',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-compare-colleges.js', '', '', true );
+
 
   //Enqueue the script that's open the modal after ading to favorites
   wp_register_script( 'dm-colleges',  plugins_url() . '/devmaverick-surveys/assets/js/front/dm-colleges.js', array(), '', true);
@@ -48,6 +50,9 @@ function dm_lac_enqueue_style_and_scripts() {
   if( is_page( PAGE_COMPARE_COLLEGES ) ) {
     wp_enqueue_style( 'dm-select2' );
     wp_enqueue_script( 'dm-select2' );
+
+    wp_enqueue_script( 'dm-compare-colleges' );
+
   }
 
   if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() ) {
