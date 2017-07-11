@@ -802,17 +802,10 @@ article.post-4190.page.type-page.status-publish.entry{
     font-size: 14px;
 }
 .dm-school-tabs .dm-students-say-table th.dm-response-text {
-  width: 75%;
-}
-.dm-school-tabs .dm-students-say-table th.dm-graduation-year {
-  width: 25%;
+  /*width: 75%;*/
 }
 .dm-school-tabs .dm-students-say-table tr {
     font-size: 14px;
-}
-.dm-school-tabs .dm-students-say-table .dm-graduation-year {
-  text-align: center;
-  width: 15%;
 }
 .dm-what-students-say h5 {
   font-style: italic;

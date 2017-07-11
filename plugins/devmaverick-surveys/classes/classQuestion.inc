@@ -244,7 +244,6 @@ class DM_Question {
       $return .= '<table class="dm-students-say-table">
         <tr>
           <th class="dm-response-text">Reponse</th>
-          <th class="dm-graduation-year">Graduation Class</th>
         </tr>';
 
 
@@ -253,7 +252,6 @@ class DM_Question {
 
         $return .= '<tr>
                 <td class="dm-response-text">' . $open_response['response_text'] . '</td>
-                <td class="dm-graduation-year">' . $open_response['graduation_year'] . '</td>
               </tr>';
       }
 
