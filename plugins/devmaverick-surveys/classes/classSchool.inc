@@ -31,6 +31,23 @@ class DM_School {
     return $nps;
   }
 
+  public function get_data_points_count() {
+
+    $iped = $this -> get_iped();
+
+    if ( ! $iped ){
+      return false;
+    }
+
+    $sql = 'SELECT COUNT( DISTINCT respondent_id ) AS count FROM `dm_survey_responses` WHERE iped = ' . $iped;
+
+    global $wpdb;
+    $count = $wpdb -> get_col ( $sql );
+
+    return $count[0];
+
+  }
+
 
   public function get_school_nps ( $school_id = '' ) {
     if ( ! $school_id ) {
