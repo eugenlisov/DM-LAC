@@ -243,7 +243,7 @@ class DM_MyColleges {
 
     $return = '<div class="dm-badge-loved-by-students">
                 <div class="dm-badge-loved-by-students-inner">
-                  Loved by Studends
+                  Loved by Students
                 </div>
               </div>';
 
