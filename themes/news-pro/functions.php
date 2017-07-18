@@ -308,3 +308,23 @@ function post_info(){
 	//return $post_info;
 }
 add_shortcode('post_info', 'post_info');
+
+
+
+
+
+
+function after_title_text() {
+	if(is_tax( 'size' ) ) {
+
+		$city = strip_tags(get_the_term_list( get_the_ID(), 'city', '', ', ', '' ));
+		$state = strip_tags(get_the_term_list( get_the_ID(), 'state', '', ', ', '' ));
+
+		$post_info = $city . ', ' . $state;
+
+
+
+	    echo '<h3 class="single-title">' . $post_info . '</h3>';
+	}
+}
+add_action('genesis_entry_header', 'after_title_text', 11 );
