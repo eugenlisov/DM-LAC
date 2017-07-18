@@ -63,10 +63,10 @@ class DM_Comparator {
 
                     </div>
                     <div class="col-sm-3 dm-college-image-holder">
-                      ' . $college_1_image . '
+                      <a href="' . get_permalink( $college_1 ) . '">' . $college_1_image . '</a>
                     </div>
                     <div class="col-sm-3 dm-college-image-holder">
-                      ' . $college_2_image . '
+                      <a href="' . get_permalink( $college_2 ) . '">' . $college_2_image . '</a>
                     </div>
                   </div>
 
@@ -75,10 +75,10 @@ class DM_Comparator {
                       Category
                     </div>
                     <div class="col-sm-3">
-                      ' . get_the_title( $college_1 ) . '
+                      <a href="' . get_permalink( $college_1 ) . '">' . get_the_title( $college_1 ) . '</a>
                     </div>
                     <div class="col-sm-3">
-                      ' . get_the_title( $college_2 ) . '
+                      <a href="' . get_permalink( $college_2 ) . '">' . get_the_title( $college_2 ) . '</a>
                     </div>
                   </div>
                   ';

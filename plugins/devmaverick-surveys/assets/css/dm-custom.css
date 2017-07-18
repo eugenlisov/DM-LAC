@@ -1120,6 +1120,11 @@ padding-bottom: 25px;
   border-right: 1px solid #fff;
   padding: 5px 17px;
 }
+.dm-college-comparison-block-head a,
+.dm-college-comparison-block-head a:hover,
+.dm-college-comparison-block-head a:focus {
+  color: #fff;
+}
 .dm-comparison-question-row {
   clear: both;
   overflow: hidden;
