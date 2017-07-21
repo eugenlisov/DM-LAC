@@ -41,8 +41,24 @@ $dm_comparator = new DM_Comparator;
 }
 .dm-setup-comparator-question-row > div {
   float: left;
-  width: 25%;
+  width: 24%;
   min-height: 10px;
+  padding: 1px 0.5%;
+}
+.dm-setup-comparator-question-row > div.dm-category {
+  width: 15%;
+}
+.dm-setup-comparator-question-row > div.dm-pretty-response {
+  width: 15%;
+}
+.dm-setup-comparator-question-row > div.dm-category {
+  /*width: 15%;*/
+}
+.dm-setup-comparator-question-row > div.dm-category {
+  /*width: 15%;*/
+}
+.dm-setup-comparator-question-row > div.dm-response-positive {
+  width: 15%;
 }
 .dm-setup-comparator-question-row > div > input,
 .dm-setup-comparator-question-row > div > select {

@@ -55,6 +55,8 @@ class DM_Shortcodes {
   	 $dm_comparator = new DM_Comparator;
   	 $return = $dm_comparator -> compare_colleges_select_block();
 
+    //  $return .= $dm_comparator -> college_comparison_block();
+
   	 return $return;
 
   }

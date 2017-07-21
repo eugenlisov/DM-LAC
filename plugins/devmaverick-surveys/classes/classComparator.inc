@@ -37,8 +37,8 @@ class DM_Comparator {
 
   public function college_comparison_block( $college_1 = '', $college_2 = '' ) {
 
-    // $college_1 = 1568;
-    // $college_2 = 1587;
+    // $college_1 = 209;
+    // $college_2 = 479;
 
     if ( ! $college_1 ) {
       return false;
@@ -93,7 +93,7 @@ class DM_Comparator {
         continue;
       }
 
-      $return .= $this -> college_comparison_row( $settings, $college_comparison_data, $key );
+      $return .= $this -> college_comparison_row( $settings, $college_comparison_data, $key, $college_1, $college_2 );
 
     }
 
@@ -102,7 +102,7 @@ class DM_Comparator {
 
   }
 
-  public function college_comparison_row( $settings = '', $college_comparison_data = '', $key = '' ) {
+  public function college_comparison_row( $settings = '', $college_comparison_data = '', $key = '', $college_1 = '', $college_2 = '' ) {
 
     // echo '<pre>';
     // print_r ( $college_comparison_data );
@@ -121,10 +121,10 @@ class DM_Comparator {
 
     // echo '$current_question_id: ' . $current_question_id . '<br />';
 
-    // $college_1_data = $college_comparison_data['college_1'];
-    // $college_2_data = $college_comparison_data['college_2'];
+    $college_1_data = $college_comparison_data[$college_1];
+    $college_2_data = $college_comparison_data[$college_2];
     // echo '<pre>';
-    // print_r ( $settings );
+    // print_r ( $college_comparison_data );
     // echo '</pre>';
     // echo '<pre>';
     // print_r ( $college_1_data );
@@ -136,7 +136,21 @@ class DM_Comparator {
     $college_1_percentage = round ( ( $college_1_data[$current_question_id]['matching_count'] / $college_1_data[$current_question_id]['total_count'] ) * 100 );
     $college_2_percentage = round ( ( $college_2_data[$current_question_id]['matching_count'] / $college_2_data[$current_question_id]['total_count'] ) * 100 );
 
-    $difference = $college_1_percentage - $college_2_percentage;
+
+
+    if ( $settings[$key]['reverse_target'] != true ) {
+      $difference = $college_1_percentage - $college_2_percentage;
+    } else {
+      $difference = $college_2_percentage - $college_1_percentage;
+    }
+    // echo $settings[$key]['category'] . '<br />';
+    // echo '$college_1_percentage: ' . $college_1_percentage . '<br />';
+    // echo '$college_2_percentage: ' . $college_2_percentage . '<br />';
+    //
+    // echo '<pre>';
+    // print_r ( $settings[$key]['reverse_target'] );
+    // echo '</pre>';
+    // echo $difference . '<br />';
 
     if ( $difference >= 10 ) {
       $major_difference_star_1 = '<span class="dm-major-difference"><i class="fa fa-star" aria-hidden="true"></i></span>';
@@ -144,6 +158,7 @@ class DM_Comparator {
     if ( $difference <= -10 ) {
       $major_difference_star_2 = '<span class="dm-major-difference"><i class="fa fa-star" aria-hidden="true"></i></span>';
     }
+
 
 
     $return = '<div class="dm-comparison-question-row">
@@ -293,6 +308,9 @@ class DM_Comparator {
                   <div class="dm-pretty-response">
                     Pretty Response
                   </div>
+                  <div class="dm-response-positive">
+                    Positive/Negative
+                  </div>
               </div>';
 
     for ($i=1; $i < 21; $i++) {
@@ -316,6 +334,7 @@ class DM_Comparator {
       $responsed_dropdown = $this -> get_responses_dropdown_for_question( $settings[$key]['question_id'], $key, $settings[$key]['response'] );
     }
 
+    $checked = $is_admin = ( $settings[$key]['reverse_target'] == true ) ? 'checked' : '';
 
     $return = '<div class="dm-setup-comparator-question-row" question-id="' . $key . '">
                   <div class="dm-category">
@@ -329,6 +348,9 @@ class DM_Comparator {
                   </div>
                   <div class="dm-pretty-response">
                     <input type="text" name="pretty-response-' . $key . '" value="' . $settings[$key]['pretty_response'] . '">
+                  </div>
+                  <div class="dm-response-positive">
+                    <label><input type="checkbox" name="reverse-target-' . $key . '" value="true" ' . $checked . '> Reverse</label>
                   </div>
               </div>';
 
@@ -344,6 +366,7 @@ class DM_Comparator {
       $options[$i]['question_id']     = $params['question-' . $i];
       $options[$i]['response']        = $params['response-' . $i];
       $options[$i]['pretty_response'] = $params['pretty-response-' . $i];
+      $options[$i]['reverse_target']  = $params['reverse-target-' . $i];
     }
 
     $result = update_option( 'dm_college_comparison_settings', $options, false );
