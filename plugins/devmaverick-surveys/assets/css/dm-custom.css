@@ -682,6 +682,7 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-satisfaction-score-chart-container {
   position: relative;
   overflow: hidden;
+  height: 300px;
 }
 .dm-satisfaction-score-chart {
   display: flex;
@@ -702,13 +703,16 @@ article.post-4190.page.type-page.status-publish.entry{
 
 .dm-chart-counter {
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-size: 180px;
+  font-size: 120px;
   margin: 0;
   font-weight: 300;
   color: #4d63bc;
 }
 .ct-series-b {
   display: none;
+}
+.ct-slice-donut {
+  stroke-width: 40px !important;
 }
 
 

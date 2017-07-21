@@ -74,7 +74,7 @@ class DM_Chart {
           return '
                 <div class="dm-satisfaction-score-chart-container">
                   <div class="dm-chart-counter-container">
-                    <div class="dm-chart-counter" id="dm-chart-counter">123</div>
+                    <div class="dm-chart-counter" id="dm-chart-counter"></div>
                   </div>
 
                   <div class="chart">

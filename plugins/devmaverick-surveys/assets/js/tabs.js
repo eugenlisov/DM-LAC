@@ -79,7 +79,9 @@ function drawSatisfactionScoreGraphic() {
     labels: [satisfactionScore, difference]
   }, {
     donut: true,
-    showLabel: false
+    showLabel: false,
+    // width: 230,
+    height: 300
   });
 
   countUp( satisfactionScore );
