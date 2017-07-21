@@ -37,8 +37,8 @@ class DM_Comparator {
 
   public function college_comparison_block( $college_1 = '', $college_2 = '' ) {
 
-    // $college_1 = 209;
-    // $college_2 = 479;
+    $college_1 = 209;
+    $college_2 = 479;
 
     if ( ! $college_1 ) {
       return false;
@@ -52,6 +52,11 @@ class DM_Comparator {
     }
 
     $settings = get_option( 'dm_college_comparison_settings' );
+
+    // echo '<pre>';
+    // print_r ( $settings );
+    // echo '</pre>';
+
     $college_comparison_data = $this -> calculate_college_comparator_data( $college_1, $college_2, $settings );
 
     $college_1_image = get_the_post_thumbnail( $college_1, 'medium' );
@@ -71,17 +76,24 @@ class DM_Comparator {
                   </div>
 
                   <div class="dm-college-comparison-block-head">
-                    <div class="col-sm-6">
-                      Category
-                    </div>
-                    <div class="col-sm-3">
-                      <a href="' . get_permalink( $college_1 ) . '">' . get_the_title( $college_1 ) . '</a>
-                    </div>
-                    <div class="col-sm-3">
-                      <a href="' . get_permalink( $college_2 ) . '">' . get_the_title( $college_2 ) . '</a>
+                    <div class="col-md-11 col-md-offset-1">
+                      <div class="col-sm-6">
+                        Category
+                      </div>
+                      <div class="col-sm-3">
+                        <a href="' . get_permalink( $college_1 ) . '">' . get_the_title( $college_1 ) . '</a>
+                      </div>
+                      <div class="col-sm-3">
+                        <a href="' . get_permalink( $college_2 ) . '">' . get_the_title( $college_2 ) . '</a>
+                      </div>
                     </div>
                   </div>
                   ';
+
+
+    $community_block = '';
+    $academics_block = '';
+    $social_life_block = '';
 
     foreach ($settings as $key => $question_settings) {
       // If the question ID is not an integer, then it's not selected. Just skip this setting.
@@ -93,9 +105,50 @@ class DM_Comparator {
         continue;
       }
 
-      $return .= $this -> college_comparison_row( $settings, $college_comparison_data, $key, $college_1, $college_2 );
+      $current_row = $this -> college_comparison_row( $settings, $college_comparison_data, $key, $college_1, $college_2 );
 
-    }
+      switch ( $question_settings['selected_tab'] ) {
+        case 2:
+          $community_block .= $current_row;
+          break;
+        case 3:
+          $academics_block .= $current_row;
+          break;
+        case 4:
+          $social_life_block .= $current_row;
+          break;
+
+      }
+
+    } // End foreach
+
+    $return .= '<div class="dm-main-category">
+                  <div class="col-md-1">
+                    <span>
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                      <span>Community</span>
+                    </span>
+                  </div>
+                  <div class="col-md-11">' . $community_block . '</div>
+                </div>';
+    $return .= '<div class="dm-main-category">
+                  <div class="col-md-1">
+                    <span>
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                      <span>Academics</span>
+                    </span>
+                  </div>
+                  <div class="col-md-11">' . $academics_block . '</div>
+                </div>';
+    $return .= '<div class="dm-main-category">
+                  <div class="col-md-1">
+                    <span>
+                      <i class="fa fa-weixin" aria-hidden="true"></i>
+                      <span>Social life</span>
+                    </span>
+                  </div>
+                  <div class="col-md-11">' . $social_life_block . '</div>
+                </div>';
 
     $return .= '</div>';
     return $return;
@@ -183,6 +236,9 @@ class DM_Comparator {
 
 
   }
+
+
+
 
 
   private function get_available_colleges_dropdown() {
@@ -311,6 +367,9 @@ class DM_Comparator {
                   <div class="dm-response-positive">
                     Positive/Negative
                   </div>
+                  <div class="dm-main-category">
+                    Main Category
+                  </div>
               </div>';
 
     for ($i=1; $i < 21; $i++) {
@@ -334,6 +393,8 @@ class DM_Comparator {
       $responsed_dropdown = $this -> get_responses_dropdown_for_question( $settings[$key]['question_id'], $key, $settings[$key]['response'] );
     }
 
+    $selected_tab = $settings[$key]['selected_tab'];
+
     $checked = $is_admin = ( $settings[$key]['reverse_target'] == true ) ? 'checked' : '';
 
     $return = '<div class="dm-setup-comparator-question-row" question-id="' . $key . '">
@@ -352,7 +413,35 @@ class DM_Comparator {
                   <div class="dm-response-positive">
                     <label><input type="checkbox" name="reverse-target-' . $key . '" value="true" ' . $checked . '> Reverse</label>
                   </div>
+                  <div class="dm-main-category">
+                    ' . $this -> main_category_dropdown( $key, $selected_tab ) . '
+                  </div>
               </div>';
+
+    return $return;
+  }
+
+  // TODO Later make this dynamic.
+  public function main_category_dropdown( $current_key = '', $selected_tab = '' ) {
+
+    $main_categogories = array(
+      2 => 'Community',
+      3 => 'Academics',
+      4 => 'Social Life',
+    );
+
+    // echo '<pre>';
+    // print_r( $main_categogories );
+    // echo '</pre>';
+
+    $return = '<select name="selected-tab-' . $current_key . '">';
+    $return .= '<option disabled>select an option</option>';
+    foreach ($main_categogories as $key => $category) {
+      $selected = ( $selected_tab == $key ) ? 'selected' : false;
+      $return .= '<option value="' . $key . '" ' . $selected . '>' . $category . '</option>';
+    }
+
+    $return .= '</select>';
 
     return $return;
   }
@@ -367,6 +456,7 @@ class DM_Comparator {
       $options[$i]['response']        = $params['response-' . $i];
       $options[$i]['pretty_response'] = $params['pretty-response-' . $i];
       $options[$i]['reverse_target']  = $params['reverse-target-' . $i];
+      $options[$i]['selected_tab']    = $params['selected-tab-' . $i];
     }
 
     $result = update_option( 'dm_college_comparison_settings', $options, false );

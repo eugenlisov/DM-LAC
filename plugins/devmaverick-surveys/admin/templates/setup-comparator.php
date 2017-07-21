@@ -52,12 +52,18 @@ $dm_comparator = new DM_Comparator;
   width: 15%;
 }
 .dm-setup-comparator-question-row > div.dm-category {
-  /*width: 15%;*/
+  width: 20%;
 }
-.dm-setup-comparator-question-row > div.dm-category {
-  /*width: 15%;*/
+.dm-setup-comparator-question-row > div.dm-question {
+  width: 20%;
+}
+.dm-setup-comparator-question-row > div.dm-response {
+  width: 15%;
 }
 .dm-setup-comparator-question-row > div.dm-response-positive {
+  width: 9%;
+}
+.dm-setup-comparator-question-row > div.dm-main-category {
   width: 15%;
 }
 .dm-setup-comparator-question-row > div > input,
