@@ -595,8 +595,8 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 
 .desktop-pricing-tables {
-  width: 70%;
-  margin-left: 15%;
+  /*width: 70%;*/
+  /*margin-left: 15%;*/
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -770,6 +770,20 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-what-students-say h5 {
   font-style: italic;
+}
+.dm-opend-ended-response-body {
+  display: flex;
+  align-items: center;
+  color: #39aad4;
+  font-style: italic;
+  line-height: 24px;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dm-opend-ended-response-body .fa {
+  margin-right: 15px;
+  font-size: 24px;
 }
 
 

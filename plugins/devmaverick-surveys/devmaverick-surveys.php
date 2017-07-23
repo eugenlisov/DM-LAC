@@ -42,3 +42,7 @@ require_once('classes/classCollegeActions.inc');
 require_once('classes/classModal.inc');
 require_once('classes/classNote.inc');
 require_once('classes/classRating.inc');
+
+if ( is_admin() ) {
+  require_once('classes/classImportSurveys.inc');
+}

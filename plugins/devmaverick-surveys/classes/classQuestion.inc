@@ -224,7 +224,10 @@ class DM_Question {
       foreach ($current_question_open_responses as $key => $open_response) {
 
         $return .= '<tr>
-                <td class="dm-response-text">' . $open_response['response_text'] . '</td>
+                <td class="dm-response-text dm-opend-ended-response-body">
+                  <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
+                  ' . $open_response['response_text'] . '
+                </td>
               </tr>';
       }
 
