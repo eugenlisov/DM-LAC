@@ -41,49 +41,20 @@ class DM_Chart {
   private function get_q6_chart( $question_id = '' ) {
       // NOTE The number of the q5 is 6 in this case
 
-      global $global_response_averages_by_iped;
 
-      $school_average = $global_response_averages_by_iped[6] -> school_ave;
-      // echo '<pre>';
-      // print_r( $global_response_averages_by_iped[6] );
-      // echo '</pre>';
-      //
-      // $real_q_id = 6;
-      //
-      // $option_text = $current_option -> option_text;
-      $option_percent_q6 = $school_average / 10 * 10;
+      $dm_satisfaction_score = new DM_SatisfactionScore;
+      $satisfaction_score = $dm_satisfaction_score -> get_satisfaction_score_by_iped();
 
-      $current_question_return .= '<p class="dm-q6-chart-caption">On a 0 to 10 scale, this is what students rated ' . get_the_title() . '.</p>';
-      $current_question_return .= '
-          <div class="row dm-option" option-percent="' . $option_percent . '">
-            <div class="col-md-3 dm-option-label">
+          return '<div class="dm-satisfaction-score-chart-container">
+                    <div class="dm-chart-counter-container">
+                      <div class="dm-chart-counter" id="dm-chart-counter"></div>
+                    </div>
 
-              Satisfaction Level:
-            </div>
-            <div class="col-md-9">
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: ' . $option_percent_q6 . '%">
-                  <span class="dm-progress-bar-content">' . $option_percent_q6 . '%</span>
-                </div>
-              </div>
-            </div>
-          </div>';
+                    <div class="chart">
+                      <div class="ct-chart ct-golden-section"></div>
+                    </div>
+                  </div>' . $this -> echo_satisfaction_score_var( $satisfaction_score );
 
-
-          // Satisfaction is: ' . $option_percent_q6 . '
-          return '
-                <div class="dm-satisfaction-score-chart-container">
-                  <div class="dm-chart-counter-container">
-                    <div class="dm-chart-counter" id="dm-chart-counter"></div>
-                  </div>
-
-                  <div class="chart">
-
-                    <div class="ct-chart ct-golden-section"></div>
-                  </div>
-                </div>' . $this -> echo_satisfaction_score_var( $option_percent_q6 );
-
-          // return 'Satisfaction is: ' . $option_percent_q6 . $current_question_return;
   }
 
   /**

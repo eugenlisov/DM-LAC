@@ -30,6 +30,7 @@ require_once('classes/classDashboard.inc');
 require_once('classes/classMetaBox.inc');
 require_once('classes/classMMProtection.inc');
 require_once('classes/classQuestion.inc');
+require_once('classes/classSatisfactionScore.inc');
 require_once('classes/classSchool.inc');
 require_once('classes/classShortcodes.inc');
 require_once('classes/classTabsSection.inc');
