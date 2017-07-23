@@ -87,7 +87,8 @@ class DM_ImportSurveys {
        $time_elapsed_secs = microtime(true) - $start;
 
        // Trigger the averages recalculation
-       dm_recalculate_averages();
+       // No need to trigger average recalculation. This was used for the comparison tab
+      //  dm_recalculate_averages();
 
        echo '<br />Time elapsed: ' . $time_elapsed_secs;
 
