@@ -1130,6 +1130,7 @@ padding-bottom: 25px;
 .dm-college-comparison-block-images {
     overflow: hidden;
     border-bottom: 1px solid #fff;
+    display: flex;
 }
 .dm-college-comparison-block-images > div {
   border-right: 1px solid #fff;
@@ -1150,6 +1151,7 @@ padding-bottom: 25px;
 .dm-college-comparison-block-head > div {
   border-right: 1px solid #fff;
   padding: 5px 17px;
+  position: relative;
 }
 .dm-college-comparison-block-head a,
 .dm-college-comparison-block-head a:hover,
@@ -1168,6 +1170,18 @@ padding-bottom: 25px;
   position: relative;
 }
 
+.dm-comparison-question-row .dm-big-six {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
+.dm-comparison-question-row .dm-has-big-six {
+  padding-right: 50px;
+}
+.dm-comparison-question-row .dm-big-six img{
+  width: 30px;
+  height: 30px;
+}
 .dm-comparison-question-row:nth-child(odd) {
   background-color: #e8f3f7;
 }
@@ -1188,7 +1202,12 @@ padding-bottom: 25px;
   width: 100%;
   margin-top: 20px;
 }
-
+.dm-comparator-narrative {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
 
 /* END Compare Colleges Page */
 

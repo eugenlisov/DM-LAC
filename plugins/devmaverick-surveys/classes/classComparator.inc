@@ -37,8 +37,8 @@ class DM_Comparator {
 
   public function college_comparison_block( $college_1 = '', $college_2 = '' ) {
 
-    $college_1 = 209;
-    $college_2 = 479;
+    // $college_1 = 209;
+    // $college_2 = 479;
 
     if ( ! $college_1 ) {
       return false;
@@ -64,8 +64,10 @@ class DM_Comparator {
 
     $return = '<div class="dm-college-comparison-block">
                   <div class="dm-college-comparison-block-images">
-                    <div class="col-sm-6">
-
+                    <div class="col-sm-6 dm-comparator-narrative">
+                      <div>
+                        ' . $settings['comparator_narrative'] . '
+                      </div>
                     </div>
                     <div class="col-sm-3 dm-college-image-holder">
                       <a href="' . get_permalink( $college_1 ) . '">' . $college_1_image . '</a>
@@ -211,13 +213,18 @@ class DM_Comparator {
     if ( $difference <= -10 ) {
       $major_difference_star_2 = '<span class="dm-major-difference"><i class="fa fa-star" aria-hidden="true"></i></span>';
     }
-
+    $bix_six_block = '<div class="dm-big-six"><img src="' . SURVEYS_ASSETS_URL  . '/images/big-six.png"></div>';
+    $big_six = ( $settings[$key]['big_six'] == true ) ? $bix_six_block : false;
+    if ( $big_six ) {
+      $big_six_class = 'dm-has-big-six ';
+    }
 
 
     $return = '<div class="dm-comparison-question-row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 ' . $big_six_class . '">
                   <strong>' . $settings[$key]['category'] . ':</strong>
                   <span>' . $settings[$key]['pretty_response'] . '</span>
+                  ' . $big_six . '
                 </div>
                 <div class="col-sm-3">
                   ' . $college_1_percentage . '%
@@ -346,10 +353,15 @@ class DM_Comparator {
 
   public function setup_question_block() {
 
-
+    $settings = get_option( 'dm_college_comparison_settings' );
 
     $return = '<div class="dm-setup-comparator-questions">
                 <form class="dm-setup-comparator-form">';
+
+    $return .= '<div class="dm-setup-comparator-question-row dm-title-row">
+                  Comparator Narrative <br />
+                  <textarea rows="4" cols="50"  name="comparator-narrative" >' . $settings['comparator_narrative'] . '</textarea>
+                </div>';
 
     $return .= '<div class="dm-setup-comparator-question-row dm-title-row">
                   <div class="dm-category">
@@ -370,10 +382,13 @@ class DM_Comparator {
                   <div class="dm-main-category">
                     Main Category
                   </div>
+                  <div class="dm-big-six">
+                    Bix Six
+                  </div>
               </div>';
 
     for ($i=1; $i < 21; $i++) {
-      $settings = get_option( 'dm_college_comparison_settings' );
+
       $return .= $this -> setup_question_row( $i, $settings );
     }
 
@@ -395,7 +410,8 @@ class DM_Comparator {
 
     $selected_tab = $settings[$key]['selected_tab'];
 
-    $checked = $is_admin = ( $settings[$key]['reverse_target'] == true ) ? 'checked' : '';
+    $checked = ( $settings[$key]['reverse_target'] == true ) ? 'checked' : '';
+    $checked_bix_six = ( $settings[$key]['big_six'] == true ) ? 'checked' : '';
 
     $return = '<div class="dm-setup-comparator-question-row" question-id="' . $key . '">
                   <div class="dm-category">
@@ -415,6 +431,9 @@ class DM_Comparator {
                   </div>
                   <div class="dm-main-category">
                     ' . $this -> main_category_dropdown( $key, $selected_tab ) . '
+                  </div>
+                  <div class="dm-big-six">
+                    <label><input type="checkbox" name="big-six-' . $key . '" value="true" ' . $checked_bix_six . '></label>
                   </div>
               </div>';
 
@@ -450,6 +469,8 @@ class DM_Comparator {
     $params = array();
     parse_str( $_POST['data'], $params);
 
+      $options['comparator_narrative'] = $params['comparator-narrative'];
+
     for ($i=1; $i < 21; $i++) {
       $options[$i]['category']        = $params['category-' . $i];
       $options[$i]['question_id']     = $params['question-' . $i];
@@ -457,6 +478,7 @@ class DM_Comparator {
       $options[$i]['pretty_response'] = $params['pretty-response-' . $i];
       $options[$i]['reverse_target']  = $params['reverse-target-' . $i];
       $options[$i]['selected_tab']    = $params['selected-tab-' . $i];
+      $options[$i]['big_six']         = $params['big-six-' . $i];
     }
 
     $result = update_option( 'dm_college_comparison_settings', $options, false );

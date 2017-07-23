@@ -45,14 +45,12 @@ $dm_comparator = new DM_Comparator;
   min-height: 10px;
   padding: 1px 0.5%;
 }
-.dm-setup-comparator-question-row > div.dm-category {
-  width: 15%;
-}
+
 .dm-setup-comparator-question-row > div.dm-pretty-response {
   width: 15%;
 }
 .dm-setup-comparator-question-row > div.dm-category {
-  width: 20%;
+  width: 18%;
 }
 .dm-setup-comparator-question-row > div.dm-question {
   width: 20%;
@@ -64,7 +62,11 @@ $dm_comparator = new DM_Comparator;
   width: 9%;
 }
 .dm-setup-comparator-question-row > div.dm-main-category {
-  width: 15%;
+  width: 10%;
+}
+.dm-setup-comparator-question-row > div.dm-big-six {
+  width: 6%;
+  text-align: center;
 }
 .dm-setup-comparator-question-row > div > input,
 .dm-setup-comparator-question-row > div > select {
