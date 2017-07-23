@@ -131,6 +131,58 @@ class DM_School {
 
   }
 
+  public function school_contact_data_widget() {
+
+    $school_id = get_the_ID();
+
+    $contact_data  = $this -> get_contact_data ( $school_id );
+
+    // echo '<pre>';
+    // print_r( $contact_data );
+    // echo '</pre>';
+
+    $return = '';
+
+    $return .= '<div class="dm-school-contact-data-widget">
+
+              <table style="width:100%">';
+
+        foreach ($contact_data as $key => $contact_item) {
+          switch ($key) {
+            case 'full_name':
+              $contact_label = 'Representative';
+              break;
+            case 'title':
+              $contact_label = 'Title';
+              break;
+            case 'phone':
+              $contact_label = 'Phone';
+              break;
+            case 'email':
+              $contact_label = 'Email';
+              break;
+            default:
+              $contact_label = '';
+              break;
+          }
+
+            if ($contact_label != '' && trim($contact_item) != '' ) {
+              $return .= '
+                      <tr>
+                        <td class="contact-label"><strong>' . $contact_label . ': </strong></td>
+                        <td class="contact-item">' . $contact_item . '</td>
+                      </tr>';
+            }
+        }
+
+
+        $return .= '
+              </table>
+            </div>';
+
+    return $return;
+  }
+
   public function get_respondents_count( $school_id = '' ) {
 
     if  ( ! $school_id ) {

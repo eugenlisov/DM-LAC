@@ -1083,7 +1083,12 @@ padding-bottom: 25px;
   box-shadow: 5px 5px 5px #333;
 }
 
-
+/* College Sidebar */
+.dm-school-contact-data-widget {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* END College Sidebar */
 
 
 

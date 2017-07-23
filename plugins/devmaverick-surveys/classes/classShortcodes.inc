@@ -17,6 +17,7 @@ class DM_Shortcodes {
     add_shortcode('dm-dashboard-links', array( $this, 'dm_dashboard_links' ) );
     add_shortcode('dm-dashboard-my-colleges', array( $this, 'dm_dashboard_my_colleges_widget' ) );
     add_shortcode('dm-compare-colleges', array( $this, 'dm_compare_colleges' ) );
+    add_shortcode('dm-contact-data-widget', array( $this, 'dm_contact_data_widget' ) );
 
   }
 
@@ -61,6 +62,14 @@ class DM_Shortcodes {
 
   }
 
+  function dm_contact_data_widget() {
+
+    $dm_school = new DM_School;
+    $return = $dm_school -> school_contact_data_widget();
+
+    return $return;
+    
+  }
 
 } // End class
 
