@@ -115,7 +115,7 @@ class DM_Chart {
 
               if ($chart_data){
                 foreach ($chart_data as $key => $current_option) {
-                  $option_text = $current_option -> option_text;
+                  $option_text = stripslashes ( $current_option -> option_text );
                   $option_percent = $current_option -> percent;
 
                   $current_question_chart_return .= '

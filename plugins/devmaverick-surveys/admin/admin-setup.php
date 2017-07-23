@@ -22,7 +22,7 @@ function wpdocs_register_my_custom_menu_page(){
     // add_submenu_page( $slug, 'Import LAC Averages', 'Import LAC Averages', 'manage_options', $slug . '-import-averages', 'dm_surveys_admin_import_averages');
     add_submenu_page( $slug, 'Questions', 'Questions', 'manage_options', $slug . '-questions', 'dm_surveys_admin_questions');
     // add_submenu_page( $slug, 'Survey Data', 'Survey Data', 'manage_options', $slug . '-survey-data', 'dm_surveys_admin_survey_data');
-      // add_submenu_page( $slug, 'Import Options', 'Import Options', 'manage_options', $slug . '-import-options', 'dm_surveys_admin_import_options');
+      add_submenu_page( $slug, 'Import Options', 'Import Options', 'manage_options', $slug . '-import-options', 'dm_surveys_admin_import_options');
 
     // dm_register_zoho_settings();
     // add_action( 'admin_init', 'dm_register_zoho_settings' );

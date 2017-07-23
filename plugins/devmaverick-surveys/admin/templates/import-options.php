@@ -48,7 +48,7 @@
                 array(
                   'q_number'      => $line[0],
                   'q_id_all'      => $line[1],
-                  'option_text'   => $line[2],
+                  'option_text'   => addslashes($line[2]),
                   'option_score'  => $line[3],
                 ),
                 array(
