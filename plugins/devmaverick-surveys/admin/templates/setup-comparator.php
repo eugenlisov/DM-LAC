@@ -46,6 +46,7 @@ $dm_comparator = new DM_Comparator;
   padding: 1px 0.5%;
 }
 
+
 .dm-setup-comparator-question-row > div.dm-pretty-response {
   width: 15%;
 }
@@ -74,6 +75,14 @@ $dm_comparator = new DM_Comparator;
 }
 .dm-save-button {
   margin-top: 10px !important;
+}
+
+.dm-comparator-narrative {
+  width: 100%;
+  font-weight: normal;
+}
+.dm-signifficant-difference {
+  font-weight: normal;
 }
 
 </style>

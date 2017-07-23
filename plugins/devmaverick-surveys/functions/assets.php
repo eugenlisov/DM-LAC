@@ -97,7 +97,6 @@ function dm_lac_admin_script() {
 
   $page = htmlspecialchars($_GET["page"]);
   if ( $page == 'dm-surveys-setup-comparator' ) {
-    echo 'sugiuc';
 
     wp_enqueue_style( 'dm-select2' );
     wp_enqueue_script( 'dm-select2' );

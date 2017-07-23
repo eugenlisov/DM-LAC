@@ -198,6 +198,8 @@ class DM_Comparator {
     } else {
       $difference = $college_2_percentage - $college_1_percentage;
     }
+
+    $signifficant_difference = $settings['signifficant_difference'];
     // echo $settings[$key]['category'] . '<br />';
     // echo '$college_1_percentage: ' . $college_1_percentage . '<br />';
     // echo '$college_2_percentage: ' . $college_2_percentage . '<br />';
@@ -207,10 +209,10 @@ class DM_Comparator {
     // echo '</pre>';
     // echo $difference . '<br />';
 
-    if ( $difference >= 10 ) {
+    if ( $difference >= $signifficant_difference ) {
       $major_difference_star_1 = '<span class="dm-major-difference"><i class="fa fa-star" aria-hidden="true"></i></span>';
     }
-    if ( $difference <= -10 ) {
+    if ( $difference <= - $signifficant_difference ) {
       $major_difference_star_2 = '<span class="dm-major-difference"><i class="fa fa-star" aria-hidden="true"></i></span>';
     }
     $bix_six_block = '<div class="dm-big-six"><img src="' . SURVEYS_ASSETS_URL  . '/images/big-six.png"></div>';
@@ -358,12 +360,23 @@ class DM_Comparator {
     $return = '<div class="dm-setup-comparator-questions">
                 <form class="dm-setup-comparator-form">';
 
-    $return .= '<div class="dm-setup-comparator-question-row dm-title-row">
-                  Comparator Narrative <br />
-                  <textarea rows="4" cols="50"  name="comparator-narrative" >' . $settings['comparator_narrative'] . '</textarea>
+    $return .= '<div class="row">
+                  <h3>Comparator Narrative</h3>
+                  <div class="dm-setup-comparator-question-row dm-title-row">
+                    <textarea rows="4" cols="50"  name="comparator-narrative" class="dm-comparator-narrative" >' . $settings['comparator_narrative'] . '</textarea>
+                  </div>
                 </div>';
 
-    $return .= '<div class="dm-setup-comparator-question-row dm-title-row">
+    $return .= '<div class="row">
+                  <h3>Signifficant Difference Value</h3>
+                  <div class="dm-setup-comparator-question-row dm-title-row">
+                    <input type="number" name="signifficant-difference" value="' . $settings['signifficant_difference'] . '" class="dm-signifficant-difference">
+                  </div>
+                </div>';
+
+    $return .= '
+                <h3>Comparator Questions</h3>
+                <div class="dm-setup-comparator-question-row dm-title-row">
                   <div class="dm-category">
                     Category
                   </div>
@@ -469,7 +482,8 @@ class DM_Comparator {
     $params = array();
     parse_str( $_POST['data'], $params);
 
-      $options['comparator_narrative'] = $params['comparator-narrative'];
+      $options['comparator_narrative']    = $params['comparator-narrative'];
+      $options['signifficant_difference'] = $params['signifficant-difference'];
 
     for ($i=1; $i < 21; $i++) {
       $options[$i]['category']        = $params['category-' . $i];
