@@ -71,7 +71,7 @@ function countUp( satisfactionScore ) {
 // drawSatisfactionScoreGraphic();
 function drawSatisfactionScoreGraphic() {
 
-  var difference = 100 - satisfactionScore;
+  var difference = 10 - satisfactionScore;
 
 
   var chart = new Chartist.Pie('.ct-chart', {

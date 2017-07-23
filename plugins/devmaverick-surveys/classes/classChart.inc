@@ -51,7 +51,7 @@ class DM_Chart {
       // $real_q_id = 6;
       //
       // $option_text = $current_option -> option_text;
-      $option_percent_q6 = $school_average / 10 * 100;
+      $option_percent_q6 = $school_average / 10 * 10;
 
       $current_question_return .= '<p class="dm-q6-chart-caption">On a 0 to 10 scale, this is what students rated ' . get_the_title() . '.</p>';
       $current_question_return .= '
