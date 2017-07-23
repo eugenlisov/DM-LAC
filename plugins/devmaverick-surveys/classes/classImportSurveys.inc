@@ -26,30 +26,12 @@ class DM_ImportSurveys {
 
      $start = microtime(true);
 
-    // Get the data from the real question table
-   //  $sql_csv_associations_data = 'SELECT * from dm_survey_all_questions WHERE NOT other = "yes"';
-    // $sql_csv_associations_data = 'SELECT * from dm_survey_all_questions WHERE visible <> "no"'; // Ignore question 38
-    // $csv_associations_data = $wpdb->get_results( $sql_csv_associations_data );
-
-    $csv_associations_data = $this -> get_csv_association_data();
-
-   //  echo '<pre> CSV Association data';
-   //  print_r($csv_associations_data);
-   //  echo '</pre>';
-    //
-   //  exit;
-
+    $csv_associations_data = $this -> get_csv_association_data( $wpdb );
     $survey_options_by_question = $this -> get_options_by_question( $wpdb );
-
 
     // Read the CSV file and save to a two dimensional array.
     $lines = $this -> get_array_from_csv();
 
-   //  echo '<pre>';
-   //  print_r($lines);
-   //  echo '</pre>';
-
-      //  $unique_schools_array         = array();
        $unique_schools_strings_array = array();
 
        // Get the unique school names array from the database
@@ -73,11 +55,6 @@ class DM_ImportSurveys {
          $collector_id   = $line[2];
          $school_name    = '"' . $line[10] . '"';
 
-         // echo '<pre>';
-         // print_r ( $line );
-         // echo '</pre>';
-
-
          // Skip the  first row
          if ($key == 0) continue; // Slip first row.
 
@@ -89,20 +66,9 @@ class DM_ImportSurveys {
            $unique_schools_array[$iped] = $line[10]; // $line[10] is $school name
            $unique_schools_strings_array[$iped] = '(' . $iped .  ', ' . $school_name . ')';
          }
-         // echo '<pre>';
-         // print_r($response_sql_values);
-         // echo '</pre>';
-
-         //Reset all the time
-         $answer = array();
-         $score = array();
 
          // Go through the list grabbed from the All table and read the values from the csv, based on the column in the CSV
          $response_sql_values = $this -> build_response_sql_values_array( $csv_associations_data, $line, $survey_options_by_question );
-
-        //  echo '<pre>$response_sql_values:';
-        //  print_r($response_sql_values);
-        //  echo '</pre>';
 
          // HACK Trebuie gasita adevarata cauza a problemei.
          // Pentru acum, doar sterg prima valoare din array
@@ -111,28 +77,12 @@ class DM_ImportSurveys {
            array_shift ( $response_sql_values );
          }
 
-
          $this -> save_survey_responses_to_db( $wpdb, $response_sql_values, $respondent_id );
-
-
 
        } // END Foreach line
 
-       // echo '<pre> Unique schools';
-       // print_r($unique_schools_strings_array);
-       // echo '</pre>';
-       // If there are any schools that aren't already in the database, write them now
-       if ($unique_schools_strings_array) {
-         $unique_schools_string = implode (", ", $unique_schools_strings_array);
+       $this -> save_unique_schools_list_to_db( $wpdb, $unique_schools_strings_array );
 
-         // Save the schools to the  unique iped array table
-         $sql_query_schools = 'INSERT INTO dm_school_ipeds (iped, school_name) VALUES ' . $unique_schools_string;
-         $result = $wpdb->query($sql_query_schools);
-
-         // echo '<pre> Unique schools result: ';
-         // print_r($result);
-         // echo '</pre>';
-       }
 
        $time_elapsed_secs = microtime(true) - $start;
 
@@ -140,9 +90,6 @@ class DM_ImportSurveys {
        dm_recalculate_averages();
 
        echo '<br />Time elapsed: ' . $time_elapsed_secs;
-
-
-
 
 
   }
@@ -194,11 +141,6 @@ public function get_csv_association_data( $wpdb ) {
     foreach ($survey_options as $key => $option) {
       $survey_options_by_question[$option -> q_id_all][] = $option;
     }
-
-    // echo '<pre> Survey Options 123';
-    // print_r($survey_options_by_question);
-    // echo '</pre>';
-
 
     return $survey_options_by_question;
   }
@@ -266,13 +208,9 @@ public function get_csv_association_data( $wpdb ) {
 
         if ( $percent >= 95) { // If there's a match
 
-          $score[ $value -> id ] = $q_option -> option_score;
-
           $other_response = '""';
           $score = $q_option -> option_score;
-          // $option_text = '"' . htmlspecialchars( $q_option -> option_text)  . '"';
           $option_text = '"' . addslashes ( $q_option -> option_text)  . '"';
-          // str_replace("world","Peter","Hello world!");
 
           $row_values = array( $iped, $school_name, $respondent_id, $all_question_id, $option_text, $score, $other_response );
 
@@ -290,7 +228,6 @@ public function get_csv_association_data( $wpdb ) {
     $response_sql_values = array();
 
     foreach ($csv_associations_data as $key => $value) {
-
 
 
       if ($value -> other == 'yes') {
@@ -345,7 +282,17 @@ public function get_csv_association_data( $wpdb ) {
 
   }
 
+  public function save_unique_schools_list_to_db( $wpdb, $unique_schools_strings_array ){
 
+    // If there are any schools that aren't already in the database, write them now
+    if ($unique_schools_strings_array) {
+      $unique_schools_string = implode (", ", $unique_schools_strings_array);
+
+      // Save the schools to the  unique iped array table
+      $sql_query_schools = 'INSERT INTO dm_school_ipeds (iped, school_name) VALUES ' . $unique_schools_string;
+      $result = $wpdb->query($sql_query_schools);
+    }
+  }
 
 
 
