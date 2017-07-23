@@ -79,9 +79,14 @@ class DM_Chart {
 
             	$chart_data = $this -> dm_get_charts_data( $question_id, $iped );
 
-              // echo '<pre>';
-              // print_r($chart_data);
-              // echo '</pre>';
+              // if ( $question_id == 26 ) {
+              //
+              //   echo '<pre>';
+              //   print_r($chart_data);
+              //   echo '</pre>';
+              //
+              // }
+
 
 
               if ($chart_data){
@@ -122,10 +127,17 @@ class DM_Chart {
 
     global $global_question_options_list;
     global $global_responses_count_by_question_and_iped;
+    global $global_total_responses_count_by_question_and_iped;
     global $global_responses_by_iped;
 
+    // echo '<pre>';
+    // print_r( $global_responses_count_by_question_and_iped )
+    // echo '</pre>';
+    $total_count = $global_total_responses_count_by_question_and_iped[$question_id];
+
   	//Once we have the two above, we merge them into a larger array;
-  	$question_options_count_array = array();  	$max_percent_key = 0;
+  	$question_options_count_array = array();
+    $max_percent_key = 0;
 
       $question = $global_question_options_list[$question_id] ;
     if ($question) {
@@ -134,7 +146,7 @@ class DM_Chart {
 
   			if ($global_responses_count_by_question_and_iped[$question_id][$key_option]) {
   				$count = $global_responses_count_by_question_and_iped[$question_id][$key_option];
-  				$percent = round( $count / $global_responses_by_iped * 100 );
+  				$percent = round( $count / $total_count * 100, 1 );
 
   				$global_question_options_list[$question_id][$key_option] -> count = $count;
   				$global_question_options_list[$question_id][$key_option] -> percent = $percent;

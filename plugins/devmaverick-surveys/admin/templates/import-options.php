@@ -43,12 +43,33 @@
             continue;
           }
 
+
+          $values =      array(
+                            'q_number'      => $line[0],
+                            'q_id_all'      => $line[1],
+                            'option_text'   => '"' . htmlspecialchars($line[2]) . '"',
+                            'option_score'  => $line[3],
+                          );
+
+            $values_string = implode (", ", $values);
+
+            // // Save the schools to the  unique iped array table
+            // $sql = 'INSERT INTO dm_survey_options (q_number, q_id_all, option_text, option_score) VALUES (' . $values_string . ')';
+            //
+            // // echo '<pre>';
+            // // print_r ( $values );
+            // // echo '</pre>';
+            // // echo $sql;
+            //
+            // $result = $wpdb->query($sql);
+
+
           $result = $wpdb->insert(
                 'dm_survey_options',
                 array(
                   'q_number'      => $line[0],
                   'q_id_all'      => $line[1],
-                  'option_text'   => addslashes($line[2]),
+                  'option_text'   => htmlspecialchars($line[2]),
                   'option_score'  => $line[3],
                 ),
                 array(

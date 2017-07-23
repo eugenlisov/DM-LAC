@@ -122,6 +122,7 @@ function dm_call_tabs_section() {
 
   global $global_question_options_list;
   global $global_responses_count_by_question_and_iped;
+  global $global_total_responses_count_by_question_and_iped;
   global $global_responses_by_iped;
   global $global_response_averages_by_iped; // Cred ca used doar la NPS
   global $global_all_questions;
@@ -132,6 +133,7 @@ function dm_call_tabs_section() {
   $dm_school    = new DM_School;
   $dm_question  = new DM_Question;
   $dm_tab       = new DM_Tab;
+  $dm_response  = new DM_Response;
 
   $iped = $dm_school -> get_iped(); // S-ar putea ca aici sa nu fie neaparat necesar.
 
@@ -139,6 +141,7 @@ function dm_call_tabs_section() {
 
   $global_question_options_list 								= get_question_options_list();
   $global_responses_count_by_question_and_iped  = get_response_count_by_question_and_iped( $iped );
+  $global_total_responses_count_by_question_and_iped  = $dm_response -> get_total_response_count_by_question_and_iped( $iped );
   $global_responses_by_iped					            = get_response_count_by_iped( $iped );
   $global_response_averages_by_iped             = get_response_averages_by_iped( $iped ); // Cred ca used doar la NPS
   $global_all_questions                         = $dm_question -> get_all_questions_list();
