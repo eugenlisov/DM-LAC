@@ -1092,6 +1092,12 @@ padding-bottom: 25px;
   clear: both;
   overflow: hidden;
 }
+.dm-compare-colleges-select-block .dm-school-1-container {
+  padding-left: 0;
+}
+.dm-compare-colleges-select-block .dm-school-2-container {
+  padding-right: 0;
+}
 
 
 .dm-college-comparison-block {
@@ -1138,6 +1144,7 @@ padding-bottom: 25px;
 .dm-college-comparison-block-images .dm-college-image-holder {
   padding-left: 0;
   padding-right: 0;
+  border-left: 1px solid #fff;
 }
 
 .dm-college-comparison-block-head {

@@ -15,10 +15,10 @@ class DM_Comparator {
     $colleges_dropdown = $this -> get_available_colleges_dropdown();
 
     $return = '<div class="dm-compare-colleges-select-block">
-                  <div class="col-sm-6 dm-school-1-container">School 1
+                  <div class="col-sm-6 dm-school-1-container">
                   ' . $colleges_dropdown . '
                   </div>
-                  <div class="col-sm-6 dm-school-2-container">School 2
+                  <div class="col-sm-6 dm-school-2-container">
                   ' . $colleges_dropdown . '
                   </div>
                   <div class="">
@@ -69,12 +69,17 @@ class DM_Comparator {
                         ' . $settings['comparator_narrative'] . '
                       </div>
                     </div>
-                    <div class="col-sm-3 dm-college-image-holder">
-                      <a href="' . get_permalink( $college_1 ) . '">' . $college_1_image . '</a>
+                    <div class="col-sm-6" style="padding: 0;">
+                        <div class="col-sm-11 col-sm-offset-1" style="padding: 0;">
+                            <div class="col-sm-6 dm-college-image-holder">
+                              <a href="' . get_permalink( $college_1 ) . '">' . $college_1_image . '</a>
+                            </div>
+                            <div class="col-sm-6 dm-college-image-holder">
+                              <a href="' . get_permalink( $college_2 ) . '">' . $college_2_image . '</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-3 dm-college-image-holder">
-                      <a href="' . get_permalink( $college_2 ) . '">' . $college_2_image . '</a>
-                    </div>
+
                   </div>
 
                   <div class="dm-college-comparison-block-head">
