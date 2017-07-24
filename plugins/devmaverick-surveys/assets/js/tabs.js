@@ -42,7 +42,7 @@ function dmHightlightBestOptions() {
       var currentChartOptions = currentQuestionChartContainer.find('.dm-option');
       var max = 0;
       currentChartOptions.each(function( index ) {
-        var currentMax = parseInt( $( this ).attr('option-percent') );
+        var currentMax = Number( $( this ).attr('option-percent') );
         if (currentMax > max) {
           max = currentMax;
         }
