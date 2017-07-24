@@ -287,6 +287,7 @@ class DM_Comparator {
 
     // Build the select
     $return = '<select>';
+      $return .= '<option value="" disabled selected>-- select college --</option>';
     foreach ($colleges_array as $key => $college) {
       $return .= '<option value="' . $college -> ID . '">' . $college -> post_title . '</option>';
     }
