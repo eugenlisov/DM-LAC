@@ -1122,7 +1122,7 @@ padding-bottom: 25px;
 .dm-college-comparison-block {
   clear: both;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 .dm-college-comparison-block > .dm-main-category  {
@@ -1242,6 +1242,30 @@ padding-bottom: 25px;
 }
 .dm-compare-colleges-block-container h2 {
   text-align: center;
+}
+.dm-comparator-sub-notes {
+  overflow: hidden;
+  display: flex;
+  font-size: 16px;
+}
+.dm-comparator-sub-notes .dm-key {
+  padding: 10px;
+}
+.dm-comparator-sub-notes .dm-values {
+  padding: 10px;
+}
+.dm-comparator-sub-notes .dm-sub-notes-item  {
+  margin-bottom: 10px;
+}
+.dm-comparator-sub-notes .dm-sub-notes-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+.dm-comparator-sub-notes .dm-sub-notes-item .dm-significand-difference-icon .fa {
+  font-size: 30px;
+  color: orange;
+  margin-right: 15px;
 }
 
 /* Comparator Loader */

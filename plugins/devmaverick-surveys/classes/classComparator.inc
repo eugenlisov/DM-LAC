@@ -158,6 +158,26 @@ class DM_Comparator {
                 </div>';
 
     $return .= '</div>';
+
+
+    $return .= '<div class="dm-comparator-sub-notes">
+                    <div class="dm-key">
+                      KEY
+                    </div>
+                    <div class="dm-values">
+                        <div class="dm-sub-notes-item">
+                          <img src="' . SURVEYS_ASSETS_URL  . '/images/big-six.png">
+                          A "Big 6" Factor based on <a href="' . get_permalink( PAGE_SCHOOL_RANKINGS ) . '">Voice of Student Research</a>
+                        </div>
+
+                        <div class="dm-sub-notes-item">
+                          <span class="dm-significand-difference-icon">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                          </span>
+                          Category Winner by a Significant Margin
+                        </div>
+                    </div>
+                </div>';
     return $return;
 
   }
