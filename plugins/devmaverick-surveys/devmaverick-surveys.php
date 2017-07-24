@@ -47,4 +47,5 @@ require_once('classes/classRating.inc');
 
 if ( is_admin() ) {
   require_once('classes/classImportSurveys.inc');
+  require_once('classes/classImportFastFacts.inc');
 }

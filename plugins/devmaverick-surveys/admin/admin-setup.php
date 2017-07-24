@@ -19,6 +19,7 @@ function wpdocs_register_my_custom_menu_page(){
     add_submenu_page( $slug, 'Tabs', 'Tabs', 'manage_options', $slug . '-tabs', 'dm_surveys_admin_tabs');
     add_submenu_page( $slug, 'Import Surveys', 'Import Surveys', 'manage_options', $slug . '-import-surveys', 'dm_surveys_admin_import_surveys');
     add_submenu_page( $slug, 'Import Contacts', 'Import Contacts', 'manage_options', $slug . '-import-contacts', 'dm_surveys_admin_import_contacts');
+    add_submenu_page( $slug, 'Import Fast Facts', 'Import Fast Facts', 'manage_options', $slug . '-import-fast-facts', 'dm_surveys_admin_import_fast_facts');
     // add_submenu_page( $slug, 'Import LAC Averages', 'Import LAC Averages', 'manage_options', $slug . '-import-averages', 'dm_surveys_admin_import_averages');
     add_submenu_page( $slug, 'Questions', 'Questions', 'manage_options', $slug . '-questions', 'dm_surveys_admin_questions');
     // add_submenu_page( $slug, 'Survey Data', 'Survey Data', 'manage_options', $slug . '-survey-data', 'dm_surveys_admin_survey_data');
@@ -69,6 +70,10 @@ function dm_surveys_admin_tabs(){
 function dm_surveys_admin_import_surveys(){
     require 'templates/import-surveys.php';
 }
+function dm_surveys_admin_import_fast_facts(){
+    require 'templates/import-fast-facts.php';
+}
+
 function dm_surveys_admin_import_contacts(){
     require 'templates/import-contacts.php';
 }
