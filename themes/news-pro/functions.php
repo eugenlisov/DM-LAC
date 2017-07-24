@@ -186,8 +186,11 @@ class Fast_Facts extends WP_Widget {
                 <tr><td>Test Scores (75% percentile):</td><td><?php echo $school['test_75']; ?></td></tr>
                 <tr><td>Test Scores (25% percentile):</td><td><?php echo $school['test_25']; ?></td></tr>
                 <tr><td>Freshman in Top 10% of HS Class (%):</td><td><?php echo $school['top_10_hs']; ?></td></tr>
-                <tr><td>Accept Rate (%):</td><td><?php echo $school['acceptance']; ?></td></tr>
+                <tr><td>Admit Rate (%):</td><td><?php echo $school['acceptance']; ?></td></tr>
                 <tr><td>School Selectivity:</td><td><?php echo $school['selectivity']; ?></td></tr>
+								<tr><td>4 Year Graduation Rate:</td><td><?php echo $school['graduation']; ?></td></tr>
+
+
                 </table>
 
             </div>
