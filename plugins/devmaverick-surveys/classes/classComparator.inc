@@ -167,7 +167,7 @@ class DM_Comparator {
                     <div class="dm-values">
                         <div class="dm-sub-notes-item">
                           <img src="' . SURVEYS_ASSETS_URL  . '/images/big-six.png">
-                          A "Big 6" Factor based on <a href="' . get_permalink( PAGE_SCHOOL_RANKINGS ) . '">Voice of Student Research</a>
+                          A "Big 6" Factor based on <a href="' . get_permalink( PAGE_VOICE_OF_STUDENT ) . '">' . get_the_title( PAGE_VOICE_OF_STUDENT ) . '</a>
                         </div>
 
                         <div class="dm-sub-notes-item">

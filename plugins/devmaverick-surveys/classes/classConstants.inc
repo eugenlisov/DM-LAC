@@ -35,6 +35,8 @@ class DM_Constants {
     define( 'PAGE_FEATURED_SCHOOLS', 2854 );
     define( 'PAGE_SCHOOL_RANKINGS', 3096 );
     define( 'PAGE_SCHOOL_COMPARISONS', 3142 );
+    define( 'PAGE_VOICE_OF_STUDENT', 4442 );
+
 
     // URL Locations
     define( SURVEYS_PLUGIN_FOLDER, 'devmaverick-surveys' );
