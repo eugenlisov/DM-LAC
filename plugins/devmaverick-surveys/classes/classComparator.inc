@@ -59,8 +59,8 @@ class DM_Comparator {
 
     $college_comparison_data = $this -> calculate_college_comparator_data( $college_1, $college_2, $settings );
 
-    $college_1_image = get_the_post_thumbnail( $college_1, 'medium' );
-    $college_2_image = get_the_post_thumbnail( $college_2, 'medium' );
+    $college_1_image = get_the_post_thumbnail( $college_1, 'Comparator_Thumb' );
+    $college_2_image = get_the_post_thumbnail( $college_2, 'Comparator_Thumb' );
 
     $return = '<div class="dm-college-comparison-block">
                   <div class="dm-college-comparison-block-images">

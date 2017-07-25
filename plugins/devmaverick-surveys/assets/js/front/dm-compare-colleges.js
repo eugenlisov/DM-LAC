@@ -63,6 +63,7 @@ jQuery( document ).ready(function($) {
         container.append( title1 );
       }, 1500);
       setTimeout(function(){
+        container.find( 'h2' ).remove();
         container.append( title2 );
       }, 2500);
       setTimeout(function(){

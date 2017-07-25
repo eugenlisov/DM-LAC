@@ -33,6 +33,7 @@ require_once('classes/classQuestion.inc');
 require_once('classes/classResponse.inc');
 require_once('classes/classSatisfactionScore.inc');
 require_once('classes/classSchool.inc');
+require_once('classes/classSetup.inc');
 require_once('classes/classShortcodes.inc');
 require_once('classes/classTabsSection.inc');
 require_once('classes/classTab.inc');
