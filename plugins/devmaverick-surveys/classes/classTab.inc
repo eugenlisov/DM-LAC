@@ -24,14 +24,19 @@ class DM_Tab {
     $current_tab_content = '';
 
     $current_tab_content .= '';
+    if ( $tab_type == 'overview' ) {
 
-    $return .= '<div class="tab-intro">' . $tab_intro . '</div>';
+    } else {
+      $return .= '<div class="tab-intro">' . $tab_intro . '</div>';
+    }
+
+
 
     // echo 'Tab type is ' . $tab_type;
 
     switch ($tab_type) {
       case 'overview':
-        $return .= $this -> get_overview_tab_content();
+        $return .= $this -> get_overview_tab_content( $tab );
         break;
       default: // regular
         $return .= $this -> get_regular_tab_content( $tab );
@@ -47,10 +52,18 @@ class DM_Tab {
 
   }
 
-  private function get_overview_tab_content() {
+  private function get_overview_tab_content( $tab ) {
 
-    $overview_tab_content = get_field( "school_overview" );
-    return $overview_tab_content;
+    // echo '<pre>';
+    // print_r( $tab );
+    // echo '</pre>';
+    $return = '<div class="dm-overview-tab-speciffic">';
+    $return .= get_field( "school_overview" );
+    $return .= '</div>';
+
+    $return .= $this -> get_overview_tab_regular_or_protected_content( $tab );
+
+    return $return;
   }
 
   private function get_regular_tab_content( $tab = '') {
@@ -179,6 +192,25 @@ class DM_Tab {
 
     $return = do_shortcode( $allowed_shortcode );
     $return .= do_shortcode( $denied_shortcode );
+
+    return $return;
+
+  }
+
+  public function get_overview_tab_regular_or_protected_content( $tab = '' ) {
+
+    // echo '<pre>';
+    // print_r ( $tab );
+    // echo '</pre>';
+
+
+    $allowed_shortcode  = "[MM_Access_Decision access='true']" . $tab -> protected_narrative . "[/MM_Access_Decision]";
+    $denied_shortcode   = "[MM_Access_Decision access='false']" . $tab -> tab_intro . "[/MM_Access_Decision]";
+
+    $return = '<div class="dm-overview-tab-general">';
+    $return .= do_shortcode( $allowed_shortcode );
+    $return .= do_shortcode( $denied_shortcode );
+    $return .= '</div>';
 
     return $return;
 
