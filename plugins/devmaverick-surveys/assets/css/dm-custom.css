@@ -840,13 +840,65 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-my-rating {
   cursor: pointer;
 }
+.dm-my-rating > div > div {
+  display: flex;
+}
+.dm-my-rating > div > div .col-xs-3 {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.dm-my-rating > div > div .col-xs-9 h2 {
+    font-size: 36px;
+}
 .dm-my-note {
   cursor: pointer;
 }
+.dm-my-note > div > div {
+  display: flex;
+}
+.dm-my-note > div > div .col-xs-3 {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.dm-my-note > div > div .col-xs-9 span {
+    font-size: 20px;
+    line-height: 38px;
+}
+
+
+
+
 .dm-add-favorite-logged-out {
   cursor: pointer;
 }
+.dm-go-to-survey-results {
+  cursor: pointer;
+}
+.dm-go-to-survey-results > div > div {
+  display: flex;
+}
+.dm-go-to-survey-results > div > div .col-xs-3 {
+  display: flex;
+  align-items: center;
+}
+.dm-go-to-survey-results > div > div .col-xs-9 {
+  padding-left: 8px;
+}
 
+
+.dm-my-colleges .simplefavorite-button {
+  cursor: pointer;
+}
+.dm-my-colleges .simplefavorite-button > div > div {
+  display: flex;
+}
+.dm-my-colleges .simplefavorite-button > div > div .col-xs-3 {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
 /* Center Modals */
 .vertical-alignment-helper {
     display:table;

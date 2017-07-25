@@ -120,6 +120,18 @@ jQuery( document ).ready(function($) {
 
     }
 
+    $('.trigger-go-to-survey-results').click(function() {
+
+      var target = $( '.dm-school-tabs' );
+
+          if( target.length ) {
+              event.preventDefault();
+              $('html, body').stop().animate({
+                  scrollTop: target.offset().top - 50
+              }, 1000);
+          }
+
+    });
 
   $('.trigger-login-upgrade-modal').click(function() {
     $('#dm-login-upgrade-modal').modal('show');

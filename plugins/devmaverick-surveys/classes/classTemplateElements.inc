@@ -177,18 +177,21 @@ class DM_TemplateElements {
 
     $return = '<div class="row dm-college-top-content logged-in" school-id="' . get_the_ID() . '" user-id="' . $user_id . '">
 
-                  <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
-                      <div class="widget style1 navy-bg">
-                          <div class="row vertical-align" style="
-              text-align: center;
-              ">
-                              <div class="col-xs-12">
-                                  <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
-                              </div>
+                  <div class="col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
 
+                      <div class="widget style1 blue-bg">
+                          <div class="row">
+                              <div class="col-xs-3">
+                                  <i class="fa fa-bar-chart fa-2x"></i>
+                              </div>
+                              <div class="col-xs-9 text-right">
+                                  <span>Take me to Survey Results</span>
+                              </div>
                           </div>
                       </div>
+
                   </div>
+
                   <div class="col-lg-4 dm-my-colleges">
                       ' . do_shortcode('[favorite_button]') . '
                   </div>';
@@ -218,18 +221,24 @@ class DM_TemplateElements {
 
     $return = '<div class="row dm-college-top-content logged-out" school-id="' . get_the_ID() . '" user-id="' . $user_id . '">
 
-                <div class="col-lg-2 dm-contact-college trigger-contact-school-modal">
-                    <div class="widget style1 navy-bg">
-                        <div class="row vertical-align" style="
-            text-align: center;
-            ">
-                            <div class="col-xs-12">
-                                <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
-                            </div>
 
+
+                <div class="col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
+
+                    <div class="widget style1 blue-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-bar-chart fa-3x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Take me to Survey Results</span>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+
+
                 <div class="col-lg-4 dm-add-favorite-logged-out trigger-login-upgrade-modal">
 
                     <div class="widget style1 lazur-bg">

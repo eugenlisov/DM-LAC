@@ -25,7 +25,7 @@ class DM_CollegeActions {
         <div class="widget style1 lazur-bg">
             <div class="row vertical-align">
                 <div class="col-xs-3">
-                    <i class="fa fa-star fa-3x" aria-hidden="true" rating="1"></i>
+                    <i class="fa fa-star fa-2x" aria-hidden="true" rating="1"></i>
                 </div>
                 <div class="col-xs-9 text-right">
                     <h2 class="font-bold">' . $rating . '</h2>
@@ -44,7 +44,7 @@ class DM_CollegeActions {
         <div class="widget style1 yellow-bg">
             <div class="row vertical-align">
                 <div class="col-xs-3">
-                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                 </div>
                 <div class="col-xs-9 text-right">
                     <span>Notes</span>
