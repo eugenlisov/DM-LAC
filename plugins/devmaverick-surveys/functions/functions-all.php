@@ -812,6 +812,75 @@ function dm_enqueue_ajax_addresses() {
 
 
 
+function dm_is_descendant_of( $ancestor_id = '' ) {
+  if ( ! $ancestor_id ) return false;
+
+  $post_id = get_the_ID();
+  $post = get_post( $post_id );
+
+  // First let's do the first level
+  if ( $post -> post_parent == '' ) return false;
+  if ( $post -> post_parent == $ancestor_id ) return true;
+
+  // First let's do the second level
+  $post_id = $post -> post_parent;
+  $post = get_post( $post_id );
+
+  // First let's do the first level
+  if ( $post -> post_parent == '' ) return false;
+  if ( $post -> post_parent == $ancestor_id ) return true;
+
+  // No need for third level
+
+}
+
+
+
+function dm_add_protected_overlay( $content ) {
+
+  if ( is_page() ) {
+
+
+    $is_rankings_descendant = dm_is_descendant_of( PAGE_SCHOOL_RANKINGS );
+    if ( ! $is_rankings_descendant ) {
+      return $content;
+    }
+
+
+    //If it's a descendant, add the CSS
+
+    $css = '<style>
+            .tablepress tbody {
+              -webkit-filter: blur(12px);
+              filter: blur(10px);
+            }
+            </style>';
+
+
+    $js = '<script>
+            jQuery( document ).ready(function($) {
+              var overlayContent = \'<div class="dm-protected-overlay-content"> <h3>Premium Member Only Content</h3> <br /> <span>Upgrade Now</span></div>\';
+              var overlay = \'<a href="' . PAGE_GET_PREMIUM_PERMALINK . '\" class="dm-no-click-overlay">\' + overlayContent + \'</a>\';
+              $( ".tablepress" ).wrap( \'<div class="dm-tablepres-protected-wrapper"></div>\' );
+              $( "body" ).find( ".dm-tablepres-protected-wrapper" ).prepend( overlay );
+            });
+            </script>';
+
+
+    $allowed_shortcode  = "[MM_Access_Decision access='true'][/MM_Access_Decision]";
+    $denied_shortcode   = "[MM_Access_Decision access='false']" . $css . $js . "[/MM_Access_Decision]";
+
+    $protection_css_js .= do_shortcode( $allowed_shortcode );
+    $protection_css_js .= do_shortcode( $denied_shortcode );
+
+    $content = $protection_css_js . $content;
+
+  }
+  return $content;
+}
+
+
+add_filter( 'the_content', 'dm_add_protected_overlay', 10, 10 );
 
 
 

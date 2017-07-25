@@ -1335,6 +1335,46 @@ padding-bottom: 25px;
 /* END Compare Colleges Page */
 
 
+/* Rankings Pages */
+.dm-tablepres-protected-wrapper {
+  position: relative;
+}
+.dm-tablepres-protected-wrapper .dm-no-click-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-tablepres-protected-wrapper .dm-no-click-overlay:hover,
+.dm-tablepres-protected-wrapper .dm-no-click-overlay:active,
+.dm-tablepres-protected-wrapper .dm-no-click-overlay:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.dm-tablepres-protected-wrapper  .dm-protected-overlay-content {
+  text-align: center;
+  border-radius: 20px;
+  border: 4px solid red;
+  padding: 15px;
+  background-color: #fff;
+}
+.dm-tablepres-protected-wrapper  .dm-protected-overlay-content h3 {
+  text-decoration: none;
+  color: red;
+  font-size: 30px;
+}
+.dm-tablepres-protected-wrapper  .dm-protected-overlay-content span {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+/* END Rankings Pages */
+
 @media screen and (max-width: 1306px) {
     .dm-call-to-action-buttons a {
         display: block;
