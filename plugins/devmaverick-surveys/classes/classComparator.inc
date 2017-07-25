@@ -276,12 +276,14 @@ class DM_Comparator {
 
 
   private function get_available_colleges_dropdown() {
-
-    $sql = 'SELECT post_id FROM `wp_postmeta` WHERE meta_key = "school_iped" AND meta_value <> ""';
-
     global $wpdb;
-    $college_ids = $wpdb -> get_col( $sql );
 
+    $sql_distinct_ipeds = 'SELECT DISTINCT(iped) FROM `dm_survey_responses`';
+    $distinct_ipeds = $wpdb -> get_col( $sql_distinct_ipeds );
+    $distinct_ipeds_string = implode( ",", $distinct_ipeds);
+
+    $sql = 'SELECT post_id FROM `wp_postmeta` WHERE meta_key = "school_iped" AND meta_value IN (' . $distinct_ipeds_string . ')';
+    $college_ids = $wpdb -> get_col( $sql );
 
     $args = array(
       	'posts_per_page'   => -1,
