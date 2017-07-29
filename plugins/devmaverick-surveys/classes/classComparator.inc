@@ -356,7 +356,11 @@ class DM_Comparator {
     $return = '<select name="response-' . $row . '">';
     // $return .= '<option>--Select a response</option>';
     foreach ( $responses as $key => $response ) {
-      $is_selected = ( $selected == $response ) ? ' selected="selected" ' : '';
+
+      // echo 'Selected:' . stripslashes( $selected ) . ' <br />';
+      // echo 'Response:' . stripslashes( $response ) . ' <br /><br />';
+
+      $is_selected = ( stripslashes( $selected ) == stripslashes( $response ) ) ? ' selected="selected" ' : '';
       $return .= '
                   <option value="' . $response . '" ' . $is_selected . '>' . $response . '</option>';
     }
@@ -366,9 +370,9 @@ class DM_Comparator {
 
 
 
-    echo '<pre>';
-    print_r ( $responses );
-    echo "</pre>";
+    // echo '<pre>';
+    // print_r ( $responses );
+    // echo "</pre>";
 
   }
 
@@ -384,6 +388,10 @@ class DM_Comparator {
   public function setup_question_block() {
 
     $settings = get_option( 'dm_college_comparison_settings' );
+
+    // echo '<pre>';
+    // print_r( $settings );
+    // echo '</pre>';
 
     $return = '<div class="dm-setup-comparator-questions">
                 <form class="dm-setup-comparator-form">';

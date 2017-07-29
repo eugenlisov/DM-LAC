@@ -8,7 +8,7 @@ jQuery( document ).ready(function($) {
   $( document ).on( "change", '.dm-question select', function() {
     var targetedQuestion = $( this ).val();
     var row = $( this ).parents( '.dm-setup-comparator-question-row' ).attr( 'question-id' );
-    console.log( $( this ).val() );
+    // console.log( $( this ).val() );
 
     loadQuestionResponses( targetedQuestion, row );
   });
@@ -20,7 +20,7 @@ jQuery( document ).ready(function($) {
     e.preventDefault();
 
     var formData = $( '.dm-setup-comparator-form' ).serialize();
-    console.log( formData );
+    // console.log( formData );
 
     saveComparatorSetup( formData );
   });
@@ -48,7 +48,7 @@ jQuery( document ).ready(function($) {
                 },
                 function(response){
                   // $( '.dm-generate-quote-btn img' ).hide();
-                  console.log(response);
+                  // console.log(response);
 
                   var obj = jQuery.parseJSON( response );
 
@@ -68,6 +68,7 @@ jQuery( document ).ready(function($) {
                 function(response){
                   // $( '.dm-generate-quote-btn img' ).hide();
                   console.log(response);
+                  location.reload();
 
                   // var obj = jQuery.parseJSON( response );
 
