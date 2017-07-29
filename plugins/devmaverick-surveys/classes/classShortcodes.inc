@@ -19,6 +19,8 @@ class DM_Shortcodes {
     add_shortcode('dm-compare-colleges', array( $this, 'dm_compare_colleges' ) );
     add_shortcode('dm-contact-data-widget', array( $this, 'dm_contact_data_widget' ) );
 
+    add_shortcode('dm-test-pdf', array( $this, 'dm_test_pdf' ) );
+
   }
 
   function dm_my_colleges() {
@@ -68,7 +70,28 @@ class DM_Shortcodes {
     $return = $dm_school -> school_contact_data_widget();
 
     return $return;
-    
+
+  }
+
+  function dm_test_pdf() {
+
+    error_reporting(0);
+
+    $dm_comparator    = new DM_Comparator;
+    $dm_comparatorPDF = new DM_ComparatorPDF;
+
+
+    $return = $dm_comparatorPDF -> get_pdf_form( 209, 479 );
+
+    $return .= '<strong>Original:</strong> <br />';
+    $return .= $dm_comparator -> college_comparison_block( 209, 479 );
+
+    $return .= '<strong>PDF:</strong> <br />';
+    $return .= $dm_comparatorPDF -> college_comparison_block( 209, 479 );
+    $return .= $dm_comparatorPDF -> style();
+
+    return $return;
+
   }
 
 } // End class

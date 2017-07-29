@@ -24,6 +24,7 @@ require_once('classes/classAjax.inc');
 require_once('classes/classCallToAction.inc');
 require_once('classes/classChart.inc');
 require_once('classes/classComparator.inc');
+require_once('classes/classComparatorPDF.inc');
 require_once('classes/classConstants.inc');
 require_once('classes/classCustomPostColumns.inc');
 require_once('classes/classDashboard.inc');
@@ -41,10 +42,14 @@ require_once('classes/classTemplateElements.inc');
 require_once('classes/classNPS.inc');
 require_once('classes/classMyColleges.inc');
 
+
 require_once('classes/classCollegeActions.inc');
 require_once('classes/classModal.inc');
 require_once('classes/classNote.inc');
 require_once('classes/classRating.inc');
+
+// Include the main TCPDF library (search for installation path).
+require_once('lib/tcpdf/tcpdf.php');
 
 if ( is_admin() ) {
   require_once('classes/classImportSurveys.inc');

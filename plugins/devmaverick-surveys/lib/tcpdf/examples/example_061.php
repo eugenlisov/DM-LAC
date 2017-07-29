@@ -92,6 +92,7 @@ $html = <<<EOF
 		font-family: times;
 		font-size: 24pt;
 		text-decoration: underline;
+		width: 50px;
 	}
 	p.first {
 		color: #003300;
@@ -164,10 +165,10 @@ $html = <<<EOF
 
 <br />
 
-<table class="first" cellpadding="4" cellspacing="6">
+<table class="first" cellpadding="4" cellspacing="0">
  <tr>
-  <td width="30" align="center"><b>No.</b></td>
-  <td width="140" align="center" bgcolor="#FFFF00"><b>XXXX</b></td>
+  <td width="100" align="center"><b>No.</b></td>
+  <td width="140" align="center" bgcolor="#FF0000"><b>XXXX costel si mangiusca au plecat la plimbare si trag chiulul.</b></td>
   <td width="140" align="center"><b>XXXX</b></td>
   <td width="80" align="center"> <b>XXXX</b></td>
   <td width="80" align="center"><b>XXXX</b></td>

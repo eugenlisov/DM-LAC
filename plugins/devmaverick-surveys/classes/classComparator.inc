@@ -148,7 +148,7 @@ class DM_Comparator {
                   <div class="col-md-11">' . $academics_block . '</div>
                 </div>';
     $return .= '<div class="dm-main-category">
-                  <div class="col-md-1">
+                  <div class="col-md-1" style="transform:rotate(270deg)">
                     <span>
                       <i class="fa fa-weixin" aria-hidden="true"></i>
                       <span>Social life</span>
@@ -178,6 +178,10 @@ class DM_Comparator {
                         </div>
                     </div>
                 </div>';
+
+    $dm_comparatorPDF = new DM_ComparatorPDF;
+    $return .= $dm_comparatorPDF -> get_pdf_form( $college_1, $college_2 );
+
     return $return;
 
   }
