@@ -1330,6 +1330,18 @@ padding-bottom: 25px;
 
 /* Comparator Loader */
 
+/* Download Comparator Report */
+.dm-download-report-container {
+  text-align: center;
+}
+.dm-download-report-container input {
+  max-width: 600px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  width: 600px;
+  clear: both;
+}
+/* END Download Comparator Report */
 
 #loader {
   position: absolute;
