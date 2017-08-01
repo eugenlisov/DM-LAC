@@ -9,7 +9,7 @@ class DM_CallToAction {
 
     $return = '<div class="dm-call-to-action">
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                  <img src="' . SURVEYS_ASSETS_URL . '/images/call-to-action.png">
+                  <img src="' . SURVEYS_ASSETS_URL . '/images/call-to-action-333x333.png">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                   <div class="dm-call-to-action-header">
