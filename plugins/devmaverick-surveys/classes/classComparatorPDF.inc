@@ -456,12 +456,11 @@ class DM_ComparatorPDF extends DM_Comparator {
 
 
   public function get_pdf_form( $college_1 = '', $college_2 = '') {
-      $return = '<form action="http://liberalarts.staging.wpengine.com/wp-content/plugins/devmaverick-surveys/lib/tcpdf/example-pdf.php" method="POST">
+      $return = '<form action="' . SURVEYS_PLUGIN_FOLDER_URL . '/lib/tcpdf/comparator-pdf.php" method="POST">
                     <input type="hidden" name="college_1" value="' . $college_1 . '"><br>
                     <input type="hidden" name="college_2" value="' . $college_2 . '"><br><br>
                     <input type="text" name="custom_title" value="" placeholder="Enter a custom title fro your report">
                     <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download Report</button>
-
                   </form>';
 
       return $return;

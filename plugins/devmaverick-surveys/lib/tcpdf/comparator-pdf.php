@@ -6,14 +6,16 @@ error_reporting(0);
 // This one
 ob_start();
 
-
-
-$college_1 = 3599;
-$college_2 = 479;
-
 $college_1 = htmlspecialchars( $_POST["college_1"] );
 $college_2 = htmlspecialchars( $_POST["college_2"] );
 $custom_title = stripslashes( htmlspecialchars( $_POST["custom_title"] ) );
+
+if ( ! $college_1 ) {
+	return false;
+}
+if ( ! $college_2 ) {
+	return false;
+}
 
 $college_1_title = get_the_title( $college_1 );
 $college_2_title = get_the_title( $college_2 );
