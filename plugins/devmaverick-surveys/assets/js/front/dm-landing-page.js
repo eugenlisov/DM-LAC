@@ -1,15 +1,11 @@
-$( document ).ready(function($) {
 
-  $( "a:contains('Get Premium Now')" ).addClass( ".trigger-show-checkout-form" );
+jQuery( document ).ready(function($) {
 
-  $( document ).on( "click", ".trigger-show-checkout-form", function( e ) {
+  $( document ).on( "click", ".trigger-scroll-to-pricing-table", function( e ) {
     e.preventDefault();
-    $( '.dm-checkout-container' ).slideDown();
-
     $('html, body').animate({
-        scrollTop: $( '.dm-checkout-container' ).offset().top
+        scrollTop: $( '.desktop-pricing-tables' ).offset().top
     }, 2000);
-
   });
 
 });

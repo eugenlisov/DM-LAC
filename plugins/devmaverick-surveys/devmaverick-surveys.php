@@ -29,6 +29,7 @@ require_once('classes/classComparatorPDF.inc');
 require_once('classes/classConstants.inc');
 require_once('classes/classCustomPostColumns.inc');
 require_once('classes/classDashboard.inc');
+require_once('classes/classGetPremium.inc');
 require_once('classes/classMetaBox.inc');
 require_once('classes/classMMProtection.inc');
 require_once('classes/classQuestion.inc');
