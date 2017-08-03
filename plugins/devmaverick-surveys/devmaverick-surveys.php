@@ -23,6 +23,7 @@ require 'functions/deprecated.php';
 require_once('classes/classAjax.inc');
 require_once('classes/classCallToAction.inc');
 require_once('classes/classChart.inc');
+require_once('classes/classCheckout.inc');
 require_once('classes/classComparator.inc');
 require_once('classes/classComparatorPDF.inc');
 require_once('classes/classConstants.inc');

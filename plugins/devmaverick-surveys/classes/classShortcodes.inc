@@ -18,6 +18,8 @@ class DM_Shortcodes {
     add_shortcode('dm-dashboard-my-colleges', array( $this, 'dm_dashboard_my_colleges_widget' ) );
     add_shortcode('dm-compare-colleges', array( $this, 'dm_compare_colleges' ) );
     add_shortcode('dm-contact-data-widget', array( $this, 'dm_contact_data_widget' ) );
+    add_shortcode('dm-checkout', array( $this, 'dm_checkout' ) );
+
 
     add_shortcode('dm-test-pdf', array( $this, 'dm_test_pdf' ) );
 
@@ -68,6 +70,15 @@ class DM_Shortcodes {
 
     $dm_school = new DM_School;
     $return = $dm_school -> school_contact_data_widget();
+
+    return $return;
+
+  }
+
+  function dm_checkout() {
+
+    $dm_checkout = new DM_Checkout;
+    $return = $dm_checkout -> checkout_page_content();
 
     return $return;
 

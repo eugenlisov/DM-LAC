@@ -842,6 +842,7 @@ function dm_add_protected_overlay( $content ) {
 
 
     $is_rankings_descendant = dm_is_descendant_of( PAGE_SCHOOL_RANKINGS );
+
     if ( ! $is_rankings_descendant ) {
       return $content;
     }
