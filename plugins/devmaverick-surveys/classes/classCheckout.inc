@@ -42,11 +42,11 @@ class DM_Checkout {
                         ' . $this -> block_product_data() . '
                       </div>
                       <div class="">
-                        <h4><strong>Step #2:</strong> Contact information</h4>
+                        <h4><strong>Step #1:</strong> Contact information</h4>
                         ' . $this -> membermouse_account_information() . '
                       </div>
                       <div class="">
-                        <h4><strong>Step #3:</strong> Billing Address</h4>
+                        <h4><strong>Step #2:</strong> Billing Address</h4>
                         ' . $this -> membermouse_billing_information() . '
                       </div>
                   </div>
@@ -56,7 +56,7 @@ class DM_Checkout {
                       ' . get_field( 'dm_checkout_benefits' ) . '
                     </div>
                     <div class="dm-checkout-block">
-                      <h4><strong>Step #4:</strong> Checkout</h4>
+                      <h4><strong>Step #3:</strong> Checkout</h4>
                       ' . $this -> membermouse_card_information() . '
                       ' . $this -> block_submit_button() . '
                     </div>
