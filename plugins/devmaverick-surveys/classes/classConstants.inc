@@ -21,6 +21,8 @@ class DM_Constants {
     define( 'PAGE_GET_PREMIUM', 4401 );
     define( 'PAGE_GET_PREMIUM_PERMALINK', get_the_permalink( PAGE_GET_PREMIUM ) . '?rid=pGQZ48' );
     define( 'PAGE_SIGNUP', 4234 ); // ???
+    define( 'PAGE_PREMIUM_VSL1', 4401 ); // Same as PAGE_GET_PREMIUM
+    define( 'PAGE_PREMIUM_VSL2', 4498 );
     // define( 'PAGE_PREMIUM_HOME', 4187 );
     // define( 'PAGE_PREMIUM_HOME', 4187 );
     // define( 'PAGE_PREMIUM_HOME', 4187 );
