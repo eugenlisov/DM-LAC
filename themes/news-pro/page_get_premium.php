@@ -54,3 +54,6 @@ remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
 genesis();
 
 echo $dm_checkout -> checkout_footer();
+
+$dm_modal = new DM_Modal;
+$dm_modal-> leave_intent_modal();

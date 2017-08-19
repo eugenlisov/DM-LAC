@@ -1635,6 +1635,13 @@ padding-bottom: 25px;
   font-size: 16px;
   line-height: 1.4em;
 }
+.dm-secure-block .dm-secure-text {
+  display: flex;
+  align-items: center;
+}
+.dm-secure-block .dm-secure-text p {
+  margin-bottom: 0;
+}
 
 .dm-guarantee-block {
   display: flex;
@@ -1642,7 +1649,10 @@ padding-bottom: 25px;
   font-size: 16px;
   line-height: 1.4em;
 }
-
+.dm-guarantee-block .dm-guarantee-image {
+  /*display: flex;
+  align-items: center;*/
+}
 
 
 .dm-checkout-footer {

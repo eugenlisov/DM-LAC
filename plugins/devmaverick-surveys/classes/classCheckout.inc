@@ -137,10 +137,10 @@ class DM_Checkout {
     $secure_lock = get_field( 'dm_checkout_secure_lock' );
     $secure_text = get_field( 'dm_checkout_secure_text' );
 
-    $return = '<div class="col-sm-4">
+    $return = '<div class="col-sm-4 dm-secure-image">
                     <img src="' . $secure_lock . '" class="img-responsive">
                </div>
-               <div class="col-sm-8">
+               <div class="col-sm-8 dm-secure-text">
                     ' . $secure_text . '
                </div>';
 
@@ -167,10 +167,10 @@ class DM_Checkout {
     $guarantee_badge = get_field( 'dm_checkout_guarantee_badge' );
     $guarantee_text = get_field( 'dm_checkout_guarantee_text' );
 
-    $return = '<div class="col-sm-8">
+    $return = '<div class="col-sm-8 dm-guarantee-text">
                     ' . $guarantee_text . '
                </div>
-               <div class="col-sm-4">
+               <div class="col-sm-4 dm-guarantee-image">
                     <img src="' . $guarantee_badge . '" class="img-responsive">
                </div>';
 

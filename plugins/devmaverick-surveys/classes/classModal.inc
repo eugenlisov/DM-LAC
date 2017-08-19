@@ -313,4 +313,69 @@ class DM_Modal {
   }
 
 
+  public function leave_intent_modal() {
+
+    ?>
+
+          <!-- Ouibounce Modal -->
+    	    <div id="ouibounce-modal">
+    	      <div class="underlay"></div>
+    	      	<div class="modal">
+
+
+                <div class="modal-body">
+    		          	<h3>Did you want to learn the details about Liberal Arts Insider membership?</h3>
+
+                    <div class="dm-call-to-action-buttons">
+                      <a href="<?php echo get_permalink( PAGE_PRICING ); ?>" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> See Pricing</a>
+                    </div>
+    		        </div>
+
+    	        	<div class="modal-footer">
+    	          		<p onclick="document.getElementById('ouibounce-modal').style.display = 'none';">no thanks</p>
+    	        	</div>
+    	      	</div>
+    	    </div>
+
+    	    <script>
+    	    	var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'),{
+            		aggressive: true, //Making this true makes ouibounce not to obey "once per visitor" rule
+          		});
+
+              jQuery( document ).ready(function($) {
+                $(document).keyup(function(e) {
+                  if (e.which == 27) {
+                    document.getElementById('ouibounce-modal').style.display = 'none';
+                  }
+                });
+              });
+        	</script>
+          <style>
+          .modal {
+            display: block;
+          }
+          #ouibounce-modal .modal {
+            width: 600px;
+            height: 275px;
+          }
+          #ouibounce-modal h3 {
+            font-size: 24px;
+            line-height: 1.6em;
+            color: #000;
+            text-transform: none;
+            margin-bottom: 15px;
+          }
+          #ouibounce-modal .modal-body {
+            text-align: center;
+          }
+          #ouibounce-modal .modal-body a {
+            font-size: 18px;
+            padding: 10px;
+          }
+          </style>
+
+    <?php
+  }
+
+
 } // End class

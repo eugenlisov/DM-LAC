@@ -35,6 +35,9 @@ function dm_lac_register_style_and_scripts() {
   // CountUp JS
   wp_register_script( 'dm-countup', SURVEYS_ASSETS_URL . '/lib/countUp.min.js', false );
 
+  // Exit intent script
+  wp_register_style( 'dm-ouibounce', 'https://cdn.rawgit.com/carlsednaoui/ouibounce/master/test/ouibounce.min.css', false );
+  wp_register_script( 'dm-ouibounce', 'https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.11/ouibounce.min.js', array( 'jquery' ), '1.0.0', true  );
 
 
   //Select 2
@@ -83,7 +86,10 @@ function dm_lac_enqueue_style_and_scripts() {
     wp_enqueue_script('dm-landing-page');
   // }
 
-
+  if (is_page( PAGE_PREMIUM_VSL1 ) || is_page( PAGE_PREMIUM_VSL2 ) ) {
+    wp_enqueue_style( 'dm-ouibounce' );
+    wp_enqueue_script( 'dm-ouibounce' );
+  }
 
 }
 add_action('wp_enqueue_scripts', 'dm_lac_enqueue_style_and_scripts');
