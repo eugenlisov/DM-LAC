@@ -153,11 +153,11 @@ jQuery( document ).ready(function($) {
     $('#dm-contact-school-modal').modal('show');
   });
 
-  // Call To Action modal
-  $('.trigger-call-top-action-modal').click(function(e) {
-    e.preventDefault();
-    $('#dm-call-to-action-modal').modal('show');
-  });
+  // Tabs Call To Action modal // Deactivated for now. Only one button left in the CTA block, so this is no longer needed. Also removed the modal HTML.
+  // $('.trigger-call-top-action-modal').click(function(e) {
+  //   e.preventDefault();
+  //   $('#dm-call-to-action-modal').modal('show');
+  // });
 
 
 ratingModalActions()

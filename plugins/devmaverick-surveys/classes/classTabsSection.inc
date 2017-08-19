@@ -85,6 +85,10 @@ class DM_TabsSection {
 
     if ( !$tabs_list ) return false;
 
+    // echo '<pre>';
+    // print_r( $tabs_list );
+    // echo '</pre>';
+
     $return = '';
 
     foreach ($tabs_list as $key => $tab) {
@@ -93,7 +97,8 @@ class DM_TabsSection {
       $tab_name           = $tab -> tab_name;
       $font_awesome_class = $tab -> font_awesome_class;
 
-      $slug     =  strtolower( str_replace(" ", "-", $tab_name) );
+      $slug     =  strtolower( str_replace("& ", "", $tab_name) );
+      $slug     =  str_replace(" ", "-", $slug);
       $active   = ( $key == 0 ) ? 'class="active"' : '';
 
       $return .= '<li ' . $active. '><a data-toggle="tab" href="#' . $slug . '"><i class="fa ' . $font_awesome_class . '" aria-hidden="true"></i>  ' . $tab_name . '</a></li>';

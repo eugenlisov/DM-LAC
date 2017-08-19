@@ -630,17 +630,23 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .desktop-pricing-tables .ptsCell {
   border: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-1 .ptsCell,
 .desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-1 .ptsColFooter {
     background: #13bbe7!important;
+}
+.desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-1 .ptsColFooter {
+    height: auto !important;
 }
 .desktop-pricing-tables .ptsEl.ptsCol.ptsElWithArea.ptsCol-1 .ptsCell:nth-child(odd) {
     background: #45c8eb!important;
 }
 .ptsCol-1 .ptsActBtn, .ptsCol-2 .ptsActBtn {
     line-height: 37px!important;
-    height: 37px!important;
+    height: 46px!important;
     margin-top: 10px;
     transition: .3s;
     border: none!important;
@@ -1144,24 +1150,19 @@ padding-bottom: 25px;
 .dm-call-to-action-buttons a:focus {
   text-decoration: none;
 }
-.dm-call-to-action-buttons a.get-drip {
-  margin-right: 10px;
-  color: #005DFF;
-  border-color: #005DFF;
-}
-.dm-call-to-action-buttons a.get-drip:hover {
-    border-color: rgba(0, 93, 255, 0.10) !important;
-    background-color: rgba(0, 93, 255, 0.10) !important;
-}
+
 .dm-call-to-action-buttons a.get-premium {
   background-color: #FFD300;
   color: #000;
   border-color: #FFD300;
   box-shadow: 1px 2px 5px #888888;
+  display: block;
+  text-align: center;
 }
 .dm-call-to-action-buttons a.get-premium:hover {
   background-color: rgba(255, 211, 0, 0.7) !important;
   border-color: rgba(255, 211, 0, 0.7);
+
 }
 .dm-call-to-action-modal input {
   margin-bottom: 10px;

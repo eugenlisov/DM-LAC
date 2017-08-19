@@ -16,11 +16,9 @@ class DM_CallToAction {
                     <h2>Get Our In Depth Analysis of Liberal Arts Colleges</h2>
                   </div>
                   <div class="dm-call-to-action-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel condimentum ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc vulputate vehicula convallis.
+                    The smartest way to cut through the college marketing hype and pick a college that is a perfect fit for your child is to become a Liberal Arts Insider member. Our research reveals inside information that colleges will never tell you.
                   </div>
                   <div class="dm-call-to-action-buttons">
-                    <a href="" class="get-drip trigger-call-top-action-modal"><i class="fa fa-area-chart" aria-hidden="true"></i> Get our reports</a>
-
                     <a href="' . get_permalink( PAGE_PREMIUM_VSL2 ) . '" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> Learn More</a>
                     </div>
                 </div>

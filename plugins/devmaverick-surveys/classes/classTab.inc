@@ -10,16 +10,18 @@ class DM_Tab {
 
     $tab_id             	= $tab -> id;
     $tab_name           	= $tab -> tab_name;
+    $tab_title           	= $tab -> tab_title;
     $tab_intro 						= $tab -> tab_intro;
     $tab_type             = $tab -> type;
     $protected_narrative 	= $tab -> protected_narrative;
     $font_awesome_class 	= $tab -> font_awesome_class;
 
-    $slug     =  strtolower( str_replace(" ", "-", $tab_name) );
+    $slug     =  strtolower( str_replace("& ", "", $tab_name) );
+    $slug     =  str_replace(" ", "-", $slug);
     $active   = ( $tab_type == 'overview' ) ? 'in active' : '';
 
     $return .= '<div id="' . $slug . '" class="tab-pane fade ' . $active . '">
-                <h3>' . $tab_name . '</h3>';
+                <h3>' . $tab_title . '</h3>';
 
     $current_tab_content = '';
 
@@ -45,8 +47,9 @@ class DM_Tab {
 
     $return .= '</div>';
 
-    $dm_modal = new DM_Modal;
-    $return .= $dm_modal -> call_to_action_modal();
+    // NOTE: No longer need this. We only have a CTA btn at the bottom, so I removed the modal and the triggers.
+    // $dm_modal = new DM_Modal;
+    // $return .= $dm_modal -> call_to_action_modal();
 
     echo $return;
 
