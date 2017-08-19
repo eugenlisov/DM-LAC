@@ -500,6 +500,10 @@ article.post-4190.page.type-page.status-publish.entry{
 }
 .dm-my-colleges-option-links {
   text-align: center;
+  margin-top: 70px;
+}
+.dm-my-colleges-option-links a {
+  min-width: 180px;
 }
 
 

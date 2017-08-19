@@ -70,16 +70,17 @@ class DM_MyColleges {
   public function my_colleges_empty() {
 
     $return = '<div class="dm-my-colleges-empty">
-                <h2>Looks like you haven\'t added any college to your watch list!</h2>
-                  <h4>Why wait?</h4>
-                  <p>Take avantage of the features you have as a Liberal Arts Colleges member by going through our list of over 170 schools and checking the ones you want to watch</p>
+                <h2>Looks like you haven\'t added any colleges to your watch list yet!</h2>
                   <h3>Don\'t know where to start?</h3>
-                  <p>Here\'s a hint: </p>
+                  <p>Here\'s some hints: </p>
                   <div class="dm-my-colleges-option-links">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <a href="' . get_permalink( PAGE_SCHOOL_COMPARISONS ) . '" class="btn btn-lg btn-success btn-my-colleges">School Comparisons</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                      <a href="' . get_permalink( PAGE_SCHOOL_COMPARISONS ) . '" class="btn btn-lg btn-success btn-my-colleges">College Map</a>
+                    </div>
+                    <div class="col-md-4">
                       <a href="' . get_permalink( PAGE_SCHOOL_RANKINGS ) . '" class="btn btn-lg btn-success btn-my-colleges">College Rankings</a>
                     </div>
 
