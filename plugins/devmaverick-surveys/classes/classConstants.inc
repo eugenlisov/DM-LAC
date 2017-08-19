@@ -24,6 +24,8 @@ class DM_Constants {
     define( 'PAGE_PREMIUM_VSL1', 4401 ); // Same as PAGE_GET_PREMIUM
     define( 'PAGE_PREMIUM_VSL2', 4498 );
     define( 'PAGE_PRICING', 4502 );
+    define( 'PAGE_MAP', 3565 );
+
     // define( 'PAGE_PREMIUM_HOME', 4187 );
     // define( 'PAGE_PREMIUM_HOME', 4187 );
     // define( 'PAGE_PREMIUM_HOME', 4187 );

@@ -78,7 +78,7 @@ class DM_MyColleges {
                       <a href="' . get_permalink( PAGE_SCHOOL_COMPARISONS ) . '" class="btn btn-lg btn-success btn-my-colleges">School Comparisons</a>
                     </div>
                     <div class="col-md-4">
-                      <a href="' . get_permalink( PAGE_SCHOOL_COMPARISONS ) . '" class="btn btn-lg btn-success btn-my-colleges">College Map</a>
+                      <a href="' . get_permalink( PAGE_MAP ) . '" class="btn btn-lg btn-success btn-my-colleges">College Map</a>
                     </div>
                     <div class="col-md-4">
                       <a href="' . get_permalink( PAGE_SCHOOL_RANKINGS ) . '" class="btn btn-lg btn-success btn-my-colleges">College Rankings</a>
