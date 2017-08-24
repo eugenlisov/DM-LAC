@@ -24,7 +24,7 @@ class DM_TemplateElements {
           }
 
 
-          $contact_modal  = $dm_modal -> college_contact_modal();
+          // $contact_modal  = $dm_modal -> college_contact_modal();
           $return = $content . $modal . $contact_modal;
 
           return $return;
@@ -114,7 +114,7 @@ class DM_TemplateElements {
               <p>To make use of this feature, you need to be a member.</p>
               <p>
                 <button target="' . get_permalink( LOG_IN_PAGE ) . '" class="dm-btn dm-btn-md dm-btn-green trigger-redirect-to-page">Log In</button>
-                <button target="' . PAGE_GET_PREMIUM_PERMALINK . '" class="dm-btn dm-btn-md dm-btn-yellow trigger-redirect-to-page">Get Premium</button>
+                <button target="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '" class="dm-btn dm-btn-md dm-btn-yellow trigger-redirect-to-page">Get Premium</button>
               </p>
             </div>
           </div>

@@ -23,6 +23,7 @@ class DM_Constants {
     define( 'PAGE_SIGNUP', 4234 ); // ???
     define( 'PAGE_PREMIUM_VSL1', 4401 ); // Same as PAGE_GET_PREMIUM
     define( 'PAGE_PREMIUM_VSL2', 4498 );
+    define( 'PAGE_PREMIUM_VSL3', 4537 );
     define( 'PAGE_PRICING', 4502 );
     define( 'PAGE_MAP', 3565 );
 
