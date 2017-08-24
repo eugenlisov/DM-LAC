@@ -327,7 +327,7 @@ class DM_Modal {
     		          	<h3>Did you want to learn the details about Liberal Arts Insider membership?</h3>
 
                     <div class="dm-call-to-action-buttons">
-                      <a href="<?php echo get_permalink( PAGE_PRICING ); ?>" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> See Pricing</a>
+                      <a href="<?php echo get_permalink( PAGE_PRICING ); ?>" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> LEARN MORE...</a>
                     </div>
     		        </div>
 
