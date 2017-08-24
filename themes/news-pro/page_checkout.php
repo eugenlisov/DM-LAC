@@ -8,7 +8,7 @@
  */
 
 /*
-Template Name: Checkout Page ( Custom )
+Template Name: Page Checkout Page
 */
 
 $dm_checkout = new DM_Checkout;

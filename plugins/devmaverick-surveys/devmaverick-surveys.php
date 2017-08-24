@@ -43,6 +43,7 @@ require_once('classes/classTab.inc');
 require_once('classes/classTemplateElements.inc');
 require_once('classes/classNPS.inc');
 require_once('classes/classMyColleges.inc');
+require_once('classes/classVSL.inc');
 
 
 require_once('classes/classCollegeActions.inc');

@@ -9,7 +9,7 @@ class DM_GetPremium {
                   <div class="col-sm-6 dm-column-left">
 
                     <div class="title-area">
-                    <h1 class="site-title" itemprop="headline"><a href="http://liberalarts.staging.wpengine.com/">Liberal Arts Colleges</a></h1>
+                    <h1 class="site-title" itemprop="headline"><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></h1>
                     <p class="site-description" itemprop="description">the Complete Guide to Liberal Arts Colleges</p>
                     </div>
 
@@ -17,10 +17,15 @@ class DM_GetPremium {
                   <div class="col-sm-6 dm-column-right">
                   ' . get_field( 'dm_get_premium_header_right_text' ) . '
                   </div>
-              </div>
-              <div class="site-container dm-checkout-header dm-get-premium-headline">
-                <h2>' . get_field( 'dm_get_premium_headline' ) . '</h2>
               </div>';
+
+    $premium_headline = get_field( 'dm_get_premium_headline' );
+
+    if ( $premium_headline ) {
+        $return .= '<div class="site-container dm-checkout-header dm-get-premium-headline">
+                      <h2>' . get_field( 'dm_get_premium_headline' ) . '</h2>
+                    </div>';
+    }
 
     return $return;
   }

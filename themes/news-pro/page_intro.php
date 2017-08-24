@@ -8,7 +8,7 @@
  */
 
 /*
-Template Name: Get  Premium
+Template Name: Page Intro
 */
 
 $dm_checkout = new DM_Checkout;

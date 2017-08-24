@@ -1719,6 +1719,29 @@ padding-bottom: 25px;
 
 /* END Get Premium Page */
 
+/* VSL Pages */
+.dm-vsl-cta-btn {
+  text-align: center;
+  height: 0;
+  padding-left: 0;
+  overflow: hidden;
+  transition-duration: 0.4s;
+}
+.dm-vsl-cta-btn-visible {
+  padding: 30px 0 10px;
+  height: 100px;
+}
+.dm-vsl-cta-btn a {
+  /*display: none;*/
+}
+.dm-vsl-cta-btn a,
+.dm-vsl-cta-btn a:hover,
+.dm-vsl-cta-btn a:active,
+.dm-vsl-cta-btn a:focus {
+  color: #fff;
+}
+/* END VSL Pages */
+
 
 
 @media screen and (max-width: 1306px) {

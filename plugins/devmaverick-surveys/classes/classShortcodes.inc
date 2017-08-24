@@ -19,6 +19,7 @@ class DM_Shortcodes {
     add_shortcode('dm-compare-colleges', array( $this, 'dm_compare_colleges' ) );
     add_shortcode('dm-contact-data-widget', array( $this, 'dm_contact_data_widget' ) );
     add_shortcode('dm-checkout', array( $this, 'dm_checkout' ) );
+    add_shortcode('dm-vsl-cta-btn', array( $this, 'dm_vsl_cta_btn' ) );
 
 
     add_shortcode('dm-test-pdf', array( $this, 'dm_test_pdf' ) );
@@ -83,6 +84,17 @@ class DM_Shortcodes {
     return $return;
 
   }
+
+  function dm_vsl_cta_btn() {
+
+    $dm_vsl = new DM_VSL;
+    $return = $dm_vsl -> cta_btn();
+
+    return $return;
+
+  }
+
+
 
   function dm_test_pdf() {
 

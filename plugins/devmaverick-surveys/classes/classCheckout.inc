@@ -183,7 +183,7 @@ class DM_Checkout {
                   <div class="col-sm-6 dm-column-left">
 
                     <div class="title-area">
-                    <h1 class="site-title" itemprop="headline"><a href="http://liberalarts.staging.wpengine.com/">Liberal Arts Colleges</a></h1>
+                    <h1 class="site-title" itemprop="headline"><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></h1>
                     <p class="site-description" itemprop="description">the Complete Guide to Liberal Arts Colleges</p>
                     </div>
 
