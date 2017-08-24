@@ -19,14 +19,13 @@ class DM_CallToAction {
                     The smartest way to cut through the college marketing hype and pick a college that is a perfect fit for your child is to become a Liberal Arts Insider member. Our research reveals inside information that colleges will never tell you.
                   </div>
                   <div class="dm-call-to-action-buttons">
-                    <a href="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> Learn More</a>
+                    <a href="" data-leadbox-popup="1454f8773f72a2:1410ced42b46dc" data-leadbox-domain="jsdpub.lpusercontent.com" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> Learn More</a>
                     </div>
                 </div>
               </div>';
 
       return $return;
     }
-
 
     public function default_content_call_to_action() {
 
@@ -43,7 +42,10 @@ class DM_CallToAction {
                     <div class="dm-content-call-to-action-content">
                         <h3>Want to learn what ' . $respondents_count . ' ' . get_the_title() . ' students told us?</h3>
                         <h4>GET <span>THE TRUTH</span> ABOUT LIFE ON CAMPUS.</h4>
-                        <a class="dm-click-to-upgrade" href="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '">Click here to upgrade</a>
+                        <!-- <a class="dm-click-to-upgrade" href="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '">Click here to upgrade</a>  -->
+
+                        <script src="//static.leadpages.net/leadboxes/current/embed.js" async defer></script>
+                        <a href="" data-leadbox-popup="1454f8773f72a2:1410ced42b46dc" data-leadbox-domain="jsdpub.lpusercontent.com" class="dm-click-to-upgrade">Click here to subscribe</a>
                     </div>
                 </div>';
 
