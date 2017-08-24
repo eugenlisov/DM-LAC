@@ -20,6 +20,7 @@ class DM_Shortcodes {
     add_shortcode('dm-contact-data-widget', array( $this, 'dm_contact_data_widget' ) );
     add_shortcode('dm-checkout', array( $this, 'dm_checkout' ) );
     add_shortcode('dm-vsl-cta-btn', array( $this, 'dm_vsl_cta_btn' ) );
+    add_shortcode('dm-data-points-count', array( $this, 'dm_data_points_count' ) );
 
 
     add_shortcode('dm-test-pdf', array( $this, 'dm_test_pdf' ) );
@@ -93,6 +94,18 @@ class DM_Shortcodes {
     return $return;
 
   }
+
+  function dm_data_points_count() {
+
+    $dm_school = new DM_School;
+    $return =  $dm_school -> get_data_points_count( get_the_ID() );
+
+    return $return;
+
+  }
+
+
+
 
 
 
