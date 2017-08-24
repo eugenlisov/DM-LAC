@@ -55,5 +55,7 @@ genesis();
 
 echo $dm_checkout -> checkout_footer();
 
-$dm_modal = new DM_Modal;
-$dm_modal-> leave_intent_modal();
+if (is_page( PAGE_PREMIUM_VSL1 ) || is_page( PAGE_PREMIUM_VSL2 ) || is_page( PAGE_PREMIUM_VSL3 ) ) {
+  $dm_modal = new DM_Modal;
+  $dm_modal-> leave_intent_modal();
+}
