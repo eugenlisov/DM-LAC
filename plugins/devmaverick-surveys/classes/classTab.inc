@@ -220,6 +220,18 @@ class DM_Tab {
   }
 
 
+  public function get_tabs_placeholder() {
+
+    $return = '<div class="entry dm-tabs-no-datapoints-placeholder">
+                <h3>Voice of the Student Research Findings</h3>
+                <p><strong>Data collection for this college currently in progress.</strong></p>
+                <p>For over 120 liberal arts colleges, students have provided us with the “inside scoop” on what is really happening on campus. <a href="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '">Click here to learn more</a>.</p>
+              </div>';
+
+    return $return;
+  }
+
+
 
 
 

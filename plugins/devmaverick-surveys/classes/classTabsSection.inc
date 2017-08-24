@@ -122,6 +122,20 @@ function dm_call_tabs_section() {
     return;
   }
 
+  $dm_school = new DM_School;
+  $dm_tab       = new DM_Tab;
+
+  $data_points_count = $dm_school -> get_data_points_count( get_the_ID() );
+
+
+  //If there are no data points, display tabs placeholder
+  if ( $data_points_count == 0 ) {
+
+    echo $dm_tab -> get_tabs_placeholder();
+
+    return;
+  }
+
 
   // Declare the global variables to be used with all the classes and functions
 
@@ -135,9 +149,7 @@ function dm_call_tabs_section() {
   global $global_open_ended_question_list;
   global $q_id_match;
 
-  $dm_school    = new DM_School;
   $dm_question  = new DM_Question;
-  $dm_tab       = new DM_Tab;
   $dm_response  = new DM_Response;
 
   $iped = $dm_school -> get_iped(); // S-ar putea ca aici sa nu fie neaparat necesar.

@@ -63,7 +63,7 @@ function dm_lac_enqueue_style_and_scripts() {
 
   }
 
-  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() ) {
+  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() || is_singular( 'schools') ) {
     wp_enqueue_style( 'dm-bootstrap' );
     wp_enqueue_script( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );
@@ -86,7 +86,7 @@ function dm_lac_enqueue_style_and_scripts() {
     wp_enqueue_script('dm-landing-page');
   // }
 
-  if (is_page( PAGE_PREMIUM_VSL1 ) || is_page( PAGE_PREMIUM_VSL2 ) ) {
+  if (is_page( PAGE_PREMIUM_VSL1 ) || is_page( PAGE_PREMIUM_VSL2 ) || is_page( PAGE_PREMIUM_VSL3 ) ) {
     wp_enqueue_style( 'dm-ouibounce' );
     wp_enqueue_script( 'dm-ouibounce' );
   }

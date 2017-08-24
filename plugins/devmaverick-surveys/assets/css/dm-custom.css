@@ -812,6 +812,12 @@ article.post-4190.page.type-page.status-publish.entry{
   padding-top: 30px;
   padding-bottom: 30px;
 }
+.dm-tabs-no-datapoints-placeholder {
+
+}
+.dm-tabs-no-datapoints-placeholder h3 {
+  font-weight: bold;
+}
 
 
 .dm-overview-tab-speciffic {
@@ -1503,6 +1509,16 @@ padding-bottom: 25px;
 /* END Rankings Pages */
 
 
+/* Pricing Page */
+.mobile-pricing-tables {
+    display: none;
+}
+.desktop-pricing-tables {
+    display: block;
+}
+
+/* END Pricing Page */
+
 /* Checkout Page */
 .dm-custom-checkout {
   border-right: 0;
@@ -1729,6 +1745,14 @@ padding-bottom: 25px;
 
 }
 
+@media screen and (max-width: 992px) {
+    .mobile-pricing-tables {
+        display: block;
+    }
+    .desktop-pricing-tables {
+        display: none;
+    }
+}
 
 
 @media screen and (max-width: 767px) {
