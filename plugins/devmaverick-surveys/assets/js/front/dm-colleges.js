@@ -136,6 +136,10 @@ jQuery( document ).ready(function($) {
   $('.trigger-login-upgrade-modal').click(function() {
     $('#dm-login-upgrade-modal').modal('show');
   });
+  $('.trigger-close-modal').click(function() {
+    $('#dm-login-upgrade-modal').modal('hide');
+  });
+  // Mai jos e ceva bulit
   $('.trigger-login-upgrade-modal').click(function() {
     $('#dm-add-note-modal').modal('show');
   });
@@ -147,6 +151,9 @@ jQuery( document ).ready(function($) {
     ajaxGetSchoolRatingModalContent();
     $('#dm-school-rating-modal').modal('show');
   });
+
+
+
 
   //Contact school
   $('.trigger-contact-school-modal').click(function() {

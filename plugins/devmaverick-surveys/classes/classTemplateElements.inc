@@ -114,7 +114,8 @@ class DM_TemplateElements {
               <p>To make use of this feature, you need to be a member.</p>
               <p>
                 <button target="' . get_permalink( LOG_IN_PAGE ) . '" class="dm-btn dm-btn-md dm-btn-green trigger-redirect-to-page">Log In</button>
-                <button target="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '" class="dm-btn dm-btn-md dm-btn-yellow trigger-redirect-to-page">Get Premium</button>
+                <button  class="dm-btn dm-btn-md dm-btn-yellow trigger-close-modal"  data-leadbox-popup="1454f8773f72a2:1410ced42b46dc" data-leadbox-domain="jsdpub.lpusercontent.com" >Learn More</button>
+
               </p>
             </div>
           </div>
