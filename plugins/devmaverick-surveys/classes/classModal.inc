@@ -314,6 +314,8 @@ class DM_Modal {
 
 
   public function leave_intent_modal() {
+    $dm_vsl = new DM_VSL;
+    $parameters_string = $dm_vsl -> get_vsl_affiliate_parameters();
 
     ?>
 
@@ -327,7 +329,7 @@ class DM_Modal {
     		          	<h3>Did you want to learn the details about Liberal Arts Insider membership?</h3>
 
                     <div class="dm-call-to-action-buttons">
-                      <a href="<?php echo get_permalink( PAGE_PRICING ); ?>" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> LEARN MORE...</a>
+                      <a href="<?php echo get_permalink( PAGE_PRICING ); ?><?php echo $parameters_string; ?>" class="get-premium"><i class="fa fa-user" aria-hidden="true"></i> LEARN MORE...</a>
                     </div>
     		        </div>
 
@@ -340,6 +342,9 @@ class DM_Modal {
     	    <script>
     	    	var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'),{
             		aggressive: true, //Making this true makes ouibounce not to obey "once per visitor" rule
+                callback: function() {
+                  jQuery( '.dm-vsl-cta-btn' ).addClass( 'dm-vsl-cta-btn-visible' );
+                }
           		});
 
               jQuery( document ).ready(function($) {
