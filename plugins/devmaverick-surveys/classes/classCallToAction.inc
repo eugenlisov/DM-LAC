@@ -44,7 +44,6 @@ class DM_CallToAction {
                         <h4>GET <span>THE TRUTH</span> ABOUT LIFE ON CAMPUS.</h4>
                         <!-- <a class="dm-click-to-upgrade" href="' . get_permalink( PAGE_PREMIUM_VSL3 ) . '">Click here to upgrade</a>  -->
 
-                        <script src="//static.leadpages.net/leadboxes/current/embed.js" async defer></script>
                         <a href="" data-leadbox-popup="1454f8773f72a2:1410ced42b46dc" data-leadbox-domain="jsdpub.lpusercontent.com" class="dm-click-to-upgrade">Click here to subscribe</a>
                     </div>
                 </div>';

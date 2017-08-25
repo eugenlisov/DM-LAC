@@ -4,6 +4,8 @@ function dm_lac_register_style_and_scripts() {
   wp_register_style( 'dm-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'news-pro-theme' );
   wp_register_script( 'dm-bootstrap' , 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '', true  );
 
+  wp_register_script( 'dm-leadboxes' , '//static.leadpages.net/leadboxes/current/embed.js', array(), '', true  );
+
   // FA is already enqueued by MM, not really neccesary
   wp_register_style( 'dm-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 'news-pro-theme' );
 
@@ -63,10 +65,15 @@ function dm_lac_enqueue_style_and_scripts() {
 
   }
 
-  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() || is_singular( 'schools') ) {
+  if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() || is_singular( 'schools' ) ) {
     wp_enqueue_style( 'dm-bootstrap' );
     wp_enqueue_script( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );
+  }
+
+  if ( is_singular( 'schools' ) ) {
+    wp_enqueue_script( 'dm-leadboxes' );
+
   }
 
   // wp_enqueue_style('dm-tabs');
