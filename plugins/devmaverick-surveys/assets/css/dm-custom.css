@@ -892,6 +892,7 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-college-top-content .simplefavorite-button {
   height: 60px;
   padding: 0;
+  width: 100%;
 }
 .dm-college-top-content .simplefavorite-button:hover {
   background-color: #fff;
@@ -1788,6 +1789,12 @@ padding-bottom: 25px;
   .dm-call-to-action-body {
     font-size: 15px;
   }
+  .dm-college-top-content {
+    display: inherit;
+  }
+  .dm-college-top-content .dm-my-rating {
+    clear: both;
+  }
 
 }
 
@@ -1854,10 +1861,14 @@ padding-bottom: 25px;
     padding-left: 0;
     padding-right: 5px;
   }
-  .logged-out .dm-go-to-survey-results {
+  .dm-college-top-content.logged-out .dm-go-to-survey-results,
+  .dm-college-top-content.logged-in .dm-go-to-survey-results,
+  .dm-college-top-content.logged-in .dm-my-rating {
     padding-right: 5px;
   }
-  .logged-out .dm-add-favorite-logged-out {
+  .dm-college-top-content.logged-out .dm-add-favorite-logged-out,
+  .dm-college-top-content.logged-in .dm-my-colleges,
+  .dm-college-top-content.logged-in .dm-my-note {
     padding-left: 5px;
   }
 
