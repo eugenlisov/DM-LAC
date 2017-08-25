@@ -882,7 +882,7 @@
      $logged_out_content = '<div class="dm-college-top-content logged-out">
                              <div class="col-md-3"><button type="button" class="btn btn-primary btn-contact-school trigger-contact-school-modal"><i class="fa fa-phone" aria-hidden="true"></i> Contact school</button></div>
                              <div class="col-md-9">
-                               <button class="dm-add-favorite-logged-out trigger-login-upgrade-modal">Add to My Colleges<i class="sf-icon-star-empty"></i></button>
+                               <button class="dm-add-favorite-logged-out trigger-login-upgrade-modal">Add to My Colleges <i class="sf-icon-star-empty"></i></button>
                              </div>
                            </div>';
 
