@@ -876,6 +876,15 @@ article.post-4190.page.type-page.status-publish.entry{
   display: flex;
   margin-bottom: 15px;
 }
+.dm-college-top-content .dm-icon-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dm-college-top-content .text-right {
+
+}
+
 .dm-college-top-content .btn-contact-school {
   /*height: 60px;*/
   width: 100%;
@@ -949,6 +958,10 @@ article.post-4190.page.type-page.status-publish.entry{
 .dm-add-favorite-logged-out {
   cursor: pointer;
 }
+.dm-add-favorite-logged-out > div > div {
+  display: flex;
+}
+
 .dm-go-to-survey-results {
   cursor: pointer;
 }
@@ -1817,6 +1830,12 @@ padding-bottom: 25px;
     .dm-major-difference {
        position: inherit;
     }
+    .modal-header h2 {
+      font-size: 30px;
+    }
+    .mm-login {
+      width: 100% !important;
+    }
 }
 
 
@@ -1830,10 +1849,28 @@ padding-bottom: 25px;
     padding-left: 0;
   }
 
+  .dm-college-top-content .text-right {
+    font-size: 11px;
+    padding-left: 0;
+    padding-right: 5px;
+  }
+  .logged-out .dm-go-to-survey-results {
+    padding-right: 5px;
+  }
+  .logged-out .dm-add-favorite-logged-out {
+    padding-left: 5px;
+  }
+
   .dm-content-call-to-action {
     height: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+  .dm-college-top-content {
+
+  }
+  .dm-college-top-content .fa-3x {
+    font-size: 20px;
   }
   .dm-compare-colleges-select-block .dm-school-1-container {
     margin-bottom: 10px;
@@ -1879,7 +1916,10 @@ padding-bottom: 25px;
   }
   .dm-download-report-container button {
     width: 100%;
-}
+  }
+  .modal-header h2 {
+    font-size: 24px;
+  }
 
 }
 @media screen and (max-width: 480px) {
@@ -1943,6 +1983,9 @@ padding-bottom: 25px;
   .dm-comparator-sub-notes .dm-sub-notes-item .dm-significand-difference-icon .fa {
     font-size: 20px;
     margin-right: 10px;
+  }
+  #dm-login-upgrade-modal button {
+    margin-bottom: 10px;
   }
 }
 

@@ -178,7 +178,7 @@ class DM_TemplateElements {
 
     $return = '<div class="row dm-college-top-content logged-in" school-id="' . get_the_ID() . '" user-id="' . $user_id . '">
 
-                  <div class="col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
+                  <div class="col-xs-6 col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
 
                       <div class="widget style1 blue-bg">
                           <div class="row">
@@ -193,7 +193,7 @@ class DM_TemplateElements {
 
                   </div>
 
-                  <div class="col-lg-4 dm-my-colleges">
+                  <div class="col-xs-6 col-lg-4 dm-my-colleges">
                       ' . do_shortcode('[favorite_button]') . '
                   </div>';
 
@@ -201,11 +201,13 @@ class DM_TemplateElements {
 
                   $dm_college_actions = new DM_CollegeActions;
 
-                  if ( in_array( $school_id, $user_favorites ) ) {
+                  if ( $user_favorites ) {
+                    if ( in_array( $school_id, $user_favorites ) ) {
 
-                    $return .= $dm_college_actions -> button_school_rating( $school_id, $user_id );
-                    $return .= $dm_college_actions -> button_school_note();
+                      $return .= $dm_college_actions -> button_school_rating( $school_id, $user_id );
+                      $return .= $dm_college_actions -> button_school_note();
 
+                    }
                   }
 
                   $return .= '</div>';
@@ -224,11 +226,11 @@ class DM_TemplateElements {
 
 
 
-                <div class="col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
+                <div class="col-xs-6 col-lg-4 dm-go-to-survey-results trigger-go-to-survey-results">
 
                     <div class="widget style1 blue-bg">
                         <div class="row">
-                            <div class="col-xs-4">
+                            <div class="col-xs-4 dm-icon-column">
                                 <i class="fa fa-bar-chart fa-3x"></i>
                             </div>
                             <div class="col-xs-8 text-right">
@@ -240,11 +242,11 @@ class DM_TemplateElements {
                 </div>
 
 
-                <div class="col-lg-4 dm-add-favorite-logged-out trigger-login-upgrade-modal">
+                <div class="col-xs-6 col-lg-4 dm-add-favorite-logged-out trigger-login-upgrade-modal">
 
                     <div class="widget style1 lazur-bg">
                         <div class="row">
-                            <div class="col-xs-4">
+                            <div class="col-xs-4 dm-icon-column">
                                 <i class="fa fa-university fa-3x"></i>
                             </div>
                             <div class="col-xs-8 text-right">
