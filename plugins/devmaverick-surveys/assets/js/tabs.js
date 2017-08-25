@@ -137,7 +137,7 @@ function triggerChartOnQuestionVisible() {
         var targetQuestion = $( '.dm-question-6' );
         var targetQuestion2 = $( '.dm-question-6' );
 
-        var isCorrectTab = $( ".dm-school-tabs .nav-tabs li.active a[href=#community]" ).attr( 'aria-expanded' );
+        var isCorrectTab = $( ".dm-school-tabs .nav-tabs li.active a[href=#community-safety]" ).attr( 'aria-expanded' );
 
         // console.log( 'Aria expanded' );
         // console.log(  isCorrectTab );
