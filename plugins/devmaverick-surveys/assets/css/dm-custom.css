@@ -1955,16 +1955,75 @@ padding-bottom: 25px;
     font-size: 24px;
   }
 
-  .page-id-4502 h1 {
+  .page-id-4502 h1,
+  .page-template-page_vsl  h1 {
     font-size: 30px;
   }
-  .page-id-4502 h2 {
+  .page-id-4502 h2,
+  .page-template-page_vsl  h2 {
     font-size: 24px;
   }
   .mobile-pricing-tables .ptsContainer .ptsColsWrapper > .ptsCol {
     width: 100% !important;
     margin-bottom: 30px;
     padding: 0 !important;
+  }
+  .dm-head-image img {
+    max-width: 100%;
+  }
+  .dm-checkout-header {
+    display: block;
+    border-bottom: 1px solid #e3e3e3;
+  }
+  .dm-checkout-header .title-area {
+    padding-left: 0;
+  }
+  .dm-checkout-header .dm-column-right {
+    padding-top: 10px;
+    text-align: center;
+    display: none;
+  }
+  .page-template-page_checkout .entry {
+    padding: 40px 20px;
+  }
+  .dm-checkout-body-section .dm-column-left,
+  .dm-checkout-body-section .dm-column-right {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .row.dm-table-body {
+    font-size: 16px;
+  }
+  .dm-checkout-benefits {
+    display: none;
+  }
+  .dm-secure-block,
+  .dm-guarantee-block {
+    display: block;
+    clear: both;
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  .dm-secure-block .dm-secure-image {
+    padding-left: 0;
+  }
+  .dm-secure-block .dm-secure-text {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .dm-guarantee-block p {
+    margin-bottom: 10px;
+  }
+  .dm-guarantee-block .dm-guarantee-text {
+    padding-right: 0;
+  }
+  .dm-checkout-block .mm-checkout-expiration-date label {
+    display: block;
+  }
+  .dm-checkout-block #mm_field_cc_exp_month,
+  .dm-checkout-block #mm_field_cc_exp_year {
+    width: 49%;
   }
 
 }

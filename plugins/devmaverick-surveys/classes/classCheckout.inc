@@ -110,18 +110,18 @@ class DM_Checkout {
 
                 <div class='dm-product-table'>
                     <div class='row dm-table-head'>
-                        <div class='col-md-8 dm-product-name'>
+                        <div class='col-xs-7 dm-product-name'>
                           Product
                         </div>
-                        <div class='col-md-4 dm-product-price'>
+                        <div class='col-xs-5 dm-product-price'>
                           Price
                         </div>
                     </div>
                     <div class='row dm-table-body'>
-                        <div class='col-md-8 dm-product-name'>
+                        <div class='col-xs-7 dm-product-name'>
                           [MM_Form_Data name='productName' useAccessName='false']
                         </div>
-                        <div class='col-md-4 dm-product-price'>
+                        <div class='col-xs-5 dm-product-price'>
                           [MM_Form_Data name='productPriceDescription']
                         </div>
                     </div>
@@ -137,10 +137,10 @@ class DM_Checkout {
     $secure_lock = get_field( 'dm_checkout_secure_lock' );
     $secure_text = get_field( 'dm_checkout_secure_text' );
 
-    $return = '<div class="col-sm-4 dm-secure-image">
+    $return = '<div class="col-xs-5 col-sm-4 dm-secure-image">
                     <img src="' . $secure_lock . '" class="img-responsive">
                </div>
-               <div class="col-sm-8 dm-secure-text">
+               <div class="col-xs-7 col-sm-8 dm-secure-text">
                     ' . $secure_text . '
                </div>';
 
@@ -167,10 +167,10 @@ class DM_Checkout {
     $guarantee_badge = get_field( 'dm_checkout_guarantee_badge' );
     $guarantee_text = get_field( 'dm_checkout_guarantee_text' );
 
-    $return = '<div class="col-sm-8 dm-guarantee-text">
+    $return = '<div class="col-xs-7 col-sm-8 dm-guarantee-text">
                     ' . $guarantee_text . '
                </div>
-               <div class="col-sm-4 dm-guarantee-image">
+               <div class="col-xs-5 col-sm-4 dm-guarantee-image">
                     <img src="' . $guarantee_badge . '" class="img-responsive">
                </div>';
 
