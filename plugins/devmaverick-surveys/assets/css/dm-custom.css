@@ -67,6 +67,18 @@ ol, ul {
 }
 
 
+/* Temp Pricing PAge Fixes */
+.page-id-4502 .entry-header {
+  display: none;
+}
+.page-id-4502 .h1, .page-id-4502 .h2, .page-id-4502 .h3, .page-id-4502 h1, .page-id-4502 h2, .page-id-4502 h3 {
+  margin-top: 20px;
+  margin-bottom: 10px !important;
+}
+.mobile-pricing-tables .ptsCol .ptsColFooter {
+  border: 1px solid #d2d2d2 !important;
+}
+/* End Temp Pricing PAge Fixes */
 
 
 
@@ -1843,6 +1855,17 @@ padding-bottom: 25px;
     .mm-login {
       width: 100% !important;
     }
+    .dm-my-colege-item .p-m img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .dm-my-colege-item h1 {
+      font-size: 26px;
+    }
+    .dm-my-colege-item button {
+      width: 100%;
+    }
+
 }
 
 
@@ -1930,6 +1953,18 @@ padding-bottom: 25px;
   }
   .modal-header h2 {
     font-size: 24px;
+  }
+
+  .page-id-4502 h1 {
+    font-size: 30px;
+  }
+  .page-id-4502 h2 {
+    font-size: 24px;
+  }
+  .mobile-pricing-tables .ptsContainer .ptsColsWrapper > .ptsCol {
+    width: 100% !important;
+    margin-bottom: 30px;
+    padding: 0 !important;
   }
 
 }

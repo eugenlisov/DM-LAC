@@ -200,7 +200,7 @@ class DM_MyColleges {
     $location_block = ( $selectivity ) ? '<div class="dm-my-college-meta-item">Location: ' .  $location . '</div>' : '';
     $badge = $this -> loved_by_students_badge( $college_id );
 
-    $return = '<div class="col-lg-6 dm-my-colege-item" school-id="' . $college_id . '">
+    $return = '<div class="col-sm-6 dm-my-colege-item" school-id="' . $college_id . '">
         <div class="widget ' . $background . ' no-padding">
             ' . $badge . '
             <div class="p-m">
