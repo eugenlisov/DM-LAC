@@ -15,10 +15,10 @@ class DM_Comparator {
     $colleges_dropdown = $this -> get_available_colleges_dropdown();
 
     $return = '<div class="dm-compare-colleges-select-block">
-                  <div class="col-sm-6 dm-school-1-container">
+                  <div class="col-xs-12 col-sm-6 dm-school-1-container">
                   ' . $colleges_dropdown . '
                   </div>
-                  <div class="col-sm-6 dm-school-2-container">
+                  <div class="col-xs-12 col-sm-6 dm-school-2-container">
                   ' . $colleges_dropdown . '
                   </div>
                   <div class="">
@@ -64,17 +64,17 @@ class DM_Comparator {
 
     $return = '<div class="dm-college-comparison-block">
                   <div class="dm-college-comparison-block-images">
-                    <div class="col-sm-6 dm-comparator-narrative">
+                    <div class="col-xs-12 col-md-6 dm-comparator-narrative">
                       <div>
                         ' . $settings['comparator_narrative'] . '
                       </div>
                     </div>
-                    <div class="col-sm-6" style="padding: 0;">
+                    <div class="col-xs-12 col-md-6" style="padding: 0;">
                         <div class="col-sm-11 col-sm-offset-1" style="padding: 0;">
-                            <div class="col-sm-6 dm-college-image-holder">
+                            <div class="col-xs-6 dm-college-image-holder">
                               <a href="' . get_permalink( $college_1 ) . '">' . $college_1_image . '</a>
                             </div>
-                            <div class="col-sm-6 dm-college-image-holder">
+                            <div class="col-xs-6 dm-college-image-holder">
                               <a href="' . get_permalink( $college_2 ) . '">' . $college_2_image . '</a>
                             </div>
                         </div>
@@ -83,14 +83,14 @@ class DM_Comparator {
                   </div>
 
                   <div class="dm-college-comparison-block-head">
-                    <div class="col-md-11 col-md-offset-1">
-                      <div class="col-sm-6">
+                    <div class="col-xs-12 col-xs-offset-0 col-md-11 col-md-offset-1">
+                      <div class="col-xs-8 col-sm-6 dm-comparator-head-category">
                         Category
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-xs-6 col-sm-3">
                         <a href="' . get_permalink( $college_1 ) . '">' . get_the_title( $college_1 ) . '</a>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-xs-6 col-sm-3">
                         <a href="' . get_permalink( $college_2 ) . '">' . get_the_title( $college_2 ) . '</a>
                       </div>
                     </div>
@@ -130,31 +130,31 @@ class DM_Comparator {
     } // End foreach
 
     $return .= '<div class="dm-main-category">
-                  <div class="col-md-1">
+                  <div class="col-sm-12 col-md-1">
                     <span>
                       <i class="fa fa-users" aria-hidden="true"></i>
                       <span>Community</span>
                     </span>
                   </div>
-                  <div class="col-md-11">' . $community_block . '</div>
+                  <div class="col-sm-12 col-md-11">' . $community_block . '</div>
                 </div>';
     $return .= '<div class="dm-main-category">
-                  <div class="col-md-1">
+                  <div class="col-sm-12 col-md-1">
                     <span>
                       <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                       <span>Academics</span>
                     </span>
                   </div>
-                  <div class="col-md-11">' . $academics_block . '</div>
+                  <div class="col-sm-12 col-md-11">' . $academics_block . '</div>
                 </div>';
     $return .= '<div class="dm-main-category">
-                  <div class="col-md-1" style="transform:rotate(270deg)">
+                  <div class="col-sm-12 col-md-1">
                     <span>
                       <i class="fa fa-weixin" aria-hidden="true"></i>
                       <span>Social life</span>
                     </span>
                   </div>
-                  <div class="col-md-11">' . $social_life_block . '</div>
+                  <div class="col-sm-12 col-md-11">' . $social_life_block . '</div>
                 </div>';
 
     $return .= '</div>';
@@ -252,18 +252,23 @@ class DM_Comparator {
 
 
     $return = '<div class="dm-comparison-question-row">
-                <div class="col-sm-6 ' . $big_six_class . '">
+                <div class="col-xs-8 dm-college-question ' . $big_six_class . '">
                   <strong>' . $settings[$key]['category'] . ':</strong>
+                  <br class="dm-comparator-mobile-break" />
                   <span>' . $settings[$key]['pretty_response'] . '</span>
                   ' . $big_six . '
                 </div>
-                <div class="col-sm-3">
-                  ' . $college_1_percentage . '%
-                  ' . $major_difference_star_1 . '
+                <div class="col-xs-2 dm-college-score">
+                  <div>
+                    ' . $college_1_percentage . '%
+                    ' . $major_difference_star_1 . '
+                  </div>
                 </div>
-                <div class="col-sm-3">
-                  ' . $college_2_percentage . '%
-                  ' . $major_difference_star_2 . '
+                <div class="col-xs-2 dm-college-score">
+                  <div>
+                    ' . $college_2_percentage . '%
+                    ' . $major_difference_star_2 . '
+                    </div>
                 </div>
               </div>';
     return $return;

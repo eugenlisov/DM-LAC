@@ -732,7 +732,8 @@ article.post-4190.page.type-page.status-publish.entry{
 #menu-item-4407,
 #menu-item-4402,
 #menu-item-4403,
-#menu-item-4405 {
+#menu-item-4405,
+#menu-item-4435 {
   display: none;
 }
 .logged-in #menu-item-4404 {
@@ -741,7 +742,8 @@ article.post-4190.page.type-page.status-publish.entry{
 .logged-in #menu-item-4407,
 .logged-in #menu-item-4402,
 .logged-in #menu-item-4403,
-.logged-in #menu-item-4405 {
+.logged-in #menu-item-4405,
+.logged-in #menu-item-4435 {
   display: inline-block;
 }
 
@@ -1324,6 +1326,13 @@ padding-bottom: 25px;
   padding: 5px 17px;
   position: relative;
 }
+.dm-comparison-question-row > .dm-college-score {
+    display: flex;
+    align-items: center;
+}
+.dm-comparison-question-row .dm-comparator-mobile-break {
+  display: none;
+}
 
 .dm-comparison-question-row .dm-big-six {
   position: absolute;
@@ -1363,6 +1372,7 @@ padding-bottom: 25px;
   align-items: center;
   justify-content: center;
   font-size: 18px;
+  padding-left: 0;
 }
 .dm-compare-colleges-block-container {
   min-height: 550px;
@@ -1775,6 +1785,38 @@ padding-bottom: 25px;
     .desktop-pricing-tables {
         display: none;
     }
+    .dm-content-call-to-action-content h3 {
+      font-size: 24px;
+    }
+
+    .dm-college-comparison-block > .dm-main-category {
+      display: block;
+    }
+    .dm-college-comparison-block > .dm-main-category > .col-md-1 {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+      min-height: 60px;
+    }
+    .dm-comparator-narrative p {
+        font-size: 16px;
+    }
+    .dm-college-comparison-block-head {
+      font-size: 18px;
+    }
+    .dm-comparison-question-row {
+      font-size: 16px;
+    }
+    .dm-comparison-question-row .dm-comparator-mobile-break {
+      display: block;
+    }
+
+
+    .dm-major-difference {
+       position: inherit;
+    }
 }
 
 
@@ -1793,10 +1835,53 @@ padding-bottom: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .dm-compare-colleges-select-block .dm-school-1-container {
+    margin-bottom: 10px;
+  }
+  .dm-compare-colleges-select-block .dm-school-1-container,
+  .dm-compare-colleges-select-block .dm-school-2-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .dm-content-call-to-action-content h3 {
     font-size: 24px;
   }
+  .dm-compare-colleges-block-container {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .dm-comparator-narrative p {
+    font-size: 12px;
+  }
+  .dm-comparator-narrative strong {
+    font-size: 16px;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .dm-college-comparison-block-head {
+    font-size: 16px;
+  }
+  .dm-college-comparison-block > .dm-main-category > .col-md-1 {
+    min-height: 50px;
+  }
+  .dm-college-comparison-block > .dm-main-category > .col-md-1 > span {
+    font-size: 16px;
+  }
+  .dm-download-report-container h2 {
+    font-size: 24px;
+  }
+  .dm-download-report-container h4 {
+    font-size: 14px;
+  }
+  .dm-download-report-container input {
+    width: 100%;
+  }
+  .dm-download-report-container button {
+    width: 100%;
+}
 
+}
 @media screen and (max-width: 480px) {
 
   .dm-content-call-to-action-content {
@@ -1807,6 +1892,57 @@ padding-bottom: 25px;
   }
   .dm-content-call-to-action-content h4 {
     font-size: 13px;
+  }
+  .dm-college-comparison-block-images {
+    display: block;
+  }
+  .dm-college-comparison-block-head {
+    font-size: 12px;
+  }
+  .dm-college-comparison-block-head > div {
+    padding: 5px 0;
+  }
+  .dm-college-comparison-block-head .dm-comparator-head-category {
+    display: none;
+  }
+  .dm-comparison-question-row {
+    font-size: 12px;
+  }
+  .dm-comparison-question-row .dm-big-six img {
+    width: 20px;
+    height: 20px;
+    margin-top: 9px;
+  }
+  .dm-comparison-question-row .dm-college-question {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .dm-comparison-question-row > .dm-college-score {
+    padding: 5px 3px;
+    justify-content: center;
+  }
+  .dm-major-difference .fa {
+    font-size: 16px;
+    line-height: 14px;
+  }
+  .dm-comparator-sub-notes .dm-key {
+    display: none;
+  }
+  .dm-comparator-sub-notes .dm-values {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .dm-comparator-sub-notes {
+    font-size: 12px;
+  }
+  .dm-comparator-sub-notes .dm-sub-notes-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .dm-comparator-sub-notes .dm-sub-notes-item .dm-significand-difference-icon .fa {
+    font-size: 20px;
+    margin-right: 10px;
   }
 }
 
@@ -1841,5 +1977,14 @@ padding-bottom: 25px;
   }
   .dm-click-to-upgrade {
     padding: 6px 8px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .dm-major-difference .fa {
+    font-size: 12px;
+  }
+  .dm-comparison-question-row {
+    font-size: 11px;
   }
 }
