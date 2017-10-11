@@ -92,12 +92,15 @@ class DM_Chart {
               if ($chart_data){
                 foreach ($chart_data as $key => $current_option) {
                   $option_text = stripslashes ( $current_option -> option_text );
+                  $pretty_option_text = stripslashes ( $current_option -> pretty_option_text );
                   $option_percent = $current_option -> percent;
+
+                  $option = ( $pretty_option_text != '' ) ? $pretty_option_text : $option_text;
 
                   $current_question_chart_return .= '
                       <div class="row dm-option" option-percent="' . $option_percent . '">
                         <div class="col-md-3 dm-option-label">
-                          ' . $option_text . '
+                          ' . $option . '
                         </div>
                         <div class="col-md-9">
                           <div class="progress">
@@ -131,7 +134,7 @@ class DM_Chart {
     global $global_responses_by_iped;
 
     // echo '<pre>';
-    // print_r( $global_responses_count_by_question_and_iped )
+    // print_r( $global_question_options_list );
     // echo '</pre>';
     $total_count = $global_total_responses_count_by_question_and_iped[$question_id];
 

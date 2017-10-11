@@ -137,9 +137,9 @@ class DM_School {
 
     $contact_data  = $this -> get_contact_data ( $school_id );
 
-    // echo '<pre>';
-    // print_r( $contact_data );
-    // echo '</pre>';
+    echo '<pre>';
+    print_r( $contact_data );
+    echo '</pre>';
 
     $return = '';
 

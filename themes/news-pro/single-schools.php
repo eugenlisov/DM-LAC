@@ -22,7 +22,13 @@ Template Name: Schools
 ?>
 <?php genesis_after_loop(); ?>
 
+<?php
 
+echo '<pre>';
+print_r ( get_post_meta( get_the_ID(), 'test_sql_query', true ) );
+echo '</pre>';
+
+ ?>
 
 
 <div class="sidebar-bottom">

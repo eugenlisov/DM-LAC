@@ -55,3 +55,16 @@ tr:nth-child(even) {
 .hiddenfornow {
   display: none !important;
 }
+
+
+/* Meta Box Contact */
+.dm-meta-box-contact {
+  margin-top: 10px;
+}
+.dm-meta-box-contact input {
+  width: 100%;
+}
+.dm-meta-box-contact-button {
+  margin-top: 20px !important;
+}
+/* END Meta Box Contact */

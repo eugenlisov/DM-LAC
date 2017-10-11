@@ -80,7 +80,7 @@ jQuery( document ).ready(function($) {
     $( "body" ).on( "click", ".remove-it", function() {
 
       var loader = '<img class="dm-loader" src="http://liberalarts.staging.wpengine.com/wp-admin/images/spinner.gif">';
- 
+
       var respondent_id     = $( this ).parents('tr').attr('respondent-id');
       var question_id     = $( this ).parents('tr').attr('q_all_number');
       var post_id         = $('#dm-post-id').attr('post-id');

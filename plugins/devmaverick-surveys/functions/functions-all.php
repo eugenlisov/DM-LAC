@@ -136,7 +136,7 @@ function get_question_options_list() {
   global $wpdb;
 
   // Get the data from the 'dm_survey_responses' table
-  $sql_options_list= 'SELECT q_id_all, option_text, option_score FROM `dm_survey_options` GROUP BY q_id_all, option_score';
+  $sql_options_list= 'SELECT q_id_all, option_text, pretty_option_text, option_score FROM `dm_survey_options` GROUP BY q_id_all, option_score';
   $options_list = $wpdb->get_results( $sql_options_list );
   // $response_count = $response_count -> count;
 
