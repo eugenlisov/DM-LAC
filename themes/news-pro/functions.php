@@ -331,3 +331,29 @@ function after_title_text() {
 	}
 }
 add_action('genesis_entry_header', 'after_title_text', 11 );
+
+
+
+add_action( 'genesis_footer', 'sp_custom_footer' );
+function sp_custom_footer() {
+
+	if ( is_user_logged_in() ) return false;
+
+	$pages = [
+		4652, // My scholarships
+		4636, // Quiz intro
+		4603, // Quiz results
+		4578, // Quiz test
+		4656, // Home Free Member
+		4585, // Other Quiz intro
+	];
+	$page_id = get_the_ID();
+	// echo 'Current ID:' . $page_id;
+	// echo '<pre>';
+	// print_R( $pages );
+	// echo '</pre>';
+
+	if ( in_array( $page_id, $pages ) ) return false;
+
+	echo do_shortcode( '[dm-quiz-modal]' );
+}

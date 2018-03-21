@@ -17,7 +17,7 @@ function news_add_body_class( $classes ) {
 
    $classes[] = 'news-pro-landing';
    return $classes;
-   
+
 }
 
 //* Force full width content layout
@@ -45,3 +45,10 @@ remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
 
 //* Run the Genesis loop
 genesis();
+
+// $entry = get_option( 'dm_test_gravity_form_entry' );
+// $form  = get_option( 'dm_test_gravity_form_form' );
+//
+// echo '<pre>';
+// print_r( $form );
+// echo '</pre>';

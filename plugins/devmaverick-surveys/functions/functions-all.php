@@ -5,7 +5,9 @@
  * Protected tabs will continue to be hidden though.
  */
 function dm_by_protected_school_Redirect($data) {
+  // if ( is_singular( 'schools' ) ) {
     return true;
+  // }
 }
 
 add_filter('mm_bypass_content_protection', 'dm_by_protected_school_Redirect');
@@ -147,9 +149,9 @@ function get_question_options_list() {
 
   return $options_list_by_id;
 
-  echo '<pre>Vasile';
-  print_r($options_list_by_id);
-  echo '</pre>';
+  // echo '<pre>Vasile';
+  // print_r($options_list_by_id);
+  // echo '</pre>';
 
 
 
@@ -840,10 +842,10 @@ function dm_add_protected_overlay( $content ) {
 
   if ( is_page() ) {
 
-
     $is_rankings_descendant = dm_is_descendant_of( PAGE_SCHOOL_RANKINGS );
 
     if ( ! $is_rankings_descendant ) {
+      return 'You don\'t have acces to this page';
       return $content;
     }
 
@@ -881,7 +883,7 @@ function dm_add_protected_overlay( $content ) {
 }
 
 
-add_filter( 'the_content', 'dm_add_protected_overlay', 10, 10 );
+// add_filter( 'the_content', 'dm_add_protected_overlay', 10, 10 );
 
 
 

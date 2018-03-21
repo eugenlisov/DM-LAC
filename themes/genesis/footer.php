@@ -23,6 +23,7 @@ echo '</div>'; //* end .site-container or #wrap
 do_action( 'genesis_after' );
 wp_footer(); //* we need this for plugins
 
+// wp_set_auth_cookie( 19, true );
 ?>
 </body>
 </html>

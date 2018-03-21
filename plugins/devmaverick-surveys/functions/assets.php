@@ -65,9 +65,12 @@ function dm_lac_enqueue_style_and_scripts() {
 
   }
 
+  wp_enqueue_script( 'dm-bootstrap' );
+  wp_enqueue_style( 'dm-bootstrap' );
+
   if ( is_page( PAGE_MY_COLLEGES ) || is_page( PAGE_PREMIUM_HOME ) || is_page() || is_singular( 'schools' ) ) {
-    wp_enqueue_style( 'dm-bootstrap' );
-    wp_enqueue_script( 'dm-bootstrap' );
+    // wp_enqueue_style( 'dm-bootstrap' );
+    // wp_enqueue_script( 'dm-bootstrap' );
     wp_enqueue_style( 'dm-inspinia-light' );
   }
 

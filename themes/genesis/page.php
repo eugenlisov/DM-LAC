@@ -13,3 +13,10 @@
 
 //* This file handles pages, but only exists for the sake of child theme forward compatibility.
 genesis();
+
+$entry = get_option( 'dm_test_gravity_form_entry' );
+$form  = get_option( 'dm_test_gravity_form_form' );
+
+echo '<pre>';
+print_r( $form );
+echo '</pre>';

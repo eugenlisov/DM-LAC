@@ -122,6 +122,14 @@ function dm_call_tabs_section() {
     return;
   }
 
+  $membership_id = \GFLead\Services\Membership::membership_level_id();
+  // echo 'Current memebrship ID: ' . $membership_id;
+
+
+  if ( $membership_id != 2 || ! current_user_can( 'administrator' ) ) {
+      return;
+  }
+
   $dm_school = new DM_School;
   $dm_tab       = new DM_Tab;
 
@@ -165,7 +173,6 @@ function dm_call_tabs_section() {
   $global_all_questions_by_tabs                 = $dm_tab -> get_all_questions_by_tabs();
   $global_open_ended_question_list              = $dm_question -> get_open_ended_questions_list();
   $q_id_match                                   = $dm_question -> match_q_id_to_q_all_id();
-
 
   $dm_tabs_section = new DM_TabsSection;
   $dm_tabs_section -> display_tabs_section();
