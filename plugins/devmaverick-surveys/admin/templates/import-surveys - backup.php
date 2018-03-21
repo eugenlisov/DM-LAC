@@ -55,9 +55,9 @@
 
      $css_associations_data = $wpdb->get_results( $sql_css_associations_data );
 
-     echo '<pre>';
-     print_r($css_associations_data);
-     echo '</pre>';
+     // echo '<pre>';
+     // print_r($css_associations_data);
+     // echo '</pre>';
 
 
      // Read the CSV file and save to a two dimensional array.
@@ -73,9 +73,9 @@
 	// ini_set('display_errors', 1);
 	// error_reporting(-1);
 
-     echo '<pre>';
-     print_r($lines);
-     echo '</pre>';
+     // echo '<pre>';
+     // print_r($lines);
+     // echo '</pre>';
 
 
         foreach ($lines as $key => $line) {

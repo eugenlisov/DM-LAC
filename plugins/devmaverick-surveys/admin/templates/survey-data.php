@@ -41,9 +41,9 @@
 
           if ($key == 0) {
 
-            echo '<pre>';
-            print_r($line);
-            echo '</pre>';
+            // echo '<pre>';
+            // print_r($line);
+            // echo '</pre>';
 
             echo 'Inserting <br />';
 

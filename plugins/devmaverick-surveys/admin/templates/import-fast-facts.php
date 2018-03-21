@@ -8,9 +8,9 @@
 
    <?php
 
-   echo '<pre>';
-   print_r( $return );
-   echo '</pre>';
+   // echo '<pre>';
+   // print_r( $return );
+   // echo '</pre>';
 
 
    echo $dm_import_fast_facts -> import_surveys_form();

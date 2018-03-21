@@ -24,9 +24,9 @@ Template Name: Schools
 
 <?php
 
-echo '<pre>';
-print_r ( get_post_meta( get_the_ID(), 'test_sql_query', true ) );
-echo '</pre>';
+// echo '<pre>';
+// print_r ( get_post_meta( get_the_ID(), 'test_sql_query', true ) );
+// echo '</pre>';
 
  ?>
 
