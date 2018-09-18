@@ -227,20 +227,20 @@ class Fast_Facts extends WP_Widget {
 add_action( 'widgets_init', create_function( '', 'register_widget("Fast_Facts");' ) );
 
 
-function update_state() {
-
-	global $post;
-
-	if ($_POST['post_type'] == 'schools') {
-
-		$state = get_post_meta( $post->ID, 'state', true );
-
-		wp_set_post_terms( $post->ID, $state, 'state');
-
-	}
-
-}
-add_action('save_post', 'update_state');
+// function update_state() {
+//
+// 	global $post;
+//
+// 	if ($_POST['post_type'] == 'schools') {
+//
+// 		$state = get_post_meta( $post->ID, 'state', true );
+//
+// 		wp_set_post_terms( $post->ID, $state, 'state');
+//
+// 	}
+//
+// }
+// add_action('save_post', 'update_state');
 
 
 
@@ -356,4 +356,20 @@ function sp_custom_footer() {
 	if ( in_array( $page_id, $pages ) ) return false;
 
 	echo do_shortcode( '[dm-quiz-modal]' );
+}
+
+
+add_action( 'init', 'create_private_book_tax' );
+
+function create_private_book_tax() {
+    register_taxonomy(
+        'state',
+        'schools',
+        array(
+            'label' => __( 'State3' ),
+            'public' => true,
+            'rewrite' => false,
+            'hierarchical' => false,
+        )
+    );
 }
