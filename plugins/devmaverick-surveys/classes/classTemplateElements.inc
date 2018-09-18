@@ -163,6 +163,16 @@ class DM_TemplateElements {
 
   public function get_logged_in_content() {
 
+      // Prevent seeing this by Quiz Users
+      $membership_id = \GFLead\Services\Membership::membership_level_id();
+      // echo 'Current memebrship ID: ' . $membership_id;
+
+
+      if ( $membership_id != 2 && ! current_user_can( 'administrator' ) ) {
+          return;
+      }
+      // End  Prevent seeing this by Quiz Users
+
       $user_id = get_current_user_id();
       $school_id = get_the_ID();
       $user_note = get_user_meta( $user_id, 'dm_user_notes', true )[$school_id];

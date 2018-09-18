@@ -1,0 +1,17 @@
+{
+    "protocol": "sftp",
+    "host": "liberalarts.staging.wpengine.com",
+    "port": 2222,
+    "user": "liberalarts-eugen_lac",
+    "pass": "Steaua1986!",
+    "promptForPass": false,
+    "remote": "/wp-content",
+    "agent": "",
+    "privatekey": "",
+    "passphrase": "",
+    "hosthash": "",
+    "ignorehost": true,
+    "connTimeout": 10000,
+    "keepalive": 10000,
+    "keyboardInteractive": false
+}

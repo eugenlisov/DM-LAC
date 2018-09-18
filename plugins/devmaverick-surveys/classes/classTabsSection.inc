@@ -126,7 +126,7 @@ function dm_call_tabs_section() {
   // echo 'Current memebrship ID: ' . $membership_id;
 
 
-  if ( $membership_id != 2 || ! current_user_can( 'administrator' ) ) {
+  if ( $membership_id != 2 && ! current_user_can( 'administrator' ) ) {
       return;
   }
 

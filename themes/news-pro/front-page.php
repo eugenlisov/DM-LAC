@@ -8,6 +8,8 @@
  */
 
 add_action( 'genesis_meta', 'news_home_genesis_meta' );
+
+
 /**
  * Add widget support for homepage. If no widgets active, display the default loop.
  *
@@ -18,23 +20,26 @@ function news_home_genesis_meta() {
 
 		// Force content-sidebar layout setting
 		add_filter( 'genesis_site_layout', '__genesis_return_content_sidebar' );
-		
+
 		// Add news-home body class
 		add_filter( 'body_class', 'news_body_class' );
-	
+
 	}
 
 	if ( is_active_sidebar( 'home-top' ) ) {
-	
+
+		// Add homepage widgets
+		add_action( 'genesis_before_content', 'dm_home_banner' );
+
 		// Add excerpt length filter
 		add_action( 'genesis_before_loop', 'news_top_excerpt_length' );
-	
+
 		// Add homepage widgets
-		add_action( 'genesis_before_loop', 'news_homepage_top_widget' );		
-		
+		// add_action( 'genesis_before_loop', 'news_homepage_top_widget' );
+
 		// Remove excerpt length filter
 		add_action( 'genesis_before_loop', 'news_remove_top_excerpt_length' );
-		
+
 	}
 
 	if ( is_active_sidebar( 'home-middle-left' ) || is_active_sidebar( 'home-middle-right' ) || is_active_sidebar( 'home-bottom' ) ) {
@@ -52,7 +57,7 @@ function news_body_class( $classes ) {
 
 	$classes[] = 'news-pro-home';
 	return $classes;
-	
+
 }
 
 function news_excerpt_length( $length ) {
@@ -81,7 +86,7 @@ function news_homepage_top_widget() {
 }
 
 function news_homepage_widgets() {
-	
+
 	if ( is_active_sidebar( 'home-middle-left' ) || is_active_sidebar( 'home-middle-right' ) ) {
 
 		echo '<div class="home-middle">';
@@ -97,7 +102,7 @@ function news_homepage_widgets() {
 		) );
 
 		echo '</div>';
-	
+
 	}
 
 	genesis_widget_area( 'home-bottom', array(
@@ -105,6 +110,14 @@ function news_homepage_widgets() {
 		'after'  => '</div>',
 	) );
 
+}
+
+function dm_home_banner() {
+	echo '<div class="dm-home-banner">
+		<a href="https://www.liberalartscolleges.com/quiz-intro/">
+			<img src="http://liberalarts.staging.wpengine.com/wp-content/uploads/2018/05/home-banner.jpg">
+		</a>
+	</div>';
 }
 
 genesis();
